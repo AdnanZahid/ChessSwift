@@ -10,47 +10,44 @@ import XCTest
 
 class PawnBlockMovesTests: XCTestCase {
     
-    private var gameState: GameState!
+    private var boardState: BoardState!
     
     override func setUp() {
         super.setUp()
-        let boardState = BoardState()
-        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
-        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
-        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
-        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardState()
+        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
-        gameState = nil
+        boardState = nil
         super.tearDown()
     }
     
     // White
     
     func testBlockWhitePawnFromA2ToA4() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A2, boardState: gameState.boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A3, boardState: gameState.boardState))
-        XCTAssertFalse(GameHandler.move(MoveState(A2, A4), gameState: gameState))
+        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A2, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A3, boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(A2, A4), boardState: boardState))
     }
     
     func testBlockWhitePawnFromE2ToE3() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E2, boardState: gameState.boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E3, boardState: gameState.boardState))
-        XCTAssertFalse(GameHandler.move(MoveState(E2, E3), gameState: gameState))
+        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E2, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E3, boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(E2, E3), boardState: boardState))
     }
     
     // Black
     
     func testBlockBlackPawnFromG7ToG5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G7, boardState: gameState.boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G5, boardState: gameState.boardState))
-        XCTAssertFalse(GameHandler.move(MoveState(G7, G5), gameState: gameState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G7, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G5, boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(G7, G5), boardState: boardState))
     }
     
     func testBlockBlackPawnFromB6ToB5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B6, boardState: gameState.boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B5, boardState: gameState.boardState))
-        XCTAssertFalse(GameHandler.move(MoveState(B6, B5), gameState: gameState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B6, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B5, boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(B6, B5), boardState: boardState))
     }
 }

@@ -176,6 +176,7 @@ extension GUIView: OutputHandler {
         
         pieceNodeArray[toRank][toFile] = node
         pieceNodeArray[fromRank][fromFile] = nil
+        liftedPiece = nil
         
         animateWithAction {
             node.position = SCNVector3(toFile + UIConstants.startingFilePosition + UIConstants.pieceXOffset, 0, -(toRank + UIConstants.startingRankPosition))

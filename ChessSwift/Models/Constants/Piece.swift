@@ -14,12 +14,6 @@ enum MovementStrategy {
     case lShaped
 }
 
-enum CaptureStrategy {
-    case diagonal
-    case straight
-    case lShaped
-}
-
 enum MovementType {
     case step
     case slide
@@ -39,7 +33,7 @@ enum Color {
 
 typealias PieceTuple = (value: Int,
     movementStrategies: [MovementStrategy],
-    captureStrategies: [CaptureStrategy],
+    captureStrategies: [MovementStrategy],
     movementTypes: [MovementType],
     movementDirection: MovementDirection,
     color: Color,

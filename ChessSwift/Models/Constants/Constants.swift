@@ -24,19 +24,19 @@ enum Constants {
     }
     
     private static let x = Constants.Values.empty
-    private static let P = Constants.Values.pawn
-    private static let N = Constants.Values.knight
-    private static let B = Constants.Values.bishop
-    private static let R = Constants.Values.rook
-    private static let Q = Constants.Values.queen
-    private static let K = Constants.Values.king
+    private static let p = Constants.Values.pawn
+    private static let n = Constants.Values.knight
+    private static let b = Constants.Values.bishop
+    private static let r = Constants.Values.rook
+    private static let q = Constants.Values.queen
+    private static let k = Constants.Values.king
     
-    private static let p = -P
-    private static let n = -N
-    private static let b = -B
-    private static let r = -R
-    private static let q = -Q
-    private static let k = -K
+    private static let P = -p
+    private static let N = -n
+    private static let B = -b
+    private static let R = -r
+    private static let Q = -q
+    private static let K = -k
     
     enum ChessBoardConfiguration {
         
@@ -44,15 +44,15 @@ enum Constants {
         
         static let standard: [[Int]] = [
             
-            [r, n, b, q, k, b, n, r],
-            [p, p, p, p, p, p, p, p],
-            [x, x, x, x, x, x, x, x],
-            [x, x, x, x, x, x, x, x],
-            [x, x, x, x, x, x, x, x],
-            [x, x, x, x, x, x, x, x],
+            [R, N, B, Q, K, B, N, R],
             [P, P, P, P, P, P, P, P],
-            [R, N, B, Q, K, B, N, R]
-        ]
+            [x, x, x, x, x, x, x, x],
+            [x, x, x, x, x, x, x, x],
+            [x, x, x, x, x, x, x, x],
+            [x, x, x, x, x, x, x, x],
+            [p, p, p, p, p, p, p, p],
+            [r, n, b, q, k, b, n, r],
+        ].reversed() // Reversing for viewing convenience
         
         static let empty: [[Int]] = [
             

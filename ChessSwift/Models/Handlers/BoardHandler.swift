@@ -14,10 +14,12 @@ class BoardHandler {
 extension BoardHandler: MoveHandler {
     
     static func move(_ move: MoveState, boardState: BoardState) -> Bool {
+        let fromSquare = move.fromSquare
+        let toSquare = move.toSquare
         guard LegalMovesHandler.move(move, boardState: boardState),
-            let piece = getPiece(on: move.fromSquare, boardState: boardState),
-            putPiece(piece, on: move.toSquare, boardState: boardState),
-            putEmptyPiece(on: move.fromSquare, boardState: boardState) else { return false }
+            let movingPiece = getPiece(on: fromSquare, boardState: boardState),
+            putPiece(movingPiece, on: toSquare, boardState: boardState),
+            putEmptyPiece(on: fromSquare, boardState: boardState) else { return false }
         return true
     }
 }

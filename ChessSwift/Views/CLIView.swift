@@ -81,6 +81,8 @@ extension CLIView: InputHandler {
 extension CLIView: OutputHandler {
     
     func setup(boardState: BoardState) {
+        // Was reversed earlier in the Constants.swift file for viewing convenience
+        // Reversing a reverse will give us the accurate view
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).reversed().forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
                 if let piece = boardState.squares[rank][file]?.piece {

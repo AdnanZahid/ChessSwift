@@ -9,18 +9,6 @@
 import Foundation
 
 class BoardHandler {
-    
-    private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        guard let piece = boardState.squares[safe: squareState.rank.rawValue]?[safe: squareState.file.rawValue]??.piece else { return nil }
-        return piece
-    }
-    
-    private static func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> Bool {
-        guard var square = boardState.squares[safe: squareState.rank.rawValue]?[safe: squareState.file.rawValue] else { return false }
-        square?.piece = nil
-        boardState.squares[safe: square?.rank.rawValue]?[safe: square?.file.rawValue] = square
-        return true
-    }
 }
 
 extension BoardHandler: MoveHandler {
@@ -32,12 +20,25 @@ extension BoardHandler: MoveHandler {
             putEmptyPiece(on: move.fromSquare, boardState: boardState) else { return false }
         return true
     }
+}
+
+extension BoardHandler {
+    
+    private static func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> Bool {
+        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return false }
+        square?.piece = nil
+        boardState.squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
+        return true
+    }
+    
+    static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+    }
     
     static func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> Bool {
-        guard var square = boardState.squares[safe: squareState.rank.rawValue]?[safe: squareState.file.rawValue],
-            square?.piece == nil else { return false }
+        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return false }
         square?.piece = piece
-        boardState.squares[safe: square?.rank.rawValue]?[safe: square?.file.rawValue] = square
+        boardState.squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
         return true
     }
     
@@ -50,7 +51,7 @@ extension BoardHandler: MoveHandler {
             return rank.map { pieceValue in
                 fileCount += 1
                 guard let fileIndex = FileIndex(rawValue: fileCount), let rankIndex = RankIndex(rawValue: rankCount) else { return nil }
-                return SquareState(file: fileIndex, rank: rankIndex, piece: PieceFactory.getPiece(pieceValue))
+                return SquareState(fileIndex: fileIndex, rankIndex: rankIndex, piece: PieceFactory.getPiece(pieceValue))
             }
         }
     }

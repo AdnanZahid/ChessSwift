@@ -10,71 +10,47 @@ import XCTest
 
 class RookBlockMovesTests: XCTestCase {
     
-    private var board: BoardState!
+    private var gameState: GameState!
     
     override func setUp() {
         super.setUp()
-        board = BoardState()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
-        board = nil
+        gameState = nil
         super.tearDown()
     }
     
-    func testBlockWhiteRookFromD4ToD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, D5), boardState: board))
-    }
+    // White
     
-    func testBlockWhiteRookFromD4ToD5ToE5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: E5, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, D5), boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D5, E5), boardState: board))
+    func testBlockWhiteRookFromD4ToD5() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, D5), gameState: gameState))
     }
 
     func testBlockWhiteRookFromF6ToF1() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F1, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F6, F1), boardState: board))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F1, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(F6, F1), gameState: gameState))
     }
     
-    func testBlockWhiteRookFromF6ToF2ToA2() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: C2, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F6, F2), boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F2, A2), boardState: board))
-    }
+    // Black
     
     func testBlockBlackRookFromD4ToD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, D5), boardState: board))
-    }
-    
-    func testBlockBlackRookFromD4ToD5ToE5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: E5, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, D5), boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(D5, E5), boardState: board))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, D5), gameState: gameState))
     }
     
     func testBlockBlackRookFromF6ToF1() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F1, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F6, F1), boardState: board))
-    }
-    
-    func testBlockBlackRookFromF6ToF2ToA2() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F4, boardState: board))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: C2, boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F6, F2), boardState: board))
-        XCTAssertFalse(BoardHandler.move(MoveState(F2, A2), boardState: board))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F1, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(F6, F1), gameState: gameState))
     }
 }

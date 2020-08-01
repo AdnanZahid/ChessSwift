@@ -70,8 +70,8 @@ extension CLIView: InputHandler {
                 let toRankIndex = RankIndex(rawValue: Int(toRankAsciiValue) - Constants.asciiDifferenceForRank)
                 else { return }
             
-            let move = MoveState(fromSquare: SquareState(file: fromFileIndex, rank: fromRankIndex),
-                                 toSquare: SquareState(file: toFileIndex, rank: toRankIndex))
+            let move = MoveState(fromSquare: SquareState(fileIndex: fromFileIndex, rankIndex: fromRankIndex),
+                                 toSquare: SquareState(fileIndex: toFileIndex, rankIndex: toRankIndex))
             
             inputHandlerDelegate?.didTakeInput(move)
         }

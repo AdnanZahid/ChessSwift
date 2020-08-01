@@ -9,16 +9,16 @@
 import Foundation
 
 struct SquareState {
-    let file: FileIndex
-    let rank: RankIndex
+    let fileIndex: FileIndex
+    let rankIndex: RankIndex
     var piece: Piece?
 }
 
 extension SquareState: Equatable {
     
     static func + (square: SquareState, advancement: AdvancementState) -> SquareState? {
-        guard let file = square.file + advancement.fileAdvancement, let rank = square.rank + advancement.rankAdvancement else { return nil }
-        return SquareState(file: file, rank: rank)
+        guard let file = square.fileIndex + advancement.fileAdvancement, let rank = square.rankIndex + advancement.rankAdvancement else { return nil }
+        return SquareState(fileIndex: file, rankIndex: rank)
     }
     
     static func - (square: SquareState, advancement: AdvancementState) -> SquareState? {

@@ -10,151 +10,83 @@ import XCTest
 
 class QueenBlockMovesTests: XCTestCase {
     
+    private var gameState: GameState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
+    override func tearDown() {
+        gameState = nil
+        super.tearDown()
+    }
+    
+    // White
     
     func testBlockWhiteQueenFromD4ToD5() {
-        
-        kQueenValue >> D5
-        
-        kQueenValue !== (D4 > D5)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, D5), gameState: gameState))
     }
     
-    func testBlockWhiteQueenFromD4ToE5ToF4() {
-        
-        kQueenValue >> E5
-        kQueenValue >> F4
-        
-        (kQueenValue !== (D4 > E5)) !== F4
-    }
-    
-    func testBlockWhiteQueenFromD4ToD5ToE5() {
-        
-        kQueenValue >> D5
-        kQueenValue >> E5
-        
-        (kQueenValue !== (D4 > D5)) !== E5
-    }
-    
-    func testBlockWhiteQueenFromF6ToG5() {
-        
-        kQueenValue >> G5
-        
-        kQueenValue !== (F6 > G5)
-    }
-    
-    func testBlockWhiteQueenFromF6ToG5ToH4() {
-        
-        kQueenValue >> G5
-        kQueenValue >> H4
-        
-        (kQueenValue !== (F6 > G5)) !== H4
+    func testBlockWhiteQueenFromD4ToF6() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: E5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, F6), gameState: gameState))
     }
     
     func testBlockWhiteQueenFromA1ToH8() {
-        
-        kQueenValue >> H8
-        
-        kQueenValue !== (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
     func testBlockWhiteQueenFromH1ToA8() {
-        
-        kQueenValue >> D5
-        
-        kQueenValue !== (H1 > A8)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: H1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(H1, A8), gameState: gameState))
     }
     
     func testBlockWhiteQueenFromF6ToF1() {
-        
-        kQueenValue >> F3
-        
-        kQueenValue !== (F6 > F1)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: F3, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(F6, F1), gameState: gameState))
     }
     
-    func testBlockWhiteQueenFromF6ToF2ToA2() {
-        
-        kQueenValue >> F4
-        kQueenValue >> C2
-        
-        (kQueenValue !== (F6 > F2)) !== A2
-    }
-    
-    ///////////
-    // BLACK //
-    ///////////
+    // Black
     
     func testBlockBlackQueenFromD4ToD5() {
-        
-        -kQueenValue >> D5
-        
-        -kQueenValue !== (D4 > D5)
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, D5), gameState: gameState))
     }
     
-    func testBlockBlackQueenFromD4ToE5ToF4() {
-        
-        -kQueenValue >> E5
-        -kQueenValue >> F4
-        
-        (-kQueenValue !== (D4 > E5)) !== F4
-    }
-    
-    func testBlockBlackQueenFromD4ToD5ToE5() {
-        
-        -kQueenValue >> D5
-        -kQueenValue >> E5
-        
-        (-kQueenValue !== (D4 > D5)) !== E5
-    }
-    
-    func testBlockBlackQueenFromF6ToG5() {
-        
-        -kQueenValue >> G5
-        
-        -kQueenValue !== (F6 > G5)
-    }
-    
-    func testBlockBlackQueenFromF6ToG5ToH4() {
-        
-        -kQueenValue >> G5
-        -kQueenValue >> H4
-        
-        (-kQueenValue !== (F6 > G5)) !== H4
+    func testBlockBlackQueenFromD4ToF6() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: E5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, F6), gameState: gameState))
     }
     
     func testBlockBlackQueenFromA1ToH8() {
-        
-        -kQueenValue >> D4
-        
-        -kQueenValue !== (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D4, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
     func testBlockBlackQueenFromH1ToA8() {
-        
-        -kQueenValue >> D5
-        
-        -kQueenValue !== (H1 > A8)
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: H1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(H1, A8), gameState: gameState))
     }
     
     func testBlockBlackQueenFromF6ToF1() {
-        
-        -kQueenValue >> F3
-        
-        -kQueenValue !== (F6 > F1)
-    }
-    
-    func testBlockBlackQueenFromF6ToF2ToA2() {
-        
-        -kQueenValue >> F3
-        -kQueenValue >> C2
-        
-        (-kQueenValue !== (F6 > F2)) !== A2
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: F3, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(F6, F1), gameState: gameState))
     }
 }

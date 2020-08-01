@@ -9,5 +9,8 @@
 import Foundation
 
 struct GameState {
-    let boardState = BoardState()
+    let boardState: BoardState
+    let whitePlayer: PlayerState
+    let blackPlayer: PlayerState
+    let currentPlayer: PlayerState
 }

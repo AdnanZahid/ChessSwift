@@ -23,6 +23,7 @@ enum CaptureStrategy {
 enum MovementType {
     case step
     case slide
+    case slideFrom(fileIndex: FileIndex? = nil, rankIndex: RankIndex? = nil, forNumberOfFiles: Int = 0, forNumberOfRanks: Int = 0)
     case hop
 }
 
@@ -39,12 +40,16 @@ enum Color {
 typealias PieceTuple = (value: Int,
     movementStrategies: [MovementStrategy],
     captureStrategies: [CaptureStrategy],
-    movementType: MovementType,
+    movementTypes: [MovementType],
     movementDirection: MovementDirection,
     color: Color,
     symbol: String)
 
 enum Piece: RawRepresentable {
+    private enum PieceConstants {
+        static let kingCastlingSteps = 2
+        static let pawnFirstMoveSteps = 2
+    }
     
     case whiteBishop
     case whiteKing
@@ -68,7 +73,7 @@ enum Piece: RawRepresentable {
         case .whiteBishop: return PieceTuple(value: Constants.Values.bishop,
                                              movementStrategies: [.diagonal],
                                              captureStrategies: [.diagonal],
-                                             movementType: .slide,
+                                             movementTypes: [.slide],
                                              movementDirection: .any,
                                              color: .white,
                                              symbol: "b")
@@ -76,7 +81,9 @@ enum Piece: RawRepresentable {
         case .whiteKing: return PieceTuple(value: Constants.Values.king,
                                            movementStrategies: [.diagonal, .straight],
                                            captureStrategies: [.diagonal, .straight],
-                                           movementType: .step,
+                                           movementTypes: [.step,
+                                                           .slideFrom(fileIndex: FileIndex._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
+                                                           .slideFrom(fileIndex: FileIndex._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
                                            color: .white,
                                            symbol: "k")
@@ -84,7 +91,7 @@ enum Piece: RawRepresentable {
         case .whiteKnight: return PieceTuple(value: Constants.Values.knight,
                                              movementStrategies: [.lShaped],
                                              captureStrategies: [.lShaped],
-                                             movementType: .hop,
+                                             movementTypes: [.hop],
                                              movementDirection: .any,
                                              color: .white,
                                              symbol: "n")
@@ -92,7 +99,7 @@ enum Piece: RawRepresentable {
         case .whitePawn: return PieceTuple(value: Constants.Values.pawn,
                                            movementStrategies: [.straight],
                                            captureStrategies: [.diagonal],
-                                           movementType: .step,
+                                           movementTypes: [.step, .slideFrom(rankIndex: RankIndex._2, forNumberOfRanks: PieceConstants.pawnFirstMoveSteps)],
                                            movementDirection: .forward,
                                            color: .white,
                                            symbol: "p")
@@ -100,7 +107,7 @@ enum Piece: RawRepresentable {
         case .whiteQueen: return PieceTuple(value: Constants.Values.queen,
                                             movementStrategies: [.diagonal, .straight],
                                             captureStrategies: [.diagonal, .straight],
-                                            movementType: .slide,
+                                            movementTypes: [.slide],
                                             movementDirection: .any,
                                             color: .white,
                                             symbol: "q")
@@ -108,7 +115,7 @@ enum Piece: RawRepresentable {
         case .whiteRook: return PieceTuple(value: Constants.Values.rook,
                                            movementStrategies: [.straight],
                                            captureStrategies: [.straight],
-                                           movementType: .slide,
+                                           movementTypes: [.slide],
                                            movementDirection: .any,
                                            color: .white,
                                            symbol: "r")
@@ -118,7 +125,7 @@ enum Piece: RawRepresentable {
         case .blackBishop: return PieceTuple(value: Constants.Values.bishop,
                                              movementStrategies: [.diagonal],
                                              captureStrategies: [.diagonal],
-                                             movementType: .slide,
+                                             movementTypes: [.slide],
                                              movementDirection: .any,
                                              color: .black,
                                              symbol: "B")
@@ -126,7 +133,9 @@ enum Piece: RawRepresentable {
         case .blackKing: return PieceTuple(value: Constants.Values.king,
                                            movementStrategies: [.diagonal, .straight],
                                            captureStrategies: [.diagonal, .straight],
-                                           movementType: .step,
+                                           movementTypes: [.step,
+                                                           .slideFrom(fileIndex: FileIndex._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
+                                                           .slideFrom(fileIndex: FileIndex._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
                                            color: .black,
                                            symbol: "K")
@@ -134,7 +143,7 @@ enum Piece: RawRepresentable {
         case .blackKnight: return PieceTuple(value: Constants.Values.knight,
                                              movementStrategies: [.lShaped],
                                              captureStrategies: [.lShaped],
-                                             movementType: .hop,
+                                             movementTypes: [.hop],
                                              movementDirection: .any,
                                              color: .black,
                                              symbol: "N")
@@ -142,7 +151,7 @@ enum Piece: RawRepresentable {
         case .blackPawn: return PieceTuple(value: Constants.Values.pawn,
                                            movementStrategies: [.straight],
                                            captureStrategies: [.diagonal],
-                                           movementType: .step,
+                                           movementTypes: [.step, .slideFrom(rankIndex: RankIndex._7, forNumberOfRanks: PieceConstants.pawnFirstMoveSteps)],
                                            movementDirection: .forward,
                                            color: .black,
                                            symbol: "P")
@@ -150,7 +159,7 @@ enum Piece: RawRepresentable {
         case .blackQueen: return PieceTuple(value: Constants.Values.queen,
                                             movementStrategies: [.diagonal, .straight],
                                             captureStrategies: [.diagonal, .straight],
-                                            movementType: .slide,
+                                            movementTypes: [.slide],
                                             movementDirection: .any,
                                             color: .black,
                                             symbol: "Q")
@@ -158,20 +167,14 @@ enum Piece: RawRepresentable {
         case .blackRook: return PieceTuple(value: Constants.Values.rook,
                                            movementStrategies: [.straight],
                                            captureStrategies: [.straight],
-                                           movementType: .slide,
+                                           movementTypes: [.slide],
                                            movementDirection: .any,
                                            color: .black,
                                            symbol: "R")
         }
     }
     
-    init?(rawValue: (value: Int,
-        movementStrategies: [MovementStrategy],
-        captureStrategies: [CaptureStrategy],
-        movementType: MovementType,
-        movementDirection: MovementDirection,
-        color: Color,
-        symbol: String)) {
+    init?(rawValue: PieceTuple) {
         return nil
     }
 }

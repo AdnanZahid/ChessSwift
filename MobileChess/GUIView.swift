@@ -118,10 +118,10 @@ class GUIView: SCNView {
     }
     
     func moveToSquare(_ node: SCNNode) {
-        let fromSquare = SquareState(file: FileIndex(rawValue: Int(liftedPiece!.position.x) - UIConstants.pieceXOffset)!,
-                                     rank: RankIndex(rawValue: -Int(liftedPiece!.position.z))!)
-        let toSquare = SquareState(file: FileIndex(rawValue: Int(node.position.x) - UIConstants.pieceXOffset)!,
-                                   rank: RankIndex(rawValue: -Int(node.position.z))!)
+        let fromSquare = SquareState(fileIndex: FileIndex(rawValue: Int(liftedPiece!.position.x) - UIConstants.pieceXOffset)!,
+                                     rankIndex: RankIndex(rawValue: -Int(liftedPiece!.position.z))!)
+        let toSquare = SquareState(fileIndex: FileIndex(rawValue: Int(node.position.x) - UIConstants.pieceXOffset)!,
+                                   rankIndex: RankIndex(rawValue: -Int(node.position.z))!)
         let move = MoveState(fromSquare: fromSquare, toSquare: toSquare)
         inputHandlerDelegate?.didTakeInput(move)
     }
@@ -159,11 +159,11 @@ extension GUIView: OutputHandler {
     }
     
     func output(move: MoveState, boardState: BoardState) {
-        let fromFile = move.fromSquare.file.rawValue - UIConstants.startingFilePosition
-        let fromRank = move.fromSquare.rank.rawValue - UIConstants.startingRankPosition
+        let fromFile = move.fromSquare.fileIndex.rawValue - UIConstants.startingFilePosition
+        let fromRank = move.fromSquare.rankIndex.rawValue - UIConstants.startingRankPosition
         
-        let toFile = move.toSquare.file.rawValue - UIConstants.startingFilePosition
-        let toRank = move.toSquare.rank.rawValue - UIConstants.startingRankPosition
+        let toFile = move.toSquare.fileIndex.rawValue - UIConstants.startingFilePosition
+        let toRank = move.toSquare.rankIndex.rawValue - UIConstants.startingRankPosition
         
         guard let node = pieceNodeArray[fromRank][fromFile] else {
             liftedPiece = nil

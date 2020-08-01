@@ -15,12 +15,15 @@ class Controller {
     var inputHandler: InputHandler
     
     init(view: OutputHandler) {
-        gameState = GameState()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
         inputHandler = view
         outputHandler = view
         inputHandler.inputHandlerDelegate = self
-        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.standard)
-        outputHandler.setup(boardState: gameState.boardState)
+        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.standard)
+        outputHandler.setup(boardState: boardState)
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
     }
     

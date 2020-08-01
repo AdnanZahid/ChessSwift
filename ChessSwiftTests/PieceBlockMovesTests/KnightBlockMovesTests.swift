@@ -10,47 +10,47 @@ import XCTest
 
 class KnightBlockMovesTests: XCTestCase {
     
+    private var gameState: GameState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
+    override func tearDown() {
+        gameState = nil
+        super.tearDown()
+    }
+    
+    // White
     
     func testBlockWhiteKnightFromD4ToE6() {
-        
-        kKnightValue >> E6
-        
-        kKnightValue !== (D4 > E6)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: E6, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, E6), gameState: gameState))
     }
     
-    func testBlockWhiteKnightFromD4ToC2ToE1() {
-        
-        kKnightValue >> C2
-        kKnightValue >> E1
-        
-        (kKnightValue !== (D4 > C2)) !== E1
+    func testBlockWhiteKnightFromD4ToC2() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: C2, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, C2), gameState: gameState))
     }
     
-    ///////////
-    // BLACK //
-    ///////////
+    // Black
     
     func testBlockBlackKnightFromD4ToE6() {
-        
-        -kKnightValue >> E6
-        
-        -kKnightValue !== (D4 > E6)
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: E6, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, E6), gameState: gameState))
     }
     
-    func testBlockBlackKnightFromD4ToC2ToE1() {
-        
-        -kKnightValue >> C2
-        -kKnightValue >> E1
-        
-        (-kKnightValue !== (D4 > C2)) !== E1
+    func testBlockBlackKnightFromD4ToC2() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: C2, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D4, C2), gameState: gameState))
     }
 }

@@ -10,61 +10,47 @@ import XCTest
 
 class BishopBlockMovesTests: XCTestCase {
     
+    private var gameState: GameState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
+    override func tearDown() {
+        gameState = nil
+        super.tearDown()
+    }
+    
+    // White
     
     func testBlockWhiteBishopFromA1ToH8() {
-        
-        kBishopValue >> H8
-        
-        kBishopValue !== (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D4, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
-    func testBlockWhiteBishopFromH1ToA8() {
-        
-        kBishopValue >> D5
-        
-        kBishopValue !== (H1 > A8)
+    func testBlockWhiteBishopFromD1ToH5() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: F3, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D1, H5), gameState: gameState))
     }
     
-    func testBlockWhiteBishopFromD4ToE5ToF4() {
-        
-        kBishopValue >> E5
-        kBishopValue >> F4
-        
-        (kBishopValue !== (D4 > E5)) !== F4
-    }
-    
-    ///////////
-    // BLACK //
-    ///////////
+    // Black
     
     func testBlockBlackBishopFromA1ToH8() {
-        
-        -kBishopValue >> D4
-        
-        -kBishopValue !== (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D4, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
-    func testBlockBlackBishopFromH1ToA8() {
-        
-        -kBishopValue >> D5
-        
-        -kBishopValue !== (H1 > A8)
-    }
-    
-    func testBlockBlackBishopFromD4ToE5ToF4() {
-        
-        -kBishopValue >> E5
-        -kBishopValue >> F4
-        
-        (-kBishopValue !== (D4 > E5)) !== F4
+    func testBlockBlackBishopFromD1ToH5() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: F3, boardState: gameState.boardState))
+        XCTAssertFalse(GameHandler.move(MoveState(D1, H5), gameState: gameState))
     }
 }

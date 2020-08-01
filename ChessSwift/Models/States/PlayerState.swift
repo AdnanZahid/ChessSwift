@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  PlayerState.swift
 //  ChessSwift
 //
 //  Created by Adnan Zahid on 30/07/2020.
@@ -8,4 +8,8 @@
 
 import Foundation
 
-let controller = Controller(view: CLIView())
+struct PlayerState {
+    let isAI: Bool
+    let color: Color
+    var piecesList: [Piece]
+}

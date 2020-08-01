@@ -7,8 +7,107 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1880124D5B5A8000F6E71 /* AppDelegate.swift */; };
+		E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1880324D5B5A8000F6E71 /* SceneDelegate.swift */; };
+		E6B1880824D5B5A9000F6E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B1880724D5B5A9000F6E71 /* Assets.xcassets */; };
+		E6B1880B24D5B5A9000F6E71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B1880A24D5B5A9000F6E71 /* Preview Assets.xcassets */; };
+		E6B1880E24D5B5A9000F6E71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6B1880C24D5B5A9000F6E71 /* LaunchScreen.storyboard */; };
+		E6B1881924D5B5A9000F6E71 /* MobileChessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1881824D5B5A9000F6E71 /* MobileChessTests.swift */; };
+		E6B1882224D5B66D000F6E71 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B1882124D5B66D000F6E71 /* art.scnassets */; };
+		E6B1882424D5B6AD000F6E71 /* GUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1882324D5B6AD000F6E71 /* GUIView.swift */; };
+		E6B1882624D5B78A000F6E71 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
+		E6B1882724D5B78A000F6E71 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BD24D3539900953DE0 /* Interface.swift */; };
+		E6B1882824D5B78A000F6E71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C524D35F9B00953DE0 /* Constants.swift */; };
+		E6B1882924D5B78A000F6E71 /* Indices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C124D3543000953DE0 /* Indices.swift */; };
+		E6B1882A24D5B78A000F6E71 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B224D3509F00953DE0 /* Piece.swift */; };
+		E6B1882B24D5B78A000F6E71 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
+		E6B1882C24D5B78A000F6E71 /* BoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */; };
+		E6B1882D24D5B78A000F6E71 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C324D3560C00953DE0 /* GameHandler.swift */; };
+		E6B1882E24D5B78A000F6E71 /* SquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B624D3514600953DE0 /* SquareHandler.swift */; };
+		E6B1882F24D5B78A000F6E71 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AC24D3504600953DE0 /* BoardState.swift */; };
+		E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
+		E6B1883124D5B78A000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
+		E6B1883224D5B78A000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
+		E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
+		E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
+		E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884524D5B7A4000F6E71 /* UIConstants.swift */; };
+		E6B1884824D5B8BF000F6E71 /* ScenekitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884724D5B8BF000F6E71 /* ScenekitView.swift */; };
+		E6B1884A24D5C33C000F6E71 /* LegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */; };
+		E6B1884B24D5C486000F6E71 /* LegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */; };
+		E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */; };
+		E6B1884F24D5C53A000F6E71 /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */; };
+		E6B1885424D5D253000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
+		E6B1885524D5D280000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
+		E6B1888724D5E961000F6E71 /* BishopAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886424D5E961000F6E71 /* BishopAllowMovesTests.swift */; };
+		E6B1888824D5E961000F6E71 /* QueenAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886524D5E961000F6E71 /* QueenAllowMovesTests.swift */; };
+		E6B1888924D5E961000F6E71 /* KnightAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886624D5E961000F6E71 /* KnightAllowMovesTests.swift */; };
+		E6B1888A24D5E961000F6E71 /* RookAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886724D5E961000F6E71 /* RookAllowMovesTests.swift */; };
+		E6B1888B24D5E961000F6E71 /* PawnAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886824D5E961000F6E71 /* PawnAllowMovesTests.swift */; };
+		E6B1888C24D5E961000F6E71 /* KingAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1886924D5E961000F6E71 /* KingAllowMovesTests.swift */; };
+		E6B188A724D5E989000F6E71 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B188A624D5E989000F6E71 /* TestConstants.swift */; };
+		E6B188A824D5EAD7000F6E71 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
+		E6B188A924D5EAD7000F6E71 /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */; };
+		E6B188AA24D5EAD7000F6E71 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BD24D3539900953DE0 /* Interface.swift */; };
+		E6B188AB24D5EAD7000F6E71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C524D35F9B00953DE0 /* Constants.swift */; };
+		E6B188AC24D5EAD7000F6E71 /* Indices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C124D3543000953DE0 /* Indices.swift */; };
+		E6B188AD24D5EAD7000F6E71 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B224D3509F00953DE0 /* Piece.swift */; };
+		E6B188AE24D5EAD7000F6E71 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
+		E6B188AF24D5EAD7000F6E71 /* BoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */; };
+		E6B188B024D5EAD7000F6E71 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C324D3560C00953DE0 /* GameHandler.swift */; };
+		E6B188B124D5EAD7000F6E71 /* LegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */; };
+		E6B188B224D5EAD7000F6E71 /* SquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B624D3514600953DE0 /* SquareHandler.swift */; };
+		E6B188B324D5EAD7000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
+		E6B188B424D5EAD7000F6E71 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AC24D3504600953DE0 /* BoardState.swift */; };
+		E6B188B524D5EAD7000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
+		E6B188B624D5EAD7000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
+		E6B188B724D5EAD7000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
+		E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
+		E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
+		E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
+		E6B188BE24D5EADD000F6E71 /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */; };
+		E6B188BF24D5EADD000F6E71 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BD24D3539900953DE0 /* Interface.swift */; };
+		E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C524D35F9B00953DE0 /* Constants.swift */; };
+		E6B188C124D5EADD000F6E71 /* Indices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C124D3543000953DE0 /* Indices.swift */; };
+		E6B188C224D5EADD000F6E71 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B224D3509F00953DE0 /* Piece.swift */; };
+		E6B188C324D5EADD000F6E71 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
+		E6B188C424D5EADD000F6E71 /* BoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */; };
+		E6B188C524D5EADD000F6E71 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C324D3560C00953DE0 /* GameHandler.swift */; };
+		E6B188C624D5EADD000F6E71 /* LegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */; };
+		E6B188C724D5EADD000F6E71 /* SquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B624D3514600953DE0 /* SquareHandler.swift */; };
+		E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
+		E6B188C924D5EADD000F6E71 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AC24D3504600953DE0 /* BoardState.swift */; };
+		E6B188CA24D5EADD000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
+		E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
+		E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
+		E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
+		E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
 		E6D2E19C24D34FE700953DE0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E19B24D34FE700953DE0 /* main.swift */; };
+		E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
+		E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
+		E6D2E1AD24D3504600953DE0 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AC24D3504600953DE0 /* BoardState.swift */; };
+		E6D2E1AF24D3506100953DE0 /* BoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */; };
+		E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
+		E6D2E1B324D3509F00953DE0 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B224D3509F00953DE0 /* Piece.swift */; };
+		E6D2E1B724D3514600953DE0 /* SquareHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B624D3514600953DE0 /* SquareHandler.swift */; };
+		E6D2E1B924D3535600953DE0 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
+		E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
+		E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BD24D3539900953DE0 /* Interface.swift */; };
+		E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
+		E6D2E1C224D3543000953DE0 /* Indices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C124D3543000953DE0 /* Indices.swift */; };
+		E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C324D3560C00953DE0 /* GameHandler.swift */; };
+		E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C524D35F9B00953DE0 /* Constants.swift */; };
+		E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E6B1881524D5B5A9000F6E71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E6D2E19024D34FE600953DE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6B187FE24D5B5A8000F6E71;
+			remoteInfo = MobileChess;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E6D2E19624D34FE700953DE0 /* CopyFiles */ = {
@@ -23,11 +122,73 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E6B187FF24D5B5A8000F6E71 /* MobileChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B1880124D5B5A8000F6E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E6B1880324D5B5A8000F6E71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E6B1880724D5B5A9000F6E71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E6B1880A24D5B5A9000F6E71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E6B1880D24D5B5A9000F6E71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E6B1880F24D5B5A9000F6E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6B1881424D5B5A9000F6E71 /* MobileChessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileChessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B1881824D5B5A9000F6E71 /* MobileChessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileChessTests.swift; sourceTree = "<group>"; };
+		E6B1881A24D5B5A9000F6E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6B1882124D5B66D000F6E71 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		E6B1882324D5B6AD000F6E71 /* GUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GUIView.swift; sourceTree = "<group>"; };
+		E6B1884524D5B7A4000F6E71 /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		E6B1884724D5B8BF000F6E71 /* ScenekitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenekitView.swift; sourceTree = "<group>"; };
+		E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalMovesHandler.swift; sourceTree = "<group>"; };
+		E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtension.swift; sourceTree = "<group>"; };
+		E6B1885324D5D253000F6E71 /* AdvancementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancementState.swift; sourceTree = "<group>"; };
+		E6B1885A24D5E903000F6E71 /* ChessSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B1885E24D5E903000F6E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6B1886424D5E961000F6E71 /* BishopAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BishopAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B1886524D5E961000F6E71 /* QueenAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueenAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B1886624D5E961000F6E71 /* KnightAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnightAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B1886724D5E961000F6E71 /* RookAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RookAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B1886824D5E961000F6E71 /* PawnAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PawnAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B1886924D5E961000F6E71 /* KingAllowMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingAllowMovesTests.swift; sourceTree = "<group>"; };
+		E6B188A624D5E989000F6E71 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		E6D2E19824D34FE700953DE0 /* ChessSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D2E19B24D34FE700953DE0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		E6D2E1A824D3503200953DE0 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		E6D2E1AC24D3504600953DE0 /* BoardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardState.swift; sourceTree = "<group>"; };
+		E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHandler.swift; sourceTree = "<group>"; };
+		E6D2E1B024D3508000953DE0 /* SquareState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareState.swift; sourceTree = "<group>"; };
+		E6D2E1B224D3509F00953DE0 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		E6D2E1B624D3514600953DE0 /* SquareHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareHandler.swift; sourceTree = "<group>"; };
+		E6D2E1B824D3535600953DE0 /* CLIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIView.swift; sourceTree = "<group>"; };
+		E6D2E1BA24D3536C00953DE0 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		E6D2E1BD24D3539900953DE0 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		E6D2E1BF24D353CF00953DE0 /* MoveState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveState.swift; sourceTree = "<group>"; };
+		E6D2E1C124D3543000953DE0 /* Indices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indices.swift; sourceTree = "<group>"; };
+		E6D2E1C324D3560C00953DE0 /* GameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHandler.swift; sourceTree = "<group>"; };
+		E6D2E1C524D35F9B00953DE0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E6D2E1C824D372B200953DE0 /* PieceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E6B187FC24D5B5A8000F6E71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1881124D5B5A9000F6E71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1885724D5E903000F6E71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6D2E19524D34FE700953DE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +199,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E6B1880024D5B5A8000F6E71 /* MobileChess */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1880924D5B5A9000F6E71 /* Preview Content */,
+				E6B1880124D5B5A8000F6E71 /* AppDelegate.swift */,
+				E6B1882324D5B6AD000F6E71 /* GUIView.swift */,
+				E6B1884724D5B8BF000F6E71 /* ScenekitView.swift */,
+				E6B1880324D5B5A8000F6E71 /* SceneDelegate.swift */,
+				E6B1884524D5B7A4000F6E71 /* UIConstants.swift */,
+				E6B1880F24D5B5A9000F6E71 /* Info.plist */,
+				E6B1880C24D5B5A9000F6E71 /* LaunchScreen.storyboard */,
+				E6B1882124D5B66D000F6E71 /* art.scnassets */,
+				E6B1880724D5B5A9000F6E71 /* Assets.xcassets */,
+			);
+			path = MobileChess;
+			sourceTree = "<group>";
+		};
+		E6B1880924D5B5A9000F6E71 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1880A24D5B5A9000F6E71 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E6B1881724D5B5A9000F6E71 /* MobileChessTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1881824D5B5A9000F6E71 /* MobileChessTests.swift */,
+				E6B1881A24D5B5A9000F6E71 /* Info.plist */,
+			);
+			path = MobileChessTests;
+			sourceTree = "<group>";
+		};
+		E6B1884C24D5C4FE000F6E71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E6B1885B24D5E903000F6E71 /* ChessSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1885E24D5E903000F6E71 /* Info.plist */,
+				E6B188A524D5E989000F6E71 /* Constants */,
+				E6B1886324D5E961000F6E71 /* PieceAllowMovesTests */,
+			);
+			path = ChessSwiftTests;
+			sourceTree = "<group>";
+		};
+		E6B1886324D5E961000F6E71 /* PieceAllowMovesTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1886424D5E961000F6E71 /* BishopAllowMovesTests.swift */,
+				E6B1886524D5E961000F6E71 /* QueenAllowMovesTests.swift */,
+				E6B1886624D5E961000F6E71 /* KnightAllowMovesTests.swift */,
+				E6B1886724D5E961000F6E71 /* RookAllowMovesTests.swift */,
+				E6B1886824D5E961000F6E71 /* PawnAllowMovesTests.swift */,
+				E6B1886924D5E961000F6E71 /* KingAllowMovesTests.swift */,
+			);
+			path = PieceAllowMovesTests;
+			sourceTree = "<group>";
+		};
+		E6B188A524D5E989000F6E71 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E6B188A624D5E989000F6E71 /* TestConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		E6D2E18F24D34FE600953DE0 = {
 			isa = PBXGroup;
 			children = (
 				E6D2E19A24D34FE700953DE0 /* ChessSwift */,
+				E6B1885B24D5E903000F6E71 /* ChessSwiftTests */,
+				E6B1880024D5B5A8000F6E71 /* MobileChess */,
+				E6B1881724D5B5A9000F6E71 /* MobileChessTests */,
 				E6D2E19924D34FE700953DE0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				E6D2E19824D34FE700953DE0 /* ChessSwift */,
+				E6B187FF24D5B5A8000F6E71 /* MobileChess.app */,
+				E6B1881424D5B5A9000F6E71 /* MobileChessTests.xctest */,
+				E6B1885A24D5E903000F6E71 /* ChessSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,13 +298,147 @@
 			isa = PBXGroup;
 			children = (
 				E6D2E19B24D34FE700953DE0 /* main.swift */,
+				E6D2E1A424D3500000953DE0 /* Controllers */,
+				E6B1884C24D5C4FE000F6E71 /* Extensions */,
+				E6D2E1BC24D3538800953DE0 /* Interface */,
+				E6D2E1A224D34FF100953DE0 /* Models */,
+				E6D2E1A324D34FFC00953DE0 /* Views */,
 			);
 			path = ChessSwift;
+			sourceTree = "<group>";
+		};
+		E6D2E1A224D34FF100953DE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1A524D3501100953DE0 /* Constants */,
+				E6D2E1C724D3729B00953DE0 /* Factories */,
+				E6D2E1A724D3502500953DE0 /* Handlers */,
+				E6D2E1A624D3501E00953DE0 /* States */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E6D2E1A324D34FFC00953DE0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1B824D3535600953DE0 /* CLIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E6D2E1A424D3500000953DE0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1BA24D3536C00953DE0 /* Controller.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E6D2E1A524D3501100953DE0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1C524D35F9B00953DE0 /* Constants.swift */,
+				E6D2E1C124D3543000953DE0 /* Indices.swift */,
+				E6D2E1B224D3509F00953DE0 /* Piece.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		E6D2E1A624D3501E00953DE0 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				E6B1885324D5D253000F6E71 /* AdvancementState.swift */,
+				E6D2E1AC24D3504600953DE0 /* BoardState.swift */,
+				E6D2E1A824D3503200953DE0 /* GameState.swift */,
+				E6D2E1BF24D353CF00953DE0 /* MoveState.swift */,
+				E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */,
+				E6D2E1B024D3508000953DE0 /* SquareState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		E6D2E1A724D3502500953DE0 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */,
+				E6D2E1C324D3560C00953DE0 /* GameHandler.swift */,
+				E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */,
+				E6D2E1B624D3514600953DE0 /* SquareHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		E6D2E1BC24D3538800953DE0 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1BD24D3539900953DE0 /* Interface.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E6D2E1C724D3729B00953DE0 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				E6D2E1C824D372B200953DE0 /* PieceFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E6B187FE24D5B5A8000F6E71 /* MobileChess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6B1881B24D5B5A9000F6E71 /* Build configuration list for PBXNativeTarget "MobileChess" */;
+			buildPhases = (
+				E6B187FB24D5B5A8000F6E71 /* Sources */,
+				E6B187FC24D5B5A8000F6E71 /* Frameworks */,
+				E6B187FD24D5B5A8000F6E71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileChess;
+			productName = MobileChess;
+			productReference = E6B187FF24D5B5A8000F6E71 /* MobileChess.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E6B1881324D5B5A9000F6E71 /* MobileChessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6B1881E24D5B5A9000F6E71 /* Build configuration list for PBXNativeTarget "MobileChessTests" */;
+			buildPhases = (
+				E6B1881024D5B5A9000F6E71 /* Sources */,
+				E6B1881124D5B5A9000F6E71 /* Frameworks */,
+				E6B1881224D5B5A9000F6E71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E6B1881624D5B5A9000F6E71 /* PBXTargetDependency */,
+			);
+			name = MobileChessTests;
+			productName = MobileChessTests;
+			productReference = E6B1881424D5B5A9000F6E71 /* MobileChessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E6B1885924D5E903000F6E71 /* ChessSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6B1885F24D5E903000F6E71 /* Build configuration list for PBXNativeTarget "ChessSwiftTests" */;
+			buildPhases = (
+				E6B1885624D5E903000F6E71 /* Sources */,
+				E6B1885724D5E903000F6E71 /* Frameworks */,
+				E6B1885824D5E903000F6E71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChessSwiftTests;
+			productName = ChessSwiftTests;
+			productReference = E6B1885A24D5E903000F6E71 /* ChessSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E6D2E19724D34FE700953DE0 /* ChessSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6D2E19F24D34FE700953DE0 /* Build configuration list for PBXNativeTarget "ChessSwift" */;
@@ -92,6 +466,17 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Adnan Zahid";
 				TargetAttributes = {
+					E6B187FE24D5B5A8000F6E71 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					E6B1881324D5B5A9000F6E71 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = E6B187FE24D5B5A8000F6E71;
+					};
+					E6B1885924D5E903000F6E71 = {
+						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
+					};
 					E6D2E19724D34FE700953DE0 = {
 						CreatedOnToolsVersion = 11.6;
 					};
@@ -111,22 +496,309 @@
 			projectRoot = "";
 			targets = (
 				E6D2E19724D34FE700953DE0 /* ChessSwift */,
+				E6B1885924D5E903000F6E71 /* ChessSwiftTests */,
+				E6B187FE24D5B5A8000F6E71 /* MobileChess */,
+				E6B1881324D5B5A9000F6E71 /* MobileChessTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		E6B187FD24D5B5A8000F6E71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6B1880E24D5B5A9000F6E71 /* LaunchScreen.storyboard in Resources */,
+				E6B1882224D5B66D000F6E71 /* art.scnassets in Resources */,
+				E6B1880B24D5B5A9000F6E71 /* Preview Assets.xcassets in Resources */,
+				E6B1880824D5B5A9000F6E71 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1881224D5B5A9000F6E71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1885824D5E903000F6E71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		E6B187FB24D5B5A8000F6E71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6B1882424D5B6AD000F6E71 /* GUIView.swift in Sources */,
+				E6B1882924D5B78A000F6E71 /* Indices.swift in Sources */,
+				E6B1882D24D5B78A000F6E71 /* GameHandler.swift in Sources */,
+				E6B1885524D5D280000F6E71 /* AdvancementState.swift in Sources */,
+				E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */,
+				E6B1882F24D5B78A000F6E71 /* BoardState.swift in Sources */,
+				E6B1882A24D5B78A000F6E71 /* Piece.swift in Sources */,
+				E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */,
+				E6B1884B24D5C486000F6E71 /* LegalMovesHandler.swift in Sources */,
+				E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */,
+				E6B1882724D5B78A000F6E71 /* Interface.swift in Sources */,
+				E6B1882624D5B78A000F6E71 /* Controller.swift in Sources */,
+				E6B1884824D5B8BF000F6E71 /* ScenekitView.swift in Sources */,
+				E6B1884F24D5C53A000F6E71 /* MutableCollectionExtension.swift in Sources */,
+				E6B1883224D5B78A000F6E71 /* PlayerState.swift in Sources */,
+				E6B1882C24D5B78A000F6E71 /* BoardHandler.swift in Sources */,
+				E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */,
+				E6B1882E24D5B78A000F6E71 /* SquareHandler.swift in Sources */,
+				E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */,
+				E6B1882B24D5B78A000F6E71 /* PieceFactory.swift in Sources */,
+				E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */,
+				E6B1883124D5B78A000F6E71 /* MoveState.swift in Sources */,
+				E6B1882824D5B78A000F6E71 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1881024D5B5A9000F6E71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */,
+				E6B188C924D5EADD000F6E71 /* BoardState.swift in Sources */,
+				E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */,
+				E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */,
+				E6B188C724D5EADD000F6E71 /* SquareHandler.swift in Sources */,
+				E6B188C224D5EADD000F6E71 /* Piece.swift in Sources */,
+				E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */,
+				E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */,
+				E6B188C624D5EADD000F6E71 /* LegalMovesHandler.swift in Sources */,
+				E6B188C124D5EADD000F6E71 /* Indices.swift in Sources */,
+				E6B188C324D5EADD000F6E71 /* PieceFactory.swift in Sources */,
+				E6B188C424D5EADD000F6E71 /* BoardHandler.swift in Sources */,
+				E6B1881924D5B5A9000F6E71 /* MobileChessTests.swift in Sources */,
+				E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */,
+				E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */,
+				E6B188BE24D5EADD000F6E71 /* MutableCollectionExtension.swift in Sources */,
+				E6B188CA24D5EADD000F6E71 /* GameState.swift in Sources */,
+				E6B188C524D5EADD000F6E71 /* GameHandler.swift in Sources */,
+				E6B188BF24D5EADD000F6E71 /* Interface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6B1885624D5E903000F6E71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6B1888A24D5E961000F6E71 /* RookAllowMovesTests.swift in Sources */,
+				E6B188B124D5EAD7000F6E71 /* LegalMovesHandler.swift in Sources */,
+				E6B1888824D5E961000F6E71 /* QueenAllowMovesTests.swift in Sources */,
+				E6B188AE24D5EAD7000F6E71 /* PieceFactory.swift in Sources */,
+				E6B188B324D5EAD7000F6E71 /* AdvancementState.swift in Sources */,
+				E6B1888724D5E961000F6E71 /* BishopAllowMovesTests.swift in Sources */,
+				E6B1888B24D5E961000F6E71 /* PawnAllowMovesTests.swift in Sources */,
+				E6B188B724D5EAD7000F6E71 /* PlayerState.swift in Sources */,
+				E6B188B624D5EAD7000F6E71 /* MoveState.swift in Sources */,
+				E6B188A824D5EAD7000F6E71 /* Controller.swift in Sources */,
+				E6B188AF24D5EAD7000F6E71 /* BoardHandler.swift in Sources */,
+				E6B188AC24D5EAD7000F6E71 /* Indices.swift in Sources */,
+				E6B188AD24D5EAD7000F6E71 /* Piece.swift in Sources */,
+				E6B188AA24D5EAD7000F6E71 /* Interface.swift in Sources */,
+				E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */,
+				E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */,
+				E6B1888C24D5E961000F6E71 /* KingAllowMovesTests.swift in Sources */,
+				E6B188B024D5EAD7000F6E71 /* GameHandler.swift in Sources */,
+				E6B188A924D5EAD7000F6E71 /* MutableCollectionExtension.swift in Sources */,
+				E6B188AB24D5EAD7000F6E71 /* Constants.swift in Sources */,
+				E6B1888924D5E961000F6E71 /* KnightAllowMovesTests.swift in Sources */,
+				E6B188B224D5EAD7000F6E71 /* SquareHandler.swift in Sources */,
+				E6B188B424D5EAD7000F6E71 /* BoardState.swift in Sources */,
+				E6B188A724D5E989000F6E71 /* TestConstants.swift in Sources */,
+				E6B188B524D5EAD7000F6E71 /* GameState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E6D2E19424D34FE700953DE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */,
+				E6D2E1B324D3509F00953DE0 /* Piece.swift in Sources */,
+				E6D2E1AD24D3504600953DE0 /* BoardState.swift in Sources */,
+				E6D2E1AF24D3506100953DE0 /* BoardHandler.swift in Sources */,
+				E6B1885424D5D253000F6E71 /* AdvancementState.swift in Sources */,
 				E6D2E19C24D34FE700953DE0 /* main.swift in Sources */,
+				E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */,
+				E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */,
+				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
+				E6D2E1B724D3514600953DE0 /* SquareHandler.swift in Sources */,
+				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,
+				E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */,
+				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
+				E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */,
+				E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */,
+				E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */,
+				E6D2E1C224D3543000953DE0 /* Indices.swift in Sources */,
+				E6B1884A24D5C33C000F6E71 /* LegalMovesHandler.swift in Sources */,
+				E6D2E1B924D3535600953DE0 /* CLIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E6B1881624D5B5A9000F6E71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6B187FE24D5B5A8000F6E71 /* MobileChess */;
+			targetProxy = E6B1881524D5B5A9000F6E71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E6B1880C24D5B5A9000F6E71 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E6B1880D24D5B5A9000F6E71 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		E6B1881C24D5B5A9000F6E71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MobileChess/Preview Content\"";
+				DEVELOPMENT_TEAM = Q666HR669V;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MobileChess/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MobileChess.MobileChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E6B1881D24D5B5A9000F6E71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"MobileChess/Preview Content\"";
+				DEVELOPMENT_TEAM = Q666HR669V;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = MobileChess/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MobileChess.MobileChess;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6B1881F24D5B5A9000F6E71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q666HR669V;
+				INFOPLIST_FILE = MobileChessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MobileChess.MobileChessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileChess.app/MobileChess";
+			};
+			name = Debug;
+		};
+		E6B1882024D5B5A9000F6E71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q666HR669V;
+				INFOPLIST_FILE = MobileChessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MobileChess.MobileChessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileChess.app/MobileChess";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E6B1886024D5E903000F6E71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q666HR669V;
+				INFOPLIST_FILE = ChessSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ChessSwiftTests.ChessSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E6B1886124D5E903000F6E71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q666HR669V;
+				INFOPLIST_FILE = ChessSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ChessSwiftTests.ChessSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		E6D2E19D24D34FE700953DE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -265,6 +937,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E6B1881B24D5B5A9000F6E71 /* Build configuration list for PBXNativeTarget "MobileChess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6B1881C24D5B5A9000F6E71 /* Debug */,
+				E6B1881D24D5B5A9000F6E71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6B1881E24D5B5A9000F6E71 /* Build configuration list for PBXNativeTarget "MobileChessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6B1881F24D5B5A9000F6E71 /* Debug */,
+				E6B1882024D5B5A9000F6E71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6B1885F24D5E903000F6E71 /* Build configuration list for PBXNativeTarget "ChessSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E6B1886024D5E903000F6E71 /* Debug */,
+				E6B1886124D5E903000F6E71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E6D2E19324D34FE600953DE0 /* Build configuration list for PBXProject "ChessSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

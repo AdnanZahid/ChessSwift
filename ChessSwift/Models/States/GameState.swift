@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  GameState.swift
 //  ChessSwift
 //
 //  Created by Adnan Zahid on 30/07/2020.
@@ -8,4 +8,6 @@
 
 import Foundation
 
-let controller = Controller(view: CLIView())
+struct GameState {
+    let boardState = BoardState()
+}

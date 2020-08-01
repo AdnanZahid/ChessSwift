@@ -19,7 +19,7 @@ struct ScenekitView: UIViewRepresentable {
     
     func updateUIView(_ scnView: SCNView, context: Context) {
         (controller.outputHandler as! GUIView).setupView()
-        (controller.outputHandler as! GUIView).setup(board: controller.gameState.boardState)
+        (controller.outputHandler as! GUIView).setup(boardState: controller.gameState.boardState)
     }
 }
 

@@ -35,7 +35,9 @@ extension LegalMovesHandler: MoveHandler {
         case .slide:
             guard isPathClear(for: move, boardState: boardState) else { return false }
         case .step:
-            guard piece == .whiteKnight || piece == .blackKnight || isOneStepAdvanced(for: move) else { return false }
+            guard isOneStepAdvanced(for: move) else { return false }
+        case .hop:
+            break
         }
         return isMovementStrategySuccessful
     }

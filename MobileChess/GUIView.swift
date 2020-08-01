@@ -139,7 +139,7 @@ extension GUIView: OutputHandler {
     func setup(boardState: BoardState) {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).reversed().forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
-                guard let piece = board.squares[rank][file]?.piece else { return }
+                guard let piece = boardState.squares[rank][file]?.piece else { return }
                 let pieces = SCNScene(named: "art.scnassets/ChessPieces.dae")!
                 let node = pieces.rootNode.childNode(withName: piece.rawValue.symbol.uppercased(), recursively: true)!
                 if piece.rawValue.color == .black {

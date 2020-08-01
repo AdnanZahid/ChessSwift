@@ -10,150 +10,119 @@ import XCTest
 
 class QueenCapturesTests: XCTestCase {
     
+    private var gameState: GameState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        let boardState = BoardState()
+        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
+        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        BoardHandler.setup(boardState: gameState.boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
-    
-    func testCaptureWhiteQueenFromD4ToD5() {
-        
-        -kQueenValue >> D5
-        
-        kQueenValue > (D4 > D5)
+    override func tearDown() {
+        gameState = nil
+        super.tearDown()
     }
     
-    func testCaptureWhiteQueenFromD4ToE5ToF4() {
-        
-        -kQueenValue >> E5
-        -kQueenValue >> F4
-        
-        (kQueenValue > (D4 > E5)) > F4
-    }
-    
-    func testCaptureWhiteQueenFromD4ToD5ToE5() {
-        
-        -kQueenValue >> D5
-        -kQueenValue >> E5
-        
-        (kQueenValue > (D4 > D5)) > E5
-    }
-    
-    func testCaptureWhiteQueenFromF6ToG5() {
-        
-        -kQueenValue >> G5
-        
-        kQueenValue > (F6 > G5)
-    }
-    
-    func testCaptureWhiteQueenFromF6ToG5ToH4() {
-        
-        -kQueenValue >> G5
-        -kQueenValue >> H4
-        
-        (kQueenValue > (F6 > G5)) > H4
-    }
+    // White
     
     func testCaptureWhiteQueenFromA1ToH8() {
-        
-        -kQueenValue >> H8
-        
-        kQueenValue > (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: H8, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
     func testCaptureWhiteQueenFromH1ToA8() {
-        
-        -kQueenValue >> A8
-        
-        kQueenValue > (H1 > A8)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: H1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: A8, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(H1, A8), gameState: gameState))
     }
     
-    func testCaptureWhiteQueenFromF6ToF1() {
-        
-        -kQueenValue >> F1
-        
-        kQueenValue > (F6 > F1)
+    func testCaptureWhiteQueenFromD4ToE5ToF4() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: E5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: F4, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D5, E5), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(E5, F4), gameState: gameState))
     }
     
-    func testCaptureWhiteQueenFromF6ToF2ToA2() {
-        
-        -kQueenValue >> F2
-        -kQueenValue >> A2
-        
-        (kQueenValue > (F6 > F2)) > A2
+    func testCaptureWhiteRookFromD4ToD5() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D4, D5), gameState: gameState))
     }
     
-    ///////////
-    // BLACK //
-    ///////////
-    
-    func testCaptureBlackQueenFromD4ToD5() {
-        
-        kQueenValue >> D5
-        
-        -kQueenValue > (D4 > D5)
+    func testCaptureWhiteRookFromD4ToD5ToE5() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: E5, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D4, D5), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(D5, E5), gameState: gameState))
+    }
+
+    func testCaptureWhiteRookFromF6ToF1() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F1, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(F6, F1), gameState: gameState))
     }
     
-    func testCaptureBlackQueenFromD4ToE5ToF4() {
-        
-        kQueenValue >> E5
-        kQueenValue >> F4
-        
-        (-kQueenValue > (D4 > E5)) > F4
+    func testCaptureWhiteRookFromF6ToF2ToA2() {
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F2, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: A2, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(F6, F2), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(F2, A2), gameState: gameState))
     }
     
-    func testCaptureBlackQueenFromD4ToD5ToE5() {
-        
-        kQueenValue >> D5
-        kQueenValue >> E5
-        
-        (-kQueenValue > (D4 > D5)) > E5
-    }
-    
-    func testCaptureBlackQueenFromF6ToG5() {
-        
-        kQueenValue >> G5
-        
-        -kQueenValue > (F6 > G5)
-    }
-    
-    func testCaptureBlackQueenFromF6ToG5ToH4() {
-        
-        kQueenValue >> G5
-        kQueenValue >> H4
-        
-        (-kQueenValue > (F6 > G5)) > H4
-    }
+    // Black
     
     func testCaptureBlackQueenFromA1ToH8() {
-        
-        kQueenValue >> H8
-        
-        -kQueenValue > (A1 > H8)
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: A1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: H8, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(A1, H8), gameState: gameState))
     }
     
     func testCaptureBlackQueenFromH1ToA8() {
-        
-        kQueenValue >> A8
-        
-        -kQueenValue > (H1 > A8)
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: H1, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: A8, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(H1, A8), gameState: gameState))
     }
     
-    func testCaptureBlackQueenFromF6ToF1() {
-        
-        kQueenValue >> F1
-        
-        -kQueenValue > (F6 > F1)
+    func testCaptureBlackQueenFromD4ToE5ToF4() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: E5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: F4, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D5, E5), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(E5, F4), gameState: gameState))
     }
     
-    func testCaptureBlackQueenFromF6ToF2ToA2() {
-        
-        kQueenValue >> A2
-        
-        (-kQueenValue > (F6 > F2)) > A2
+    func testCaptureBlackRookFromD4ToD5() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D4, D5), gameState: gameState))
+    }
+    
+    func testCaptureBlackRookFromD4ToD5ToE5() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: E5, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(D4, D5), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(D5, E5), gameState: gameState))
+    }
+
+    func testCaptureBlackRookFromF6ToF1() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F1, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(F6, F1), gameState: gameState))
+    }
+    
+    func testCaptureBlackRookFromF6ToF2ToA2() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F2, boardState: gameState.boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: A2, boardState: gameState.boardState))
+        XCTAssertTrue(GameHandler.move(MoveState(F6, F2), gameState: gameState))
+        XCTAssertTrue(GameHandler.move(MoveState(F2, A2), gameState: gameState))
     }
 }

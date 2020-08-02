@@ -10,7 +10,7 @@ import Foundation
 
 class Controller {
     
-    let gameState: GameState
+    var gameState: GameState
     let outputHandler: OutputHandler
     var inputHandler: InputHandler
     
@@ -46,10 +46,15 @@ extension Controller: InputHandlerDelegate {
     
     func didTakeInput(_ move: MoveState) {
         if GameHandler.move(move, gameState: gameState) {
+            changeTurn()
             selectQueueAndRun(.main) { [unowned self] in self.outputHandler.output(move: move, boardState: self.gameState.boardState) }
         } else {
             selectQueueAndRun(.main) { [unowned self] in self.outputHandler.cancelMove() }
         }
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
+    }
+    
+    private func changeTurn() {
+        gameState.currentPlayer = gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer
     }
 }

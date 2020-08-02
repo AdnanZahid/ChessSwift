@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E689F19424D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
+		E689F19524D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
+		E689F19624D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
+		E689F19724D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
+		E689F19824D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */; };
+		E689F19924D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */; };
+		E689F19A24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */; };
+		E689F19B24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */; };
+		E689F19C24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */; };
+		E689F19D24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */; };
+		E689F19E24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */; };
+		E689F19F24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */; };
 		E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1880124D5B5A8000F6E71 /* AppDelegate.swift */; };
 		E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1880324D5B5A8000F6E71 /* SceneDelegate.swift */; };
 		E6B1880824D5B5A9000F6E71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6B1880724D5B5A9000F6E71 /* Assets.xcassets */; };
@@ -141,6 +153,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementStrategyHandler.swift; sourceTree = "<group>"; };
+		E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementTypeHandler.swift; sourceTree = "<group>"; };
+		E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementDirectionHandler.swift; sourceTree = "<group>"; };
 		E6B187FF24D5B5A8000F6E71 /* MobileChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6B1880124D5B5A8000F6E71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6B1880324D5B5A8000F6E71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +251,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E689F19024D6DEA200CD0392 /* MovementHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				E689F19324D6DEC200CD0392 /* MovementDirectionHandler.swift */,
+				E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */,
+				E689F19224D6DEC200CD0392 /* MovementTypeHandler.swift */,
+			);
+			path = MovementHandlers;
+			sourceTree = "<group>";
+		};
 		E6B1880024D5B5A8000F6E71 /* MobileChess */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +464,7 @@
 		E6D2E1A724D3502500953DE0 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				E689F19024D6DEA200CD0392 /* MovementHandlers */,
 				E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */,
 				E6D2E1C324D3560C00953DE0 /* GameHandler.swift */,
 				E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */,
@@ -620,11 +646,14 @@
 				E6B1882924D5B78A000F6E71 /* Indices.swift in Sources */,
 				E6B1882D24D5B78A000F6E71 /* GameHandler.swift in Sources */,
 				E6B1885524D5D280000F6E71 /* AdvancementState.swift in Sources */,
+				E689F19624D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */,
 				E6B1882F24D5B78A000F6E71 /* BoardState.swift in Sources */,
 				E6B1882A24D5B78A000F6E71 /* Piece.swift in Sources */,
 				E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */,
+				E689F19A24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6B1884B24D5C486000F6E71 /* LegalMovesHandler.swift in Sources */,
+				E689F19E24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */,
 				E6B1882724D5B78A000F6E71 /* Interface.swift in Sources */,
 				E6B1882624D5B78A000F6E71 /* Controller.swift in Sources */,
@@ -650,15 +679,18 @@
 				E6B188C924D5EADD000F6E71 /* BoardState.swift in Sources */,
 				E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */,
 				E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */,
+				E689F19724D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B188C724D5EADD000F6E71 /* SquareHandler.swift in Sources */,
 				E6B188C224D5EADD000F6E71 /* Piece.swift in Sources */,
 				E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */,
 				E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */,
 				E6B188C624D5EADD000F6E71 /* LegalMovesHandler.swift in Sources */,
 				E6B188C124D5EADD000F6E71 /* Indices.swift in Sources */,
+				E689F19F24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E6B188C324D5EADD000F6E71 /* PieceFactory.swift in Sources */,
 				E6B188C424D5EADD000F6E71 /* BoardHandler.swift in Sources */,
 				E6B1881924D5B5A9000F6E71 /* MobileChessTests.swift in Sources */,
+				E689F19B24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */,
 				E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */,
 				E6B188BE24D5EADD000F6E71 /* MutableCollectionExtension.swift in Sources */,
@@ -708,6 +740,7 @@
 				E6B1897724D625F2000F6E71 /* KnightAllowMovesTests.swift in Sources */,
 				E6B188B024D5EAD7000F6E71 /* GameHandler.swift in Sources */,
 				E6B188A924D5EAD7000F6E71 /* MutableCollectionExtension.swift in Sources */,
+				E689F19524D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B188AB24D5EAD7000F6E71 /* Constants.swift in Sources */,
 				E6B188B224D5EAD7000F6E71 /* SquareHandler.swift in Sources */,
 				E6B188B424D5EAD7000F6E71 /* BoardState.swift in Sources */,
@@ -715,6 +748,8 @@
 				E6B1897824D625F3000F6E71 /* RookAllowMovesTests.swift in Sources */,
 				E6B1898024D625F3000F6E71 /* BishopBlockMovesTests.swift in Sources */,
 				E6B1898224D625F3000F6E71 /* KingCapturesTests.swift in Sources */,
+				E689F19924D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
+				E689F19D24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,15 +761,18 @@
 				E6D2E1B324D3509F00953DE0 /* Piece.swift in Sources */,
 				E6D2E1AD24D3504600953DE0 /* BoardState.swift in Sources */,
 				E6D2E1AF24D3506100953DE0 /* BoardHandler.swift in Sources */,
+				E689F19424D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B1885424D5D253000F6E71 /* AdvancementState.swift in Sources */,
 				E6D2E19C24D34FE700953DE0 /* main.swift in Sources */,
 				E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */,
 				E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */,
 				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
 				E6D2E1B724D3514600953DE0 /* SquareHandler.swift in Sources */,
+				E689F19C24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,
 				E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */,
 				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
+				E689F19824D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */,
 				E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */,
 				E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */,

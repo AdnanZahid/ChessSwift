@@ -21,13 +21,14 @@ class Controller {
         gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
         inputHandler = view
         outputHandler = view
-        inputHandler.inputHandlerDelegate = self
         BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.standard)
         outputHandler.setup(boardState: boardState)
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
     }
     
     func runEngine() {
+        //        inputHandler = AIHandler()
+        inputHandler.inputHandlerDelegate = self
         inputHandler.input()
     }
     
@@ -52,6 +53,10 @@ extension Controller: InputHandlerDelegate {
             selectQueueAndRun(.main) { [unowned self] in self.outputHandler.cancelMove() }
         }
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
+    }
+    
+    func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
+        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
     }
     
     private func changeTurn() {

@@ -8,4 +8,14 @@
 
 import Foundation
 
-typealias MoveState = (fromSquare: SquareState, toSquare: SquareState)
+struct MoveState: Equatable {
+    let fromSquare: SquareState
+    let toSquare: SquareState
+    var evaluationValue: Int?
+}
+
+extension MoveState: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "\(fromSquare)->\(toSquare)"
+    }
+}

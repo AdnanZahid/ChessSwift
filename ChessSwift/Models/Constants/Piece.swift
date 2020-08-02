@@ -8,10 +8,38 @@
 
 import Foundation
 
-enum MovementStrategy {
+enum MovementStrategy: RawRepresentable {
     case diagonal
     case straight
     case lShaped
+    
+    var rawValue: [AdvancementState] {
+        switch self {
+        case .diagonal:
+            return [AdvancementState(fileAdvancement: 1, rankAdvancement: 1),
+                    AdvancementState(fileAdvancement: 1, rankAdvancement: -1),
+                    AdvancementState(fileAdvancement: -1, rankAdvancement: 1),
+                    AdvancementState(fileAdvancement: -1, rankAdvancement: -1)]
+        case .straight:
+            return [AdvancementState(fileAdvancement: 1, rankAdvancement: 0),
+                    AdvancementState(fileAdvancement: 0, rankAdvancement: 1),
+                    AdvancementState(fileAdvancement: -1, rankAdvancement: 0),
+                    AdvancementState(fileAdvancement: 0, rankAdvancement: -1)]
+        case .lShaped:
+            return [AdvancementState(fileAdvancement: 1, rankAdvancement: 2),
+                    AdvancementState(fileAdvancement: 2, rankAdvancement: 1),
+                    AdvancementState(fileAdvancement: -1, rankAdvancement: 2),
+                    AdvancementState(fileAdvancement: -2, rankAdvancement: 1),
+                    AdvancementState(fileAdvancement: 1, rankAdvancement: -2),
+                    AdvancementState(fileAdvancement: 2, rankAdvancement: -1),
+                    AdvancementState(fileAdvancement: -1, rankAdvancement: -2),
+                    AdvancementState(fileAdvancement: -2, rankAdvancement: -1)]
+        }
+    }
+    
+    init?(rawValue: [AdvancementState]) {
+        return nil
+    }
 }
 
 enum MovementType {
@@ -85,8 +113,7 @@ enum Piece: RawRepresentable {
                                            movementStrategies: [.diagonal, .straight],
                                            captureStrategies: [.diagonal, .straight],
                                            movementTypes: [.step,
-                                                           .slideFrom(fileIndex: ._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
-                                                           .slideFrom(fileIndex: ._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
+                                                           .slideFrom(fileIndex: ._A, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
                                            allowedToBeCaptured: false,
                                            eligibleForPromotion: .no,
@@ -149,7 +176,6 @@ enum Piece: RawRepresentable {
                                            movementStrategies: [.diagonal, .straight],
                                            captureStrategies: [.diagonal, .straight],
                                            movementTypes: [.step,
-                                                           .slideFrom(fileIndex: ._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
                                                            .slideFrom(fileIndex: ._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
                                            allowedToBeCaptured: false,

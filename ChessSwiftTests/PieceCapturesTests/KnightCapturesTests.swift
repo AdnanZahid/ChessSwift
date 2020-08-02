@@ -28,15 +28,15 @@ class KnightCapturesTests: XCTestCase {
     func testCaptureWhiteKnightFromD4ToE6() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: E6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(D4, E6), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: E6), boardState: boardState))
     }
     
     func testCaptureWhiteKnightFromD4ToC2ToE1() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: C2, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: E1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(D4, C2), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(C2, E1), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: C2), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: C2, toSquare: E1), boardState: boardState))
     }
     
     // Black
@@ -44,14 +44,14 @@ class KnightCapturesTests: XCTestCase {
     func testCaptureBlackKnightFromD4ToE6() {
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: E6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(D4, E6), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: E6), boardState: boardState))
     }
     
     func testCaptureBlackKnightFromD4ToC2ToE1() {
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: C2, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: E1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(D4, C2), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(C2, E1), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: C2), boardState: boardState))
+        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: C2, toSquare: E1), boardState: boardState))
     }
 }

@@ -10,91 +10,80 @@ import XCTest
 
 class RookPossibleMovesTests: XCTestCase {
     
+    private var boardState: BoardState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        boardState = BoardState()
+        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
+    override func tearDown() {
+        boardState = nil
+        super.tearDown()
+    }
+    
+    // White
     
     func testPossibleMovesWhiteRookFromA1() {
-        
-        let possibleMoves: [Square] = ~(kRookValue >> A1)
-        
-        let comparisonMoves: [Square] = [B1, C1, D1, E1, F1, G1, H1, A2, A3, A4, A5, A6, A7, A8]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: A1, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: A1, boardState: boardState)
+        let testMoveStates = [B1, C1, D1, E1, F1, G1, H1, A2, A3, A4, A5, A6, A7, A8]
+            .map { MoveState(fromSquare: A1, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesWhiteRookFromD4FriendlyFire() {
-        
-        kRookValue >> E4
-        kRookValue >> D5
-        kRookValue >> C4
-        kRookValue >> D3
-        
-        let possibleMoves: [Square] = ~(kRookValue >> D4)
-        
-        let comparisonMoves: [Square] = []
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: E4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: C4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D3, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
+        let testMoveStates = [].map { MoveState(fromSquare: D4, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesWhiteRookFromD4EnemyFire() {
-        
-        -kRookValue >> E4
-        -kRookValue >> D5
-        -kRookValue >> C4
-        -kRookValue >> D3
-        
-        let possibleMoves: [Square] = ~(kRookValue >> D4)
-        
-        let comparisonMoves: [Square] = [E4, D5, C4, D3]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: E4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: C4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D3, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
+        let testMoveStates = [E4, D5, C4, D3].map { MoveState(fromSquare: D4, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
-    ///////////
-    // BLACK //
-    ///////////
+    // Black
     
-    func testPossibleMovesBlackRookFromH8() {
-        
-        let possibleMoves: [Square] = ~(-kRookValue >> H1)
-        
-        let comparisonMoves: [Square] = [H2, H3, H4, H5, H6, H7, H8, G1, F1, E1, D1, C1, B1, A1]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+    func testPossibleMovesBlackRookFromA1() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: A1, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: A1, boardState: boardState)
+        let testMoveStates = [B1, C1, D1, E1, F1, G1, H1, A2, A3, A4, A5, A6, A7, A8]
+            .map { MoveState(fromSquare: A1, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
-    func testPossibleMovesBlackRookFromDE6FriendlyFire() {
-        
-        -kRookValue >> F6
-        -kRookValue >> E7
-        -kRookValue >> D6
-        -kRookValue >> E5
-        
-        let possibleMoves: [Square] = ~(-kRookValue >> E6)
-        
-        let comparisonMoves: [Square] = []
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+    func testPossibleMovesBlackRookFromD4FriendlyFire() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: E4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: C4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D3, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
+        let testMoveStates = [].map { MoveState(fromSquare: D4, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
-    func testPossibleMovesBlackRookFromDE6EnemyFire() {
-        
-        kRookValue >> F6
-        kRookValue >> E7
-        kRookValue >> D6
-        kRookValue >> E5
-        
-        let possibleMoves: [Square] = ~(-kRookValue >> E6)
-        
-        let comparisonMoves: [Square] = [F6, E7, D6, E5]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+    func testPossibleMovesBlackRookFromD4EnemyFire() {
+        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: E4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: C4, boardState: boardState))
+        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D3, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
+        let testMoveStates = [E4, D5, C4, D3].map { MoveState(fromSquare: D4, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
 }

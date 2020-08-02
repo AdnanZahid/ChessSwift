@@ -18,4 +18,8 @@ extension AdvancementState: Equatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.fileAdvancement == rhs.fileAdvancement && lhs.rankAdvancement == rhs.rankAdvancement
     }
+    
+    static func * (advancement: AdvancementState, multiplier: Int) -> AdvancementState {
+        return AdvancementState(fileAdvancement: advancement.fileAdvancement * multiplier, rankAdvancement: advancement.rankAdvancement * multiplier)
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 protocol InputHandlerDelegate: class {
     func didTakeInput(_ move: MoveState)
+    func getMoves(forPieceOn squareState: SquareState) -> [MoveState]
 }
 
 protocol InputHandler {

@@ -28,13 +28,13 @@ class KnightBlockMovesTests: XCTestCase {
     func testBlockWhiteKnightFromD4ToE6() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: E6, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, E6), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D4, toSquare: E6), boardState: boardState))
     }
     
     func testBlockWhiteKnightFromD4ToC2() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: C2, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, C2), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D4, toSquare: C2), boardState: boardState))
     }
     
     // Black
@@ -42,12 +42,12 @@ class KnightBlockMovesTests: XCTestCase {
     func testBlockBlackKnightFromD4ToE6() {
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: E6, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, E6), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D4, toSquare: E6), boardState: boardState))
     }
     
     func testBlockBlackKnightFromD4ToC2() {
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: D4, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: C2, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D4, C2), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D4, toSquare: C2), boardState: boardState))
     }
 }

@@ -10,53 +10,48 @@ import XCTest
 
 class KnightPossibleMovesTests: XCTestCase {
     
+    private var boardState: BoardState!
+    
     override func setUp() {
         super.setUp()
-        
-        Board.sharedInstance.setupEmptyBoard()
+        boardState = BoardState()
+        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
     }
     
-    ///////////
-    // WHITE //
-    ///////////
+    override func tearDown() {
+        boardState = nil
+        super.tearDown()
+    }
+    
+    // White
     
     func testPossibleMovesWhiteKnightFromA1() {
-        
-        let possibleMoves: [Square] = ~(kKnightValue >> A1)
-        
-        let comparisonMoves: [Square] = [B3, C2]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: A1, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: A1, boardState: boardState)
+        let testMoveStates = [B3, C2].map { MoveState(fromSquare: A1, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesWhiteKnightFromD5() {
-        
-        let possibleMoves: [Square] = ~(kKnightValue >> D5)
-        
-        let comparisonMoves: [Square] = [E7, F6, C7, B6, E3, F4, C3, B4]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.whiteKnight, on: D5, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D5, boardState: boardState)
+        let testMoveStates = [E7, F6, C7, B6, E3, F4, C3, B4].map { MoveState(fromSquare: D5, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
-    ///////////
-    // BLACK //
-    ///////////
+    // Black
     
     func testPossibleMovesBlackKnightFromH8() {
-        
-        let possibleMoves: [Square] = ~(-kKnightValue >> H1)
-        
-        let comparisonMoves: [Square] = [G3, F2]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: H1, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: H1, boardState: boardState)
+        let testMoveStates = [G3, F2].map { MoveState(fromSquare: H1, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesBlackKnightFromE4() {
-        
-        let possibleMoves: [Square] = ~(-kKnightValue >> E4)
-        
-        let comparisonMoves: [Square] = [F6, G5, D6, C5, F2, G3, D2, C3]
-        
-        XCTAssertTrue(possibleMoves == comparisonMoves)
+        XCTAssertTrue(BoardHandler.putPiece(.blackKnight, on: E4, boardState: boardState))
+        let moveStates = MoveGenerationHandler.getMoves(forPieceOn: E4, boardState: boardState)
+        let testMoveStates = [F6, G5, D6, C5, F2, G3, D2, C3].map { MoveState(fromSquare: E4, toSquare: $0) }
+        XCTAssertEqual(moveStates, testMoveStates)
     }
 }

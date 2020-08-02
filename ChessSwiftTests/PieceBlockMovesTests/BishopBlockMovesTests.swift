@@ -28,13 +28,13 @@ class BishopBlockMovesTests: XCTestCase {
     func testBlockWhiteBishopFromA1ToH8() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: A1, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D4, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(A1, H8), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
     }
     
     func testBlockWhiteBishopFromD1ToH5() {
         XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D1, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: F3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D1, H5), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
     }
     
     // Black
@@ -42,12 +42,12 @@ class BishopBlockMovesTests: XCTestCase {
     func testBlockBlackBishopFromA1ToH8() {
         XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: A1, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(A1, H8), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
     }
     
     func testBlockBlackBishopFromD1ToH5() {
         XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D1, boardState: boardState))
         XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: F3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(D1, H5), boardState: boardState))
+        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
     }
 }

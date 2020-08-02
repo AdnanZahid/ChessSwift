@@ -32,10 +32,10 @@ extension LegalMovesHandler {
         guard let movingPiece = getPiece(on: fromSquare, boardState: boardState),
             isPiece(movingPiece, allowedToCapture: targetPiece) else { return false }
         let moveOrCaptureStrategies = targetPiece == nil ? movingPiece.rawValue.movementStrategies : movingPiece.rawValue.captureStrategies
-        let isMovementOrCaptureStrategyValid = isValid(move: move, movementStrategies: moveOrCaptureStrategies)
-        let isMovementTypeValid = isValid(move: move, movementTypes: movingPiece.rawValue.movementTypes, boardState: boardState)
-        let isMovementDirectionValid = isValid(move: move, movementDirection: movingPiece.rawValue.movementDirection, color: movingPiece.rawValue.color)
-        return isMovementOrCaptureStrategyValid && isMovementTypeValid && isMovementDirectionValid
+        guard isValid(move: move, movementStrategies: moveOrCaptureStrategies),
+            isValid(move: move, movementTypes: movingPiece.rawValue.movementTypes, boardState: boardState),
+            isValid(move: move, movementDirection: movingPiece.rawValue.movementDirection, color: movingPiece.rawValue.color) else { return false }
+        return true
     }
     
     private static func isValid(move: MoveState, movementStrategies: [MovementStrategy]) -> Bool {
@@ -164,6 +164,7 @@ extension LegalMovesHandler {
     }
     
     private static func isPiece(_ movingPiece: Piece, allowedToCapture targetPiece: Piece?) -> Bool {
+        guard targetPiece?.rawValue.allowedToBeCaptured ?? true else { return false }
         return targetPiece == nil || movingPiece.rawValue.color != targetPiece?.rawValue.color
     }
 }

@@ -36,6 +36,7 @@ typealias PieceTuple = (value: Int,
     captureStrategies: [MovementStrategy],
     movementTypes: [MovementType],
     movementDirection: MovementDirection,
+    allowedToBeCaptured: Bool,
     color: Color,
     symbol: String)
 
@@ -69,6 +70,7 @@ enum Piece: RawRepresentable {
                                              captureStrategies: [.diagonal],
                                              movementTypes: [.slide],
                                              movementDirection: .any,
+                                             allowedToBeCaptured: true,
                                              color: .white,
                                              symbol: "b")
             
@@ -79,6 +81,7 @@ enum Piece: RawRepresentable {
                                                            .slideFrom(fileIndex: FileIndex._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
                                                            .slideFrom(fileIndex: FileIndex._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
+                                           allowedToBeCaptured: false,
                                            color: .white,
                                            symbol: "k")
             
@@ -87,6 +90,7 @@ enum Piece: RawRepresentable {
                                              captureStrategies: [.lShaped],
                                              movementTypes: [.hop],
                                              movementDirection: .any,
+                                             allowedToBeCaptured: true,
                                              color: .white,
                                              symbol: "n")
             
@@ -95,6 +99,7 @@ enum Piece: RawRepresentable {
                                            captureStrategies: [.diagonal],
                                            movementTypes: [.step, .slideFrom(rankIndex: RankIndex._2, forNumberOfRanks: PieceConstants.pawnFirstMoveSteps)],
                                            movementDirection: .forward,
+                                           allowedToBeCaptured: true,
                                            color: .white,
                                            symbol: "p")
             
@@ -103,6 +108,7 @@ enum Piece: RawRepresentable {
                                             captureStrategies: [.diagonal, .straight],
                                             movementTypes: [.slide],
                                             movementDirection: .any,
+                                            allowedToBeCaptured: true,
                                             color: .white,
                                             symbol: "q")
             
@@ -111,6 +117,7 @@ enum Piece: RawRepresentable {
                                            captureStrategies: [.straight],
                                            movementTypes: [.slide],
                                            movementDirection: .any,
+                                           allowedToBeCaptured: true,
                                            color: .white,
                                            symbol: "r")
             
@@ -121,6 +128,7 @@ enum Piece: RawRepresentable {
                                              captureStrategies: [.diagonal],
                                              movementTypes: [.slide],
                                              movementDirection: .any,
+                                             allowedToBeCaptured: true,
                                              color: .black,
                                              symbol: "B")
             
@@ -131,6 +139,7 @@ enum Piece: RawRepresentable {
                                                            .slideFrom(fileIndex: FileIndex._A, forNumberOfFiles: PieceConstants.kingCastlingSteps),
                                                            .slideFrom(fileIndex: FileIndex._H, forNumberOfFiles: PieceConstants.kingCastlingSteps)],
                                            movementDirection: .any,
+                                           allowedToBeCaptured: false,
                                            color: .black,
                                            symbol: "K")
             
@@ -139,6 +148,7 @@ enum Piece: RawRepresentable {
                                              captureStrategies: [.lShaped],
                                              movementTypes: [.hop],
                                              movementDirection: .any,
+                                             allowedToBeCaptured: true,
                                              color: .black,
                                              symbol: "N")
             
@@ -147,6 +157,7 @@ enum Piece: RawRepresentable {
                                            captureStrategies: [.diagonal],
                                            movementTypes: [.step, .slideFrom(rankIndex: RankIndex._7, forNumberOfRanks: PieceConstants.pawnFirstMoveSteps)],
                                            movementDirection: .forward,
+                                           allowedToBeCaptured: true,
                                            color: .black,
                                            symbol: "P")
             
@@ -155,6 +166,7 @@ enum Piece: RawRepresentable {
                                             captureStrategies: [.diagonal, .straight],
                                             movementTypes: [.slide],
                                             movementDirection: .any,
+                                            allowedToBeCaptured: true,
                                             color: .black,
                                             symbol: "Q")
             
@@ -163,6 +175,7 @@ enum Piece: RawRepresentable {
                                            captureStrategies: [.straight],
                                            movementTypes: [.slide],
                                            movementDirection: .any,
+                                           allowedToBeCaptured: true,
                                            color: .black,
                                            symbol: "R")
         }

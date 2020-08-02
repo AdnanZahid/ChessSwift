@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FA23A3F1-927A-4B86-825A-4C725666297A"
+            uuid = "756E9B6E-FB8B-4D6D-AE42-7DFD88E5D6A5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Factories/PieceFactory.swift"
+            filePath = "ChessSwift/Models/States/SquareState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "getPiece(_:)"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "+(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DA576501-8A27-4D8E-AF5B-DAD02C1DAF94"
+            uuid = "9152C16B-236E-4A4C-8B80-72B06378AE03"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Factories/PieceFactory.swift"
+            filePath = "ChessSwift/Models/States/SquareState.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "getPiece(_:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

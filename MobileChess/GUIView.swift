@@ -143,7 +143,7 @@ extension GUIView: OutputHandler {
                 let pieces = SCNScene(named: "art.scnassets/ChessPieces.dae")!
                 let node = pieces.rootNode.childNode(withName: piece.rawValue.symbol.uppercased(), recursively: true)!
                 if piece.rawValue.color == .black {
-                    let blackMaterial: SCNMaterial = node.geometry!.firstMaterial!
+                    let blackMaterial = node.geometry!.firstMaterial!
                     blackMaterial.diffuse.contents = UIColor(white: UIConstants.darkSquareWhite, alpha: UIConstants.darkSquareAlpha)
                     node.geometry!.firstMaterial = blackMaterial
                 }

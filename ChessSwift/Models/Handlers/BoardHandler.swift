@@ -39,7 +39,16 @@ extension BoardHandler {
     
     static func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> Bool {
         guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return false }
-        square?.piece = piece
+        switch piece.rawValue.eligibleForPromotion {
+        case .yes(let rankIndex, let promotionOptions):
+            if square?.rankIndex == rankIndex {
+                square?.piece = promotionOptions.last
+            } else {
+                square?.piece = piece
+            }
+        case .no:
+            square?.piece = piece
+        }
         boardState.squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
         return true
     }

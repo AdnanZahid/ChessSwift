@@ -38,7 +38,7 @@ enum MovementStrategy: RawRepresentable {
     }
     
     init?(rawValue: [AdvancementState]) {
-        return nil
+        nil
     }
 }
 
@@ -226,6 +226,6 @@ enum Piece: RawRepresentable {
     }
     
     init?(rawValue: PieceTuple) {
-        return nil
+        nil
     }
 }

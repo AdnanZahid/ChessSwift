@@ -24,18 +24,15 @@ class MoveGenerationHandler {
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
     private static func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardState) -> [MoveState] {
-        return movementStrategies
-            .map { $0.rawValue }
-            .flatMap { $0 }
-            .map { advancementState in
-                return getMoves(on: squareState, for: advancementState, boardState: boardState)
+        movementStrategies
+            .flatMap { $0.rawValue }
+            .flatMap { advancementState in
+                getMoves(on: squareState, for: advancementState, boardState: boardState)
         }
-        .flatMap { $0 }
-        .compactMap { $0 }
     }
     
     private static func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {

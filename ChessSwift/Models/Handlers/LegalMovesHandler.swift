@@ -35,11 +35,11 @@ extension LegalMovesHandler {
     }
     
     private static func isZeroStepAdvanced(for move: MoveState) -> Bool {
-        return move.fromSquare == move.toSquare
+        move.fromSquare == move.toSquare
     }
     
     static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
     private static func isPiece(_ movingPiece: Piece, allowedToCapture targetPiece: Piece?) -> Bool {

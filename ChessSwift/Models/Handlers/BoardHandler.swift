@@ -34,7 +34,7 @@ extension BoardHandler {
     }
     
     static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
     static func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> Bool {

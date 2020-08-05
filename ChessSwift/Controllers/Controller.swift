@@ -27,9 +27,9 @@ class Controller {
     }
     
     func runEngine() {
-        //        inputHandler = AIHandler()
+        inputHandler = AIHandler()
         inputHandler.inputHandlerDelegate = self
-        inputHandler.input()
+        inputHandler.input(boardState: gameState.boardState)
     }
     
     func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {
@@ -56,7 +56,7 @@ extension Controller: InputHandlerDelegate {
     }
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
-        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
+        MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
     }
     
     private func changeTurn() {

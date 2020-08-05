@@ -14,7 +14,7 @@ struct ScenekitView: UIViewRepresentable {
     private var controller = Controller(view: GUIView())
     
     func makeUIView(context: Context) -> SCNView {
-        return controller.outputHandler as! SCNView
+        controller.outputHandler as! SCNView
     }
     
     func updateUIView(_ scnView: SCNView, context: Context) {

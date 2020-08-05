@@ -16,7 +16,7 @@ struct SquareState {
 
 extension SquareState: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "\(fileIndex)\(rankIndex)"
+        "\(fileIndex)\(rankIndex)"
     }
 }
 
@@ -28,6 +28,6 @@ extension SquareState: Equatable {
     }
     
     static func - (square: SquareState, advancement: AdvancementState) -> SquareState? {
-        return square + (AdvancementState(fileAdvancement: advancement.fileAdvancement, rankAdvancement: advancement.rankAdvancement) * -1)
+        square + (AdvancementState(fileAdvancement: advancement.fileAdvancement, rankAdvancement: advancement.rankAdvancement) * -1)
     }
 }

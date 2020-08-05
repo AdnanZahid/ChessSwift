@@ -16,6 +16,6 @@ struct MoveState: Equatable {
 
 extension MoveState: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "\(fromSquare)->\(toSquare)"
+        "\(fromSquare)->\(toSquare)"
     }
 }

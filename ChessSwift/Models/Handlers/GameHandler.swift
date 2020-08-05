@@ -17,10 +17,10 @@ class GameHandler {
     }
     
     private static func isCurrentPlayersMove(_ move: MoveState, gameState: GameState) -> Bool {
-        return gameState.currentPlayer.color == getPiece(on: move.fromSquare, boardState: gameState.boardState)?.rawValue.color
+        gameState.currentPlayer.color == getPiece(on: move.fromSquare, boardState: gameState.boardState)?.rawValue.color
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 }

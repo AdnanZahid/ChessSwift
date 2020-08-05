@@ -45,8 +45,7 @@ class CLIView {
 
 extension CLIView: InputHandler {
     
-    func input(boardState: BoardState) {
-        
+    func input(gameState: GameState) {
         guard let string = readLine(strippingNewline: true)?.capitalized else { return }
         let input = Array(string)
         let fromFile = input[0]

@@ -15,6 +15,6 @@ class EvaluationValueHandler {
         let pieceSquares = boardState.squares.flatMap { $0 }.compactMap { $0 }
         let pieceValueSum = pieces.reduce(0) { $0 + $1.rawValue.value }
         let mobilityValueSum = pieceSquares.reduce(0) { $0 + MoveGenerationHandler.getMoves(forPieceOn: $1, boardState: boardState).count }
-        return mobilityValueSum
+        return pieceValueSum + mobilityValueSum
     }
 }

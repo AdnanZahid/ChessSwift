@@ -10,6 +10,10 @@ import Foundation
 
 class GameHandler {
     
+    static func isAITurn(gameState: GameState) -> Bool {
+        gameState.currentPlayer.isAI
+    }
+    
     static func move(_ move: MoveState, gameState: GameState) -> Bool {
         guard isCurrentPlayersMove(move, gameState: gameState),
             BoardHandler.move(move, boardState: gameState.boardState) else { return false }

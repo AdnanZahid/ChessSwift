@@ -15,7 +15,7 @@ protocol InputHandlerDelegate: class {
 
 protocol InputHandler {
     var inputHandlerDelegate: InputHandlerDelegate? { get set }
-    func input(boardState: BoardState)
+    func input(gameState: GameState)
 }
 
 protocol OutputHandler: InputHandler {

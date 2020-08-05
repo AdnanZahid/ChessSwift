@@ -16,8 +16,8 @@ class Controller {
     
     init(view: OutputHandler) {
         let boardState = BoardState()
-        let whitePlayer = PlayerState(isAI: false, color: .white)
-        let blackPlayer = PlayerState(isAI: false, color: .black)
+        let whitePlayer = PlayerState(isAI: true, color: .white)
+        let blackPlayer = PlayerState(isAI: true, color: .black)
         gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
         inputHandler = view
         outputHandler = view
@@ -27,9 +27,9 @@ class Controller {
     }
     
     func runEngine() {
-        inputHandler = AIHandler()
+        inputHandler = GameHandler.isAITurn(gameState: gameState) ? AIHandler() : outputHandler
         inputHandler.inputHandlerDelegate = self
-        inputHandler.input(boardState: gameState.boardState)
+        inputHandler.input(gameState: gameState)
     }
     
     func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {

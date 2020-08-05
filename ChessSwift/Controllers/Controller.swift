@@ -16,8 +16,8 @@ class Controller {
     
     init(view: OutputHandler) {
         let boardState = BoardState()
-        let whitePlayer = PlayerState(isAI: false, color: .white, piecesList: [])
-        let blackPlayer = PlayerState(isAI: false, color: .black, piecesList: [])
+        let whitePlayer = PlayerState(isAI: false, color: .white)
+        let blackPlayer = PlayerState(isAI: false, color: .black)
         gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
         inputHandler = view
         outputHandler = view

@@ -23,9 +23,6 @@ class GUIView: SCNView {
     var liftedPiece: SCNNode?
     var liftedPieceMovesBoard: SCNNode?
     
-    var squaresArray = [[SCNNode?]](repeating: [SCNNode?](repeating: nil, count: RankIndex._8.rawValue - RankIndex._1.rawValue + 1),
-                                    count: FileIndex._H.rawValue - FileIndex._A.rawValue + 1)
-    
     var pieceNodeArray = [[SCNNode?]](repeating: [SCNNode?](repeating: nil, count: RankIndex._8.rawValue - RankIndex._1.rawValue + 1),
                                       count: FileIndex._H.rawValue - FileIndex._A.rawValue + 1)
     
@@ -65,7 +62,6 @@ class GUIView: SCNView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(GUIView.handleTap(_:)))
         gestureRecognizers?.append(tapGesture)
         
-//        scene?.rootNode.childNodes.forEach { $0.childNodes.forEach { $0.removeFromParentNode() }; $0.removeFromParentNode(); }
         scene?.rootNode.addChildNode(getChessBoard())
     }
     
@@ -86,9 +82,7 @@ class GUIView: SCNView {
         let boardNode = SCNNode()
         boardNode.position = SCNVector3Zero
         
-        squaresArray = []
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
-            var rankArray: [SCNNode] = []
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
                 let isBlack = (rank + file) % 2 != 0
                 let geometry = isBlack ? darkSquare : lightSquare
@@ -96,9 +90,34 @@ class GUIView: SCNView {
                 squareNode.position = SCNVector3(-file, 0, -rank)
                 boardNode.addChildNode(squareNode)
                 squareNode.name = "SQUARE"
-                rankArray.append(squareNode)
             }
-            squaresArray.append(rankArray)
+        }
+        
+        return boardNode
+    }
+    
+    func getMovesBoard(moveStates: [MoveState], fromSquare: SquareState) -> SCNNode {
+        let boardNode = SCNNode()
+        boardNode.position = SCNVector3Zero
+        Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
+            Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
+                let shouldApplyGreen = moveStates.contains(MoveState(fromSquare: fromSquare,
+                                                                     toSquare: SquareState(fileIndex: FileIndex(rawValue: file)!,
+                                                                                           rankIndex: RankIndex(rawValue: rank)!)))
+                if shouldApplyGreen {
+                    let square = SCNBox(width: UIConstants.squareWidth,
+                                        height: UIConstants.squareHeight,
+                                        length: UIConstants.squareLength,
+                                        chamferRadius: UIConstants.squareChamferRadius)
+                    let material = SCNMaterial()
+                    material.diffuse.contents = UIColor(red: 0, green: UIConstants.lightSquareGreen, blue: 0, alpha: UIConstants.lightSquareAlpha)
+                    square.firstMaterial = material
+                    let squareNode = SCNNode(geometry: square)
+                    squareNode.position = SCNVector3(file + UIConstants.pieceXOffset, 0, -rank)
+                    boardNode.addChildNode(squareNode)
+                    squareNode.name = "GREEN"
+                }
+            }
         }
         
         return boardNode
@@ -123,10 +142,14 @@ class GUIView: SCNView {
     private func liftPiece(_ node: SCNNode, direction: PieceLiftDirection) {
         liftedPiece = node
         animateWithAction { node.position.y = direction.rawValue }
-        let fromSquare = SquareState(fileIndex: FileIndex(rawValue: Int(liftedPiece!.position.x) - UIConstants.pieceXOffset)!,
-                                     rankIndex: RankIndex(rawValue: -Int(liftedPiece!.position.z))!)
-        inputHandlerDelegate?.getMoves(forPieceOn: fromSquare).forEach { moveState in
-            self.squaresArray[moveState.fromSquare.rankIndex.rawValue][moveState.fromSquare.fileIndex.rawValue]?.isHidden = true
+        
+        switch direction {
+        case .down:
+            scene?.rootNode.childNodes.forEach { $0.childNodes.forEach { if $0.name == "GREEN" { $0.removeFromParentNode() } } }
+        case .up:
+            let fromSquare = SquareState(fileIndex: FileIndex(rawValue: Int(liftedPiece!.position.x) - UIConstants.pieceXOffset)!,
+                                         rankIndex: RankIndex(rawValue: -Int(liftedPiece!.position.z))!)
+            scene?.rootNode.addChildNode(getMovesBoard(moveStates: (inputHandlerDelegate?.getMoves(forPieceOn: fromSquare))!, fromSquare: fromSquare))
         }
     }
     
@@ -194,6 +217,8 @@ extension GUIView: OutputHandler {
         animateWithAction {
             node.position = SCNVector3(toFile + UIConstants.startingFilePosition + UIConstants.pieceXOffset, 0, -(toRank + UIConstants.startingRankPosition))
         }
+
+        scene?.rootNode.childNodes.forEach { $0.childNodes.forEach { if $0.name == "GREEN" { $0.removeFromParentNode() } } }
     }
     
     func cancelMove() {

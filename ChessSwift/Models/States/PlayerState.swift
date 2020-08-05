@@ -11,5 +11,4 @@ import Foundation
 struct PlayerState {
     let isAI: Bool
     let color: Color
-    var piecesList: [Piece]
 }

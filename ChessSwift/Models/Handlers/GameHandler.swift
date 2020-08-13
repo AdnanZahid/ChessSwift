@@ -14,10 +14,14 @@ class GameHandler {
         gameState.currentPlayer.isAI
     }
     
-    static func move(_ move: MoveState, gameState: GameState) -> Bool {
+    static func move(_ move: MoveState, gameState: GameState) -> GameState? {
         guard isCurrentPlayersMove(move, gameState: gameState),
-            BoardHandler.move(move, boardState: gameState.boardState) else { return false }
-        return true
+            let boardState = BoardHandler.move(move, boardState: gameState.boardState) else { return nil }
+        return GameState(boardState: boardState,
+                         whitePlayer: gameState.whitePlayer,
+                         blackPlayer: gameState.blackPlayer,
+                         // Change turn
+            currentPlayer: gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer)
     }
     
     private static func isCurrentPlayersMove(_ move: MoveState, gameState: GameState) -> Bool {

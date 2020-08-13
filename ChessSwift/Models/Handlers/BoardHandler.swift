@@ -11,34 +11,36 @@ import Foundation
 class BoardHandler {
 }
 
-extension BoardHandler: MoveHandler {
+extension BoardHandler {
     
-    static func move(_ move: MoveState, boardState: BoardState) -> Bool {
+    static func move(_ move: MoveState, boardState: BoardState) -> BoardState? {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
         guard LegalMovesHandler.move(move, boardState: boardState),
             let movingPiece = getPiece(on: fromSquare, boardState: boardState),
-            putPiece(movingPiece, on: toSquare, boardState: boardState),
-            putEmptyPiece(on: fromSquare, boardState: boardState) else { return false }
-        return true
+            let intermediateBoardState = putPiece(movingPiece, on: toSquare, boardState: boardState),
+            let finalBoardState = putEmptyPiece(on: fromSquare, boardState: intermediateBoardState) else { return nil }
+        return finalBoardState
     }
 }
 
 extension BoardHandler {
     
-    private static func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> Bool {
-        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return false }
+    private static func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> BoardState? {
+        var squares = boardState.squares
+        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         square?.piece = nil
-        boardState.squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
-        return true
+        squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
+        return BoardState(squares: squares)
     }
     
     static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
-    static func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> Bool {
-        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return false }
+    static func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> BoardState? {
+        var squares = boardState.squares
+        guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         switch piece.rawValue.eligibleForPromotion {
         case .yes(let rankIndex, let promotionOptions):
             if square?.rankIndex == rankIndex {
@@ -49,14 +51,14 @@ extension BoardHandler {
         case .no:
             square?.piece = piece
         }
-        boardState.squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
-        return true
+        squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
+        return BoardState(squares: squares)
     }
     
-    static func setup(boardState: BoardState, configuration: Constants.ChessBoardConfiguration.ConfigurationType) {
+    static func setup(configuration: Constants.ChessBoardConfiguration.ConfigurationType) -> BoardState {
         var rankCount = -1
         var fileCount = -1
-        boardState.squares = configuration.map { rank in
+        return BoardState(squares: configuration.map { rank in
             fileCount = -1
             rankCount += 1
             return rank.map { pieceValue in
@@ -64,6 +66,6 @@ extension BoardHandler {
                 guard let fileIndex = FileIndex(rawValue: fileCount), let rankIndex = RankIndex(rawValue: rankCount) else { return nil }
                 return SquareState(fileIndex: fileIndex, rankIndex: rankIndex, piece: PieceFactory.getPiece(pieceValue))
             }
-        }
+        })
     }
 }

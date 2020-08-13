@@ -24,7 +24,3 @@ protocol OutputHandler: InputHandler {
     func output(move: MoveState, boardState: BoardState)
     func cancelMove()
 }
-
-protocol MoveHandler {
-    static func move(_ move: MoveState, boardState: BoardState) -> Bool
-}

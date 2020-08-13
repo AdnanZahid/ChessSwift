@@ -11,7 +11,7 @@ import Foundation
 class LegalMovesHandler {
 }
 
-extension LegalMovesHandler: MoveHandler {
+extension LegalMovesHandler {
     
     static func move(_ move: MoveState, boardState: BoardState) -> Bool {
         guard !isZeroStepAdvanced(for: move) else { return false }

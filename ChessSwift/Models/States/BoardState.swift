@@ -8,17 +8,13 @@
 
 import Foundation
 
-class BoardState: NSCopying {
+struct BoardState {
     
     private enum Constants {
         static let newLine = "\n"
     }
     
-    var squares: [[SquareState?]] = []
-    
-    func copy(with zone: NSZone? = nil) -> Any {
-    { $0.squares = squares; return $0; } (BoardState())
-    }
+    let squares: [[SquareState?]]
 }
 
 extension BoardState: CustomDebugStringConvertible {

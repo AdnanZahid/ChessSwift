@@ -14,8 +14,7 @@ class RookCapturesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,60 +25,84 @@ class RookCapturesTests: XCTestCase {
     // White
     
     func testCaptureWhiteRookFromD4ToD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
     }
     
     func testCaptureWhiteRookFromD4ToD5ToE5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D5, toSquare: E5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteRook, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: E5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: D5, toSquare: E5), boardState: boardState))
     }
 
     func testCaptureWhiteRookFromF6ToF1() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F1), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteRook, on: F6, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: F1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F1), boardState: boardState))
     }
     
     func testCaptureWhiteRookFromF6ToF2ToA2() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: A2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F2), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F2, toSquare: A2), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteRook, on: F6, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: F2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackRook, on: A2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.move(MoveState(fromSquare: F6, toSquare: F2), boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: F2, toSquare: A2), boardState: boardState))
     }
     
     // Black
     
     func testCaptureBlackRookFromD4ToD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
     }
     
     func testCaptureBlackRookFromD4ToD5ToE5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: D5, toSquare: E5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackRook, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: E5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.move(MoveState(fromSquare: D4, toSquare: D5), boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: D5, toSquare: E5), boardState: boardState))
     }
 
     func testCaptureBlackRookFromF6ToF1() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F1), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackRook, on: F6, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: F1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F1), boardState: boardState))
     }
     
     func testCaptureBlackRookFromF6ToF2ToA2() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackRook, on: F6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: F2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteRook, on: A2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F6, toSquare: F2), boardState: boardState))
-        XCTAssertTrue(BoardHandler.move(MoveState(fromSquare: F2, toSquare: A2), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackRook, on: F6, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: F2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteRook, on: A2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.move(MoveState(fromSquare: F6, toSquare: F2), boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNotNil(BoardHandler.move(MoveState(fromSquare: F2, toSquare: A2), boardState: boardState))
     }
 }

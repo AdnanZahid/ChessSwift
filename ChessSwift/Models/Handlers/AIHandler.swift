@@ -61,7 +61,6 @@ extension AIHandler: InputHandler {
         }
         
         var bestValue: Int
-        var bestMoveState: MoveState? = nil
         if gameState.currentPlayer.color == .white {
             bestValue = Int.min
         } else {
@@ -73,12 +72,10 @@ extension AIHandler: InputHandler {
             if gameState.currentPlayer.color == .black {
                 if value > bestValue {
                     bestValue = value
-                    bestMoveState = moveState
                 }
             } else {
                 if value < bestValue {
                     bestValue = value
-                    bestMoveState = moveState
                 }
             }
         }

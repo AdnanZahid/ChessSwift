@@ -10,11 +10,15 @@ import Foundation
 
 class EvaluationValueHandler {
     
-    static func getValue(for boardState: BoardState) -> Int {
-        let pieces = boardState.squares.flatMap { $0 }.compactMap { $0?.piece }
-        let pieceSquares = boardState.squares.flatMap { $0 }.compactMap { $0 }
-        let pieceValueSum = pieces.reduce(0) { $0 + $1.rawValue.value }
+    private enum Constants {
+        static let pieceValueWeight = 1
+        static let mobilityValueWeight = 5
+    }
+    
+    static func getValue(for boardState: BoardState, player: PlayerState) -> Int {
+        let pieceSquares = boardState.squares.flatMap { $0 }.compactMap { $0 }.filter { $0.piece?.rawValue.color == player.color }
+        let pieceValueSum = pieceSquares.compactMap { $0.piece }.reduce(0) { $0 + $1.rawValue.value }
         let mobilityValueSum = pieceSquares.reduce(0) { $0 + MoveGenerationHandler.getMoves(forPieceOn: $1, boardState: boardState).count }
-        return pieceValueSum + mobilityValueSum
+        return (pieceValueSum * Constants.pieceValueWeight) + (mobilityValueSum * Constants.mobilityValueWeight)
     }
 }

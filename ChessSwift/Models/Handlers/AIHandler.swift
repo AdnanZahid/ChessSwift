@@ -9,64 +9,80 @@
 import Foundation
 
 class AIHandler {
-    weak var inputHandlerDelegate: InputHandlerDelegate?
     
-    var count = 1
+    private enum Constants {
+        static let maxDepth = 3
+    }
+    
+    weak var inputHandlerDelegate: InputHandlerDelegate?
 }
 
 extension AIHandler: InputHandler {
     
     func input(gameState: GameState) {
-        guard let move = bestMove(gameState: gameState) else {
-            print("Nil")
-            return
-        }
-        inputHandlerDelegate?.didTakeInput(move)
+        guard let moveState = firstMinimax(depth: Constants.maxDepth, gameState: gameState) else { return }
+        inputHandlerDelegate?.didTakeInput(moveState)
     }
     
-    private func bestMove(gameState: GameState) -> MoveState? {
-        count -= 1
-        let boardState = gameState.boardState
-        let squares = currentPlayerSquares(gameState: gameState)
-        let playerMoves = currentPlayerMoves(squares: squares, boardState: boardState)
-        let moves = movesWithValues(playerMoves, boardState: boardState)
-        guard let move = moves.first,
-            let intermediateGameState = GameHandler.move(move, gameState: gameState) else {
-                print("Nil")
-                return nil
-        }
-        let finalGameState = gameStateWithChangedTurn(gameState: intermediateGameState)
-        if count == 0 {
-            count = 1
-            return move
+    func firstMinimax(depth: Int, gameState: GameState) -> MoveState? {
+        var bestValue: Int
+        var bestMoveState: MoveState? = nil
+        if gameState.currentPlayer.color == .white {
+            bestValue = Int.min
         } else {
-            return bestMove(gameState: finalGameState)
+            bestValue = Int.max
         }
-    }
-    
-    private func currentPlayerSquares(gameState: GameState) -> [SquareState] {
-        gameState.boardState.squares.flatMap { $0 }.filter { $0?.piece?.rawValue.color == gameState.currentPlayer.color }.compactMap { $0 }
-    }
-    
-    private func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
-        squares.flatMap { MoveGenerationHandler.getMoves(forPieceOn: $0, boardState: boardState) }
-    }
-    
-    private func movesWithValues(_ moves: [MoveState], boardState: BoardState) -> [MoveState] {
-        moves.compactMap {
-            let boardStateCopy = BoardState(squares: boardState.squares)
-            guard let finalBoardState = BoardHandler.move($0, boardState: boardStateCopy) else {
-                print("Nil")
-                return nil
+        for moveState in AIGameState(gameState: gameState) {
+            guard let gameState = GameHandler.move(moveState, gameState: gameState) else { break }
+            let value = minimax(depth: depth - 1, gameState: gameState)
+            if gameState.currentPlayer.color == .black {
+                if value > bestValue {
+                    bestValue = value
+                    bestMoveState = moveState
+                }
+            } else {
+                if value < bestValue {
+                    bestValue = value
+                    bestMoveState = moveState
+                }
             }
-            return MoveState(fromSquare: $0.fromSquare, toSquare: $0.toSquare, evaluationValue: EvaluationValueHandler.getValue(for: finalBoardState))
-        }.sorted(by: { $0.evaluationValue ?? 0 > $1.evaluationValue ?? 0 })
+        }
+        return bestMoveState
     }
     
-    private func gameStateWithChangedTurn(gameState: GameState) -> GameState {
-        return GameState(boardState: gameState.boardState,
-                         whitePlayer: gameState.whitePlayer,
-                         blackPlayer: gameState.blackPlayer,
-                         currentPlayer: gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer)
+    func minimax(depth: Int, gameState: GameState) -> Int {
+        
+        if depth == 0 {
+            if gameState.currentPlayer.color == .white {
+                return EvaluationValueHandler.getValue(for: gameState.boardState, player: gameState.currentPlayer)
+            } else {
+                return -EvaluationValueHandler.getValue(for: gameState.boardState, player: gameState.currentPlayer)
+            }
+        }
+        
+        var bestValue: Int
+        var bestMoveState: MoveState? = nil
+        if gameState.currentPlayer.color == .white {
+            bestValue = Int.min
+        } else {
+            bestValue = Int.max
+        }
+        for moveState in AIGameState(gameState: gameState) {
+            guard let gameState = GameHandler.move(moveState, gameState: gameState) else { break }
+            let value = minimax(depth: depth - 1, gameState: gameState)
+            if gameState.currentPlayer.color == .black {
+                if value > bestValue {
+                    bestValue = value
+                    bestMoveState = moveState
+                }
+            } else {
+                if value < bestValue {
+                    bestValue = value
+                    bestMoveState = moveState
+                }
+            }
+        }
+        
+        return bestValue
     }
 }

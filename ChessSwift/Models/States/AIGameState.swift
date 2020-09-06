@@ -18,8 +18,7 @@ extension AIGameState: Sequence, IteratorProtocol {
     typealias Element = MoveState
     
     mutating func next() -> MoveState? {
-        guard let moveState = nextMoveState(gameState: gameState),
-            let gameState = GameHandler.move(moveState, gameState: gameState) else { return nil }
+        guard let moveState = nextMoveState(gameState: gameState) else { return nil }
         moveIndex += 1
         return moveState
     }

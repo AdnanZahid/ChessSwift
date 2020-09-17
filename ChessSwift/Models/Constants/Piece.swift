@@ -65,14 +65,14 @@ enum Color {
 }
 
 typealias PieceTuple = (value: Int,
-    movementStrategies: [MovementStrategy],
-    captureStrategies: [MovementStrategy],
-    movementTypes: [MovementType],
-    movementDirection: MovementDirection,
-    allowedToBeCaptured: Bool,
-    eligibleForPromotion: EligibleForPromotion,
-    color: Color,
-    symbol: String)
+                        movementStrategies: [MovementStrategy],
+                        captureStrategies: [MovementStrategy],
+                        movementTypes: [MovementType],
+                        movementDirection: MovementDirection,
+                        allowedToBeCaptured: Bool,
+                        eligibleForPromotion: EligibleForPromotion,
+                        color: Color,
+                        symbol: String)
 
 enum Piece: RawRepresentable {
     private enum PieceConstants {
@@ -94,11 +94,24 @@ enum Piece: RawRepresentable {
     case blackQueen
     case blackRook
     
+    // Just a hack - For empty initialization of codable instance
+    case empty
+    
     var rawValue: PieceTuple {
         switch self {
+        
+        case .empty: return PieceTuple(value: Constants.Values.empty,
+                                       movementStrategies: [],
+                                       captureStrategies: [],
+                                       movementTypes: [],
+                                       movementDirection: .any,
+                                       allowedToBeCaptured: false,
+                                       eligibleForPromotion: .no,
+                                       color: .white,
+                                       symbol: "")
             
-            // White
-            
+        // White
+        
         case .whiteBishop: return PieceTuple(value: Constants.Values.bishop,
                                              movementStrategies: [.diagonal],
                                              captureStrategies: [.diagonal],
@@ -160,8 +173,8 @@ enum Piece: RawRepresentable {
                                            color: .white,
                                            symbol: "r")
             
-            // Black
-            
+        // Black
+        
         case .blackBishop: return PieceTuple(value: Constants.Values.bishop,
                                              movementStrategies: [.diagonal],
                                              captureStrategies: [.diagonal],
@@ -227,5 +240,15 @@ enum Piece: RawRepresentable {
     
     init?(rawValue: PieceTuple) {
         nil
+    }
+}
+
+extension Piece: Codable {
+    
+    init(from decoder: Decoder) throws {
+        self = .empty
+    }
+    
+    func encode(to encoder: Encoder) throws {
     }
 }

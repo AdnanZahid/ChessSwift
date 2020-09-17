@@ -10,6 +10,12 @@
 		E647456B251409620022B67D /* FENHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647456A251409620022B67D /* FENHandler.swift */; };
 		E64745712514097A0022B67D /* HashingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64745702514097A0022B67D /* HashingHandler.swift */; };
 		E647457B25140F550022B67D /* MoveMemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647457A25140F550022B67D /* MoveMemoizationHandler.swift */; };
+		E6803C5C2514292D00E82C65 /* FENHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647456A251409620022B67D /* FENHandler.swift */; };
+		E6803C612514292E00E82C65 /* FENHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647456A251409620022B67D /* FENHandler.swift */; };
+		E6803C622514292F00E82C65 /* FENHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647456A251409620022B67D /* FENHandler.swift */; };
+		E6803C672514293300E82C65 /* MoveMemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647457A25140F550022B67D /* MoveMemoizationHandler.swift */; };
+		E6803C6C2514293400E82C65 /* MoveMemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647457A25140F550022B67D /* MoveMemoizationHandler.swift */; };
+		E6803C712514293400E82C65 /* MoveMemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E647457A25140F550022B67D /* MoveMemoizationHandler.swift */; };
 		E689F19424D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
 		E689F19524D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
 		E689F19624D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F19124D6DEC200CD0392 /* MovementStrategyHandler.swift */; };
@@ -733,6 +739,8 @@
 				E6B1882E24D5B78A000F6E71 /* SquareHandler.swift in Sources */,
 				E689F1A324D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */,
+				E6803C6C2514293400E82C65 /* MoveMemoizationHandler.swift in Sources */,
+				E6803C612514292E00E82C65 /* FENHandler.swift in Sources */,
 				E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */,
 				E6B1882B24D5B78A000F6E71 /* PieceFactory.swift in Sources */,
 				E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */,
@@ -750,10 +758,12 @@
 				E6B188C924D5EADD000F6E71 /* BoardState.swift in Sources */,
 				E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */,
 				E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */,
+				E6803C712514293400E82C65 /* MoveMemoizationHandler.swift in Sources */,
 				E689F19724D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B188C724D5EADD000F6E71 /* SquareHandler.swift in Sources */,
 				E6B188C224D5EADD000F6E71 /* Piece.swift in Sources */,
 				E689F1A424D6E45100CD0392 /* AIHandler.swift in Sources */,
+				E6803C622514292F00E82C65 /* FENHandler.swift in Sources */,
 				E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */,
 				E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */,
 				E6B188C624D5EADD000F6E71 /* LegalMovesHandler.swift in Sources */,
@@ -801,7 +811,9 @@
 				E6B188AA24D5EAD7000F6E71 /* Interface.swift in Sources */,
 				E689F1A224D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E689F26824D7086D00CD0392 /* PawnBoardOperationsTests.swift in Sources */,
+				E6803C672514293300E82C65 /* MoveMemoizationHandler.swift in Sources */,
 				E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */,
+				E6803C5C2514292D00E82C65 /* FENHandler.swift in Sources */,
 				E689F26724D7086D00CD0392 /* KnightBoardOperationsTests.swift in Sources */,
 				E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */,
 				E689F25C24D7086C00CD0392 /* PawnAllowMovesTests.swift in Sources */,

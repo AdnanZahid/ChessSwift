@@ -32,6 +32,9 @@ enum RankIndex: Int {
     }
 }
 
+extension RankIndex: Codable {
+}
+
 enum FileIndex: Int {
     case _A   = 0
     case _B   = 1
@@ -54,4 +57,7 @@ enum FileIndex: Int {
     static func - (index: FileIndex, number: Int) -> FileIndex? {
         index + (-1)
     }
+}
+
+extension FileIndex: Codable {
 }

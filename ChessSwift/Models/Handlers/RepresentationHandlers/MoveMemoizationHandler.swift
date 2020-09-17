@@ -11,13 +11,11 @@ import Foundation
 class MoveMemoizationHandler {
     
     static func setMoves(_ moveStates: [MoveState], forSquareState squareState: SquareState, forKey key: String) {
-        let archivedSquareState = try? NSKeyedArchiver.archivedData(withRootObject: squareState, requiringSecureCoding: false)
-        let archivedMoveStates = moveStates.map { try? NSKeyedArchiver.archivedData(withRootObject: $0, requiringSecureCoding: false) }
-        UserDefaults.standard.set([archivedSquareState: archivedMoveStates], forKey: key)
+        UserDefaults.standard.set(try? JSONEncoder().encode(moveStates), forKey: "\(key)\(squareState.debugDescription)")
     }
     
     static func getMoves(forSquareState squareState: SquareState, forKey key: String) -> [MoveState]? {
-        guard let dictionary = UserDefaults.standard.value(forKey: key) as? [SquareState: [MoveState]] else { return nil }
-        return dictionary[squareState]
+        guard let data = UserDefaults.standard.value(forKey: "\(key)\(squareState.debugDescription)") as? Data else { return nil }
+        return try? JSONDecoder().decode([MoveState].self, from: data)
     }
 }

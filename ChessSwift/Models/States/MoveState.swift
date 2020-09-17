@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct MoveState: Equatable {
+struct MoveState {
     let fromSquare: SquareState
     let toSquare: SquareState
     var evaluationValue: Int?
+}
+
+extension MoveState: Equatable {
+}
+
+extension MoveState: Codable {
 }
 
 extension MoveState: CustomDebugStringConvertible {

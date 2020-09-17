@@ -11,6 +11,13 @@ import Foundation
 class MoveGenerationHandler {
     
     static func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
+        
+        // Fetch moves from memory
+        let fenRepresentation = FENHandler.representation(of: boardState)
+        if let storedMoves = MoveMemoizationHandler.getMoves(forSquareState: squareState, forKey: fenRepresentation) {
+            return storedMoves
+        }
+        
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
         // If movement strategies and capture strategies are same, calculate only once
         // Otherwise calculate for each one of them
@@ -20,7 +27,11 @@ class MoveGenerationHandler {
             moveStates.append(contentsOf: getMoves(for: piece.rawValue.captureStrategies, squareState: squareState, boardState: boardState))
             return moveStates
         }
-        return getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
+        
+        let moves = getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
+        // Store moves into the memory
+        MoveMemoizationHandler.setMoves(moves, forSquareState: squareState, forKey: fenRepresentation)
+        return moves
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {

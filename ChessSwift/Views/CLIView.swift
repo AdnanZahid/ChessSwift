@@ -79,7 +79,8 @@ extension CLIView: InputHandler {
 extension CLIView: OutputHandler {
     
     func setup(boardState: BoardState) {
-        print(boardState)
+//        print(boardState)
+        print(FENHandler.representation(of: boardState))
     }
     
     func output(move: MoveState, boardState: BoardState) {

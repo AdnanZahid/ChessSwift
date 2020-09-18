@@ -11,7 +11,7 @@ import Foundation
 class AIHandler {
     
     private enum Constants {
-        static let maxDepth = 2
+        static let maxDepth = 4
     }
     
     weak var inputHandlerDelegate: InputHandlerDelegate?

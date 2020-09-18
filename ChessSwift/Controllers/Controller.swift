@@ -48,6 +48,7 @@ extension Controller: InputHandlerDelegate {
     func didTakeInput(_ move: MoveState) {
         guard let gameState = gameState else { return }
         self.gameState = GameHandler.move(move, gameState: gameState)
+        BasicBitboardHandler.bitboardString = ""
         if self.gameState != nil {
             selectQueueAndRun(.main) { [unowned self] in
                 guard let gameState = self.gameState else { return }

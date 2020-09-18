@@ -12,9 +12,13 @@ class MoveGenerationHandler {
     
     static func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
         
+        if BasicBitboardHandler.bitboardString.isEmpty {
+            BasicBitboardHandler.bitboardString = BasicBitboardHandler.representation(of: boardState)
+        }
+        
         // Fetch moves from memory
-        let fenRepresentation = FENHandler.representation(of: boardState)
-        if let storedMoves = MoveMemoizationHandler.getMoves(forSquareState: squareState, forKey: fenRepresentation) {
+        let fenRepresentation = BasicBitboardHandler.bitboardString
+        if let storedMoves = MovesMemoizationHandler.getMoves(forSquareState: squareState, forKey: fenRepresentation) {
             return storedMoves
         }
         
@@ -30,7 +34,7 @@ class MoveGenerationHandler {
         
         let moves = getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
         // Store moves into the memory
-        MoveMemoizationHandler.setMoves(moves, forSquareState: squareState, forKey: fenRepresentation)
+        MovesMemoizationHandler.setMoves(moves, forSquareState: squareState, forKey: fenRepresentation)
         return moves
     }
     

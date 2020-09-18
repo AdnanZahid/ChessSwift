@@ -80,7 +80,7 @@ extension CLIView: OutputHandler {
     
     func setup(boardState: BoardState) {
 //        print(boardState)
-        print(FENHandler.representation(of: boardState))
+        print(BasicBitboardHandler.representation(of: boardState))
     }
     
     func output(move: MoveState, boardState: BoardState) {

@@ -13,6 +13,9 @@ struct AIGameState {
     var moveIndex = 0
 }
 
+extension AIGameState: Hashable {
+}
+
 extension AIGameState: Sequence, IteratorProtocol {
     
     typealias Element = MoveState

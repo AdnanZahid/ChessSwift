@@ -14,6 +14,9 @@ struct SquareState {
     var piece: Piece?
 }
 
+extension SquareState: Hashable {
+}
+
 extension SquareState: CustomDebugStringConvertible {
     var debugDescription: String {
         "\(fileIndex)\(rankIndex)"

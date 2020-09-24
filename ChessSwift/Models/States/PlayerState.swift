@@ -12,3 +12,6 @@ struct PlayerState {
     let isAI: Bool
     let color: Color
 }
+
+extension PlayerState: Hashable {
+}

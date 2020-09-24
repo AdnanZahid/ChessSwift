@@ -13,6 +13,9 @@ struct AdvancementState {
     let rankAdvancement: Int
 }
 
+extension AdvancementState: Hashable {
+}
+
 extension AdvancementState: Equatable {
     
     static func == (lhs: Self, rhs: Self) -> Bool {

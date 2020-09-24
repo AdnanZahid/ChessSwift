@@ -17,6 +17,9 @@ struct BoardState {
     let squares: [[SquareState?]]
 }
 
+extension BoardState: Hashable {
+}
+
 extension BoardState: CustomDebugStringConvertible {
     var debugDescription: String {
         var string = ""

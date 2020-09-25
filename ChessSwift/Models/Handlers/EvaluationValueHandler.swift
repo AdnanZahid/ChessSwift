@@ -20,8 +20,18 @@ extension EvaluationValueHandler {
     
     static func getValue(for gameState: GameState) -> Int {
         let pieceSquares = MemoizationHandler.MemoizedPiecesHandler.piecesMovable(gameState)
-        let pieceValueSum = pieceSquares.compactMap { $0.piece }.reduce(0) { $0 + $1.rawValue.value }
-        let mobilityValueSum = pieceSquares.reduce(0) { $0 + MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: $1, second: gameState.boardState)).count }
+        let pieceValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.pieceValueSum(pieceSquares)
+        let mobilityValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.mobilityValueSum(PairState(first: pieceSquares,
+                                                                                                            second: gameState.boardState))
         return (pieceValueSum * Constants.pieceValueWeight) + (mobilityValueSum * Constants.mobilityValueWeight)
+    }
+    
+    static func pieceValueSum(squares: [SquareState]) -> Int {
+        squares.compactMap { $0.piece }.reduce(0) { $0 + $1.rawValue.value }
+    }
+    
+    static func mobilityValueSum(squares: [SquareState], boardState: BoardState) -> Int {
+        squares.reduce(0) { $0 + MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: $1,
+                                                                                                               second: boardState)).count }
     }
 }

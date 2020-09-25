@@ -43,6 +43,9 @@ extension MemoizationHandler {
     
     class MemoizedEvaluationValueHandler {
         static let getValue = memoize(function: EvaluationValueHandler.getValue)
+        static let pieceValueSum = memoize(function: EvaluationValueHandler.pieceValueSum)
+        static let mobilityValueSum = memoize { (pairState: PairState) in EvaluationValueHandler.mobilityValueSum(squares: pairState.first,
+                                                                                                                  boardState: pairState.second) }
     }
     
     class MemoizedGameHandler {

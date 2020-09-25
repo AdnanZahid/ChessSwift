@@ -33,7 +33,7 @@ extension AIHandler: InputHandler {
             bestValue = Int.max
         }
         for moveState in AIGameState(gameState: gameState) {
-            guard let gameState = GameHandler.move(moveState, gameState: gameState) else { break }
+            guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             let value = minimax(depth: depth - 1, gameState: gameState)
             if gameState.currentPlayer.color == .black {
                 if value > bestValue {
@@ -53,10 +53,11 @@ extension AIHandler: InputHandler {
     func minimax(depth: Int, gameState: GameState) -> Int {
         
         if depth == 0 {
+            let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(PairState(first: gameState.boardState, second: gameState.currentPlayer))
             if gameState.currentPlayer.color == .white {
-                return EvaluationValueHandler.getValue(for: gameState.boardState, player: gameState.currentPlayer)
+                return value
             } else {
-                return -EvaluationValueHandler.getValue(for: gameState.boardState, player: gameState.currentPlayer)
+                return -value
             }
         }
         
@@ -67,7 +68,7 @@ extension AIHandler: InputHandler {
             bestValue = Int.max
         }
         for moveState in AIGameState(gameState: gameState) {
-            guard let gameState = GameHandler.move(moveState, gameState: gameState) else { break }
+            guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             let value = minimax(depth: depth - 1, gameState: gameState)
             if gameState.currentPlayer.color == .black {
                 if value > bestValue {

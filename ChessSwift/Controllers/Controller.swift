@@ -27,7 +27,7 @@ class Controller {
     
     func runEngine() {
         guard let gameState = gameState else { return }
-        inputHandler = GameHandler.isAITurn(gameState: gameState) ? AIHandler() : outputHandler
+        inputHandler = MemoizationHandler.MemoizedGameHandler.isAITurn(gameState) ? AIHandler() : outputHandler
         inputHandler.inputHandlerDelegate = self
         inputHandler.input(gameState: gameState)
     }
@@ -47,7 +47,7 @@ extension Controller: InputHandlerDelegate {
     
     func didTakeInput(_ move: MoveState) {
         guard let gameState = gameState else { return }
-        self.gameState = GameHandler.move(move, gameState: gameState)
+        self.gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: move, second: gameState))
         if self.gameState != nil {
             selectQueueAndRun(.main) { [unowned self] in
                 guard let gameState = self.gameState else { return }
@@ -63,6 +63,6 @@ extension Controller: InputHandlerDelegate {
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
         guard let gameState = gameState else { return [] }
-        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
+        return MemoizationHandler.MemoizedMoveGenerationHandler.getMoves(PairState(first: squareState, second: gameState.boardState))
     }
 }

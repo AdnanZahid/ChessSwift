@@ -39,6 +39,6 @@ extension AIGameState: Sequence, IteratorProtocol {
     }
     
     private func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
-        squares.flatMap { MoveGenerationHandler.getMoves(forPieceOn: $0, boardState: boardState) }
+        squares.flatMap { MemoizationHandler.MemoizedMoveGenerationHandler.getMoves(PairState(first: $0, second: boardState)) }
     }
 }

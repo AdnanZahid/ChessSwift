@@ -16,7 +16,7 @@ class GameHandler {
     
     static func move(_ move: MoveState, gameState: GameState) -> GameState? {
         guard isCurrentPlayersMove(move, gameState: gameState),
-            let boardState = BoardHandler.move(move, boardState: gameState.boardState) else { return nil }
+              let boardState = MemoizationHandler.MemoizedBoardHandler.move(PairState(first: move, second: gameState.boardState)) else { return nil }
         return gameStateWithChangedTurns(gameState: gameState, boardState: boardState)
     }
     
@@ -33,6 +33,6 @@ class GameHandler {
                   whitePlayer: gameState.whitePlayer,
                   blackPlayer: gameState.blackPlayer,
                   // Change turn
-            currentPlayer: gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer)
+                  currentPlayer: gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer)
     }
 }

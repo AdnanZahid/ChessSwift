@@ -22,6 +22,9 @@ class MoveGenerationHandler {
         }
         return getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
     }
+}
+
+extension MoveGenerationHandler {
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
@@ -32,7 +35,7 @@ class MoveGenerationHandler {
             .flatMap { $0.rawValue }
             .flatMap { advancementState in
                 getMoves(on: squareState, for: advancementState, boardState: boardState)
-        }
+            }
     }
     
     private static func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {
@@ -40,7 +43,7 @@ class MoveGenerationHandler {
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {
             let moveState = MoveState(fromSquare: squareState, toSquare: targetSquare)
-            guard LegalMovesHandler.move(moveState, boardState: boardState) else { return moveStates }
+            guard MemoizationHandler.MemoizedLegalMovesHandler.move(PairState(first: moveState, second: boardState)) else { return moveStates }
             moveStates.append(moveState)
             count += 1
         }

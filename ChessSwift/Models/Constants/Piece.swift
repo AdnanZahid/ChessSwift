@@ -42,7 +42,7 @@ enum MovementStrategy: RawRepresentable {
     }
 }
 
-enum MovementType {
+enum MovementType: Hashable {
     case step
     case slide
     case slideFrom(fileIndex: FileIndex? = nil, rankIndex: RankIndex? = nil, forNumberOfFiles: Int = 0, forNumberOfRanks: Int = 0)

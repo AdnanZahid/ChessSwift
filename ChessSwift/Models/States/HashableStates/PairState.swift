@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct HashableState<T: Hashable, U: Hashable, V: Hashable>: Hashable {
+struct PairState<T: Hashable, U: Hashable>: Hashable {
     let first: T
     let second: U
-    let third: V?
 }

@@ -10,8 +10,20 @@ import Foundation
 
 class MemoizationHandler {
     
+    class MemoizedMovementDirectionHandler {
+        static let isValid = memoize { (tripletState: TripletState) in MovementDirectionHandler.isValid(move: tripletState.first,
+                                                                                                        movementDirection: tripletState.second,
+                                                                                                        color: tripletState.third) }
+    }
+    
     class MemoizedMovementStrategyHandler {
         static let isValid = memoize { (pairState: PairState) in MovementStrategyHandler.isValid(move: pairState.first, movementStrategies: pairState.second) }
+    }
+    
+    class MemoizedMovementTypeHandler {
+        static let isValid = memoize { (tripletState: TripletState) in MovementTypeHandler.isValid(move: tripletState.first,
+                                                                                                   movementTypes: tripletState.second,
+                                                                                                   boardState: tripletState.third) }
     }
     
     class MemoizedBoardHandler {
@@ -40,7 +52,7 @@ extension MemoizationHandler {
     
     private static func memoize<T: Hashable, U>(function: @escaping (T) -> U) ->  (T) -> U {
         var cache : [T: U] = [:]
-        func memoWrapper(input: T) -> U {
+        func memoizationWrapper(input: T) -> U {
             if let cacheValue = cache[input] {
                 return cacheValue
             }
@@ -48,6 +60,6 @@ extension MemoizationHandler {
             cache[input] = newValue
             return newValue
         }
-        return memoWrapper
+        return memoizationWrapper
     }
 }

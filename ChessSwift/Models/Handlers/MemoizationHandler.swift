@@ -10,19 +10,20 @@ import Foundation
 
 class MemoizationHandler {
     
-    class MemoizedAIHandler {
-    }
-    
     class MemoizedBoardHandler {
-        let move = memoize(function: BoardHandler.move)
+        let move = memoize { (pairState: PairState) in BoardHandler.move(pairState.first, boardState: pairState.second) }
     }
     
     class MemoizedEvaluationValueHandler {
+        let getValue = memoize { (pairState: PairState) in EvaluationValueHandler.getValue(for: pairState.first, player: pairState.second) }
     }
+}
+
+extension MemoizationHandler {
     
-    private static func memoize<T: Hashable, U>(function: @escaping (T...) -> U) ->  (T...) -> U {
-        var cache : [[T]: U] = [:]
-        func memoWrapper(input: T...) -> U {
+    private static func memoize<T: Hashable, U>(function: @escaping (T) -> U) ->  (T) -> U {
+        var cache : [T: U] = [:]
+        func memoWrapper(input: T) -> U {
             if let cacheValue = cache[input] {
                 return cacheValue
             }

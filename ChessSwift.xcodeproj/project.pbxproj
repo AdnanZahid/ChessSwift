@@ -130,6 +130,10 @@
 		E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
 		E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
+		E6B42490251E2287007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4248F251E2287007E339E /* PairState.swift */; };
+		E6B42499251E22B2007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4248F251E2287007E339E /* PairState.swift */; };
+		E6B4249E251E22B3007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4248F251E2287007E339E /* PairState.swift */; };
+		E6B424A3251E22B3007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B4248F251E2287007E339E /* PairState.swift */; };
 		E6D2E19C24D34FE700953DE0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E19B24D34FE700953DE0 /* main.swift */; };
 		E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
 		E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
@@ -235,6 +239,7 @@
 		E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtension.swift; sourceTree = "<group>"; };
 		E6B1885324D5D253000F6E71 /* AdvancementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancementState.swift; sourceTree = "<group>"; };
 		E6B1885A24D5E903000F6E71 /* ChessSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6B4248F251E2287007E339E /* PairState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairState.swift; sourceTree = "<group>"; };
 		E6D2E19824D34FE700953DE0 /* ChessSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D2E19B24D34FE700953DE0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E6D2E1A824D3503200953DE0 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -507,6 +512,7 @@
 				E6D2E1AC24D3504600953DE0 /* BoardState.swift */,
 				E6D2E1A824D3503200953DE0 /* GameState.swift */,
 				E6D2E1BF24D353CF00953DE0 /* MoveState.swift */,
+				E6B4248F251E2287007E339E /* PairState.swift */,
 				E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */,
 				E6D2E1B024D3508000953DE0 /* SquareState.swift */,
 			);
@@ -721,6 +727,7 @@
 				E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */,
 				E6B1882E24D5B78A000F6E71 /* SquareHandler.swift in Sources */,
 				E64C38DF251BE84700B35AF4 /* MemoizationHandler.swift in Sources */,
+				E6B4249E251E22B3007E339E /* PairState.swift in Sources */,
 				E689F1A324D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */,
 				E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */,
@@ -739,6 +746,7 @@
 				E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */,
 				E6B188C924D5EADD000F6E71 /* BoardState.swift in Sources */,
 				E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */,
+				E6B424A3251E22B3007E339E /* PairState.swift in Sources */,
 				E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */,
 				E689F19724D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B188C724D5EADD000F6E71 /* SquareHandler.swift in Sources */,
@@ -825,6 +833,7 @@
 				E689F26624D7086D00CD0392 /* KingBoardOperationsTests.swift in Sources */,
 				E689F25F24D7086C00CD0392 /* BishopBlockMovesTests.swift in Sources */,
 				E689F26224D7086D00CD0392 /* PawnBlockMovesTests.swift in Sources */,
+				E6B42499251E22B2007E339E /* PairState.swift in Sources */,
 				E689F19D24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E689F26424D7086D00CD0392 /* RookBlockMovesTests.swift in Sources */,
 			);
@@ -837,6 +846,7 @@
 				E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */,
 				E6D2E1B324D3509F00953DE0 /* Piece.swift in Sources */,
 				E6D2E1AD24D3504600953DE0 /* BoardState.swift in Sources */,
+				E6B42490251E2287007E339E /* PairState.swift in Sources */,
 				E6D2E1AF24D3506100953DE0 /* BoardHandler.swift in Sources */,
 				E689F19424D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E6B1885424D5D253000F6E71 /* AdvancementState.swift in Sources */,

@@ -18,6 +18,8 @@ class BestMoveHandler {
 extension BestMoveHandler {
     
     static func bestMove(gameState: GameState) -> MoveState? {
+        let alpha = Int.min / 2
+        let beta = Int.max / 2
         let depth = Constants.maxDepth
         var bestValue: Int
         var bestMoveState: MoveState? = nil
@@ -29,23 +31,26 @@ extension BestMoveHandler {
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
-            let value = MemoizationHandler.MemoizedBestMoveHandler.bestValue(PairState(first: depth - 1, second: gameState))
-            if gameState.currentPlayer.color == .black {
-                if value > bestValue {
-                    bestValue = value
-                    bestMoveState = moveState
-                }
-            } else {
-                if value < bestValue {
-                    bestValue = value
-                    bestMoveState = moveState
-                }
+            var localAlpha = alpha
+            let value = bestEvaluationValue(at: depth - 1,
+                                            gameState: gameState,
+                                            alpha: -beta,
+                                            beta: -localAlpha)
+            if value > bestValue {
+                bestValue = value
+                bestMoveState = moveState
+            }
+            if bestValue >= beta {
+                break
+                
+            } else if bestValue > alpha {
+                localAlpha = bestValue
             }
         }
         return bestMoveState
     }
     
-    static func bestValue(depth: Int, gameState: GameState) -> Int {
+    private static func bestEvaluationValue(at depth: Int, gameState: GameState, alpha: Int, beta: Int) -> Int {
         
         if depth == 0 {
             let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(gameState)
@@ -65,15 +70,19 @@ extension BestMoveHandler {
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
-            let value = MemoizationHandler.MemoizedBestMoveHandler.bestValue(PairState(first: depth - 1, second: gameState))
-            if gameState.currentPlayer.color == .black {
-                if value > bestValue {
-                    bestValue = value
-                }
-            } else {
-                if value < bestValue {
-                    bestValue = value
-                }
+            var localAlpha = alpha
+            let value = bestEvaluationValue(at: depth - 1,
+                                            gameState: gameState,
+                                            alpha: -beta,
+                                            beta: -localAlpha)
+            if value > bestValue {
+                bestValue = value
+            }
+            if bestValue >= beta {
+                break
+                
+            } else if bestValue > alpha {
+                localAlpha = bestValue
             }
         }
         

@@ -31,8 +31,6 @@ extension MemoizationHandler {
     
     class MemoizedBestMoveHandler {
         static let bestMove = memoize(function: BestMoveHandler.bestMove)
-        static let bestValue = memoize { (pairState: PairState) in BestMoveHandler.bestValue(depth: pairState.first,
-                                                                                             gameState: pairState.second) }
     }
     
     class MemoizedBoardHandler {

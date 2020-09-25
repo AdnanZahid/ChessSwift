@@ -11,7 +11,6 @@ import Foundation
 struct MoveState: Equatable {
     let fromSquare: SquareState
     let toSquare: SquareState
-    var evaluationValue: Int?
 }
 
 extension MoveState: Hashable {

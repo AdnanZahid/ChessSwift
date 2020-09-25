@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD9854A1-3E4C-4C87-8C5D-909AFEFA10F9"
+            uuid = "A9785519-EDB7-4376-ADDF-91F96DBB7965"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Handlers/MoveIndexHandler.swift"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "move(_:at:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32F26DE6-F91A-4C66-91DA-6FD98EEA6575"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Handlers/MoveIndexHandler.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "move(_:at:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "bestMove(gameState:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

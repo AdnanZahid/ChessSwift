@@ -32,6 +32,6 @@ extension GameHandler {
                   whitePlayer: gameState.whitePlayer,
                   blackPlayer: gameState.blackPlayer,
                   // Change turn
-                  currentPlayer: gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer)
+                  currentPlayer: gameState.currentPlayer.color == .white ? gameState.blackPlayer : gameState.whitePlayer)
     }
 }

@@ -31,6 +31,10 @@ extension MemoizationHandler {
     
     class MemoizedBestMoveHandler {
         static let bestMove = memoize(function: BestMoveHandler.bestMove)
+        static let bestValue = memoize { (quadrupletState: QuadrupletState) in BestMoveHandler.bestEvaluationValue(at: quadrupletState.first,
+                                                                                                                   gameState: quadrupletState.second,
+                                                                                                                   alpha: quadrupletState.third,
+                                                                                                                   beta: quadrupletState.fourth) }
     }
     
     class MemoizedBoardHandler {

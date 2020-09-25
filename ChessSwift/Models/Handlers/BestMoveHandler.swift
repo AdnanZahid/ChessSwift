@@ -21,28 +21,22 @@ extension BestMoveHandler {
         let alpha = Int.min / 2
         let beta = Int.max / 2
         let depth = Constants.maxDepth
-        var bestValue: Int
+        var bestValue = Int.min / 2
         var bestMoveState: MoveState? = nil
-        if gameState.currentPlayer.color == .white {
-            bestValue = Int.min
-        } else {
-            bestValue = Int.max
-        }
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
-            guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
+            guard let localGameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             var localAlpha = alpha
-            let value = bestEvaluationValue(at: depth - 1,
-                                            gameState: gameState,
-                                            alpha: -beta,
-                                            beta: -localAlpha)
+            let value = -MemoizationHandler.MemoizedBestMoveHandler.bestValue(QuadrupletState(first: depth - 1,
+                                                                                              second: localGameState,
+                                                                                              third: -beta,
+                                                                                              fourth: -localAlpha))
             if value > bestValue {
                 bestValue = value
                 bestMoveState = moveState
             }
             if bestValue >= beta {
                 break
-                
             } else if bestValue > alpha {
                 localAlpha = bestValue
             }
@@ -50,8 +44,7 @@ extension BestMoveHandler {
         return bestMoveState
     }
     
-    private static func bestEvaluationValue(at depth: Int, gameState: GameState, alpha: Int, beta: Int) -> Int {
-        
+    static func bestEvaluationValue(at depth: Int, gameState: GameState, alpha: Int, beta: Int) -> Int {
         if depth == 0 {
             let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(gameState)
             if gameState.currentPlayer.color == .white {
@@ -60,32 +53,24 @@ extension BestMoveHandler {
                 return -value
             }
         }
-        
-        var bestValue: Int
-        if gameState.currentPlayer.color == .white {
-            bestValue = Int.min
-        } else {
-            bestValue = Int.max
-        }
+        var bestValue = Int.min / 2
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
-            guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
+            guard let localGameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             var localAlpha = alpha
-            let value = bestEvaluationValue(at: depth - 1,
-                                            gameState: gameState,
-                                            alpha: -beta,
-                                            beta: -localAlpha)
+            let value = -MemoizationHandler.MemoizedBestMoveHandler.bestValue(QuadrupletState(first: depth - 1,
+                                                                                              second: localGameState,
+                                                                                              third: -beta,
+                                                                                              fourth: -localAlpha))
             if value > bestValue {
                 bestValue = value
             }
             if bestValue >= beta {
                 break
-                
             } else if bestValue > alpha {
                 localAlpha = bestValue
             }
         }
-        
         return bestValue
     }
 }

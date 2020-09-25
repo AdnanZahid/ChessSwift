@@ -19,7 +19,7 @@ enum RankIndex: Int {
     case _8   = 7
     
     static func - (lhs: RankIndex, rhs: RankIndex) -> Int {
-        return lhs.rawValue - rhs.rawValue
+        lhs.rawValue - rhs.rawValue
     }
     
     static func + (index: RankIndex, number: Int) -> RankIndex? {
@@ -28,7 +28,7 @@ enum RankIndex: Int {
     }
     
     static func - (index: RankIndex, number: Int) -> RankIndex? {
-        return index + (-1)
+        index + (-1)
     }
 }
 
@@ -43,7 +43,7 @@ enum FileIndex: Int {
     case _H   = 7
     
     static func - (lhs: FileIndex, rhs: FileIndex) -> Int {
-        return lhs.rawValue - rhs.rawValue
+        lhs.rawValue - rhs.rawValue
     }
     
     static func + (index: FileIndex, number: Int) -> FileIndex? {
@@ -52,6 +52,6 @@ enum FileIndex: Int {
     }
     
     static func - (index: FileIndex, number: Int) -> FileIndex? {
-        return index + (-1)
+        index + (-1)
     }
 }

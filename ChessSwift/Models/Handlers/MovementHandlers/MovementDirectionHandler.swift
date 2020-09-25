@@ -26,15 +26,12 @@ extension MovementDirectionHandler {
             return true
         }
     }
-}
-
-extension MovementDirectionHandler {
     
     private static func isRankIncremented(for move: MoveState) -> Bool {
-        return move.fromSquare.rankIndex.rawValue < move.toSquare.rankIndex.rawValue
+        move.fromSquare.rankIndex.rawValue < move.toSquare.rankIndex.rawValue
     }
     
     private static func isRankDecremented(for move: MoveState) -> Bool {
-        return move.fromSquare.rankIndex.rawValue > move.toSquare.rankIndex.rawValue
+        move.fromSquare.rankIndex.rawValue > move.toSquare.rankIndex.rawValue
     }
 }

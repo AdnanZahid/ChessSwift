@@ -14,8 +14,7 @@ class PawnBoardOperationsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,24 +25,28 @@ class PawnBoardOperationsTests: XCTestCase {
     // White
     
     func testPutWhitePawnOnA7() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A7, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whitePawn, on: A7, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: A7, boardState: boardState))
     }
     
     func testGetWhitePawnOnD4() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: D4, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whitePawn, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: D4, boardState: boardState))
     }
     
     // Black
     
     func testPutBlackPawnOnA7() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: A7, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackPawn, on: A7, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: A7, boardState: boardState))
     }
     
     func testGetBlackPawnOnD4() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: D4, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackPawn, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: D4, boardState: boardState))
     }
 }

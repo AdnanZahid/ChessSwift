@@ -14,3 +14,6 @@ struct GameState {
     let blackPlayer: PlayerState
     var currentPlayer: PlayerState
 }
+
+extension GameState: Hashable {
+}

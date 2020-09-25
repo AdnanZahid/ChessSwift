@@ -9,6 +9,9 @@
 import Foundation
 
 class MoveGenerationHandler {
+}
+
+extension MoveGenerationHandler {
     
     static func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
@@ -24,18 +27,15 @@ class MoveGenerationHandler {
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
-        return boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
     private static func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardState) -> [MoveState] {
-        return movementStrategies
-            .map { $0.rawValue }
-            .flatMap { $0 }
-            .map { advancementState in
-                return getMoves(on: squareState, for: advancementState, boardState: boardState)
-        }
-        .flatMap { $0 }
-        .compactMap { $0 }
+        movementStrategies
+            .flatMap { $0.rawValue }
+            .flatMap { advancementState in
+                getMoves(on: squareState, for: advancementState, boardState: boardState)
+            }
     }
     
     private static func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {
@@ -43,7 +43,7 @@ class MoveGenerationHandler {
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {
             let moveState = MoveState(fromSquare: squareState, toSquare: targetSquare)
-            guard LegalMovesHandler.move(moveState, boardState: boardState) else { return moveStates }
+            guard MemoizationHandler.MemoizedLegalMovesHandler.move(PairState(first: moveState, second: boardState)) else { return moveStates }
             moveStates.append(moveState)
             count += 1
         }

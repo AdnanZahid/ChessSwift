@@ -15,11 +15,7 @@ protocol InputHandlerDelegate: class {
 
 protocol InputHandler {
     var inputHandlerDelegate: InputHandlerDelegate? { get set }
-    func input()
-}
-
-extension InputHandler {
-    func input() {}
+    func input(gameState: GameState)
 }
 
 protocol OutputHandler: InputHandler {
@@ -27,8 +23,4 @@ protocol OutputHandler: InputHandler {
     func setup(boardState: BoardState)
     func output(move: MoveState, boardState: BoardState)
     func cancelMove()
-}
-
-protocol MoveHandler {
-    static func move(_ move: MoveState, boardState: BoardState) -> Bool
 }

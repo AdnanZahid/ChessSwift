@@ -14,8 +14,7 @@ class BishopPossibleMovesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,14 +25,16 @@ class BishopPossibleMovesTests: XCTestCase {
     // White
     
     func testPossibleMovesWhiteBishopFromA1() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: A1, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteBishop, on: A1, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: A1, boardState: boardState)
         let testMoveStates = [B2, C3, D4, E5, F6, G7, H8].map { MoveState(fromSquare: A1, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesWhiteBishopFromD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: D5, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteBishop, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D5, boardState: boardState)
         let testMoveStates = [E6, F7, G8, E4, F3, G2, H1, C6, B7, A8, C4, B3, A2]
             .map { MoveState(fromSquare: D5, toSquare: $0) }
@@ -41,22 +42,24 @@ class BishopPossibleMovesTests: XCTestCase {
     }
     
     func testPossibleMovesWhiteBishopFromD4FriendlyFire() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: E3, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: C5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: C3, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteBishop, on: D4, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: E5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: E3, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: C5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: C3, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
         let testMoveStates = [].map { MoveState(fromSquare: D4, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesWhiteBishopFromD4EnemyFire() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: E3, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: C5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: C3, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteBishop, on: D4, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: E5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: E3, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: C5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: C3, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
         let testMoveStates = [E5, E3, C5, C3].map { MoveState(fromSquare: D4, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)
@@ -65,14 +68,16 @@ class BishopPossibleMovesTests: XCTestCase {
     // Black
     
     func testPossibleMovesBlackBishopFromA1() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: A1, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: A1, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: A1, boardState: boardState)
         let testMoveStates = [B2, C3, D4, E5, F6, G7, H8].map { MoveState(fromSquare: A1, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesBlackBishopFromD5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D5, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: D5, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D5, boardState: boardState)
         let testMoveStates = [E6, F7, G8, E4, F3, G2, H1, C6, B7, A8, C4, B3, A2]
             .map { MoveState(fromSquare: D5, toSquare: $0) }
@@ -80,22 +85,24 @@ class BishopPossibleMovesTests: XCTestCase {
     }
     
     func testPossibleMovesBlackBishopFromD4FriendlyFire() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: E3, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: C5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: C3, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: E5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: E3, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: C5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: C3, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
         let testMoveStates = [].map { MoveState(fromSquare: D4, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)
     }
     
     func testPossibleMovesBlackBishopFromD4EnemyFire() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: E5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: E3, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: C5, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteBishop, on: C3, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: E5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: E3, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: C5, boardState: boardState)
+        boardState = BoardHandler.putPiece(.whiteBishop, on: C3, boardState: boardState)
+        XCTAssertNotNil(boardState)
         let moveStates = MoveGenerationHandler.getMoves(forPieceOn: D4, boardState: boardState)
         let testMoveStates = [E5, E3, C5, C3].map { MoveState(fromSquare: D4, toSquare: $0) }
         XCTAssertEqual(moveStates, testMoveStates)

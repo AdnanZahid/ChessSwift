@@ -20,7 +20,7 @@ enum Constants {
         static let bishop = 305
         static let rook   = 500
         static let queen  = 900
-        static let king   = 2000
+        static let king   = Int.max/10
     }
     
     private static let x = Constants.Values.empty

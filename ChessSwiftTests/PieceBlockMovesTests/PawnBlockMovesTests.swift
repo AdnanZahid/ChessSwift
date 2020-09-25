@@ -14,8 +14,7 @@ class PawnBlockMovesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,28 +25,36 @@ class PawnBlockMovesTests: XCTestCase {
     // White
     
     func testBlockWhitePawnFromA2ToA4() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: A3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: A2, toSquare: A4), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whitePawn, on: A2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whitePawn, on: A3, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: A2, toSquare: A4), boardState: boardState))
     }
     
     func testBlockWhitePawnFromE2ToE3() {
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E2, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whitePawn, on: E3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: E2, toSquare: E3), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whitePawn, on: E2, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whitePawn, on: E3, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: E2, toSquare: E3), boardState: boardState))
     }
     
     // Black
     
     func testBlockBlackPawnFromG7ToG5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G7, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: G5, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: G7, toSquare: G5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackPawn, on: G7, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackPawn, on: G5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: G7, toSquare: G5), boardState: boardState))
     }
     
     func testBlockBlackPawnFromB6ToB5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B6, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackPawn, on: B5, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: B6, toSquare: B5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackPawn, on: B6, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackPawn, on: B5, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: B6, toSquare: B5), boardState: boardState))
     }
 }

@@ -66,6 +66,7 @@ extension Controller: InputHandlerDelegate {
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
         guard let gameState = gameState else { return [] }
-        return MemoizationHandler.MemoizedMoveGenerationHandler.getMoves(PairState(first: squareState, second: gameState.boardState))
+        return MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: squareState,
+                                                                                             second: gameState.boardState))
     }
 }

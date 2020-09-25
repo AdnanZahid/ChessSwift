@@ -158,10 +158,6 @@
 		E6DC346624DB538F00373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346824DB539000373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
-		E6F592CE24E732710099CA98 /* AIGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F592CD24E732710099CA98 /* AIGameState.swift */; };
-		E6F592CF24E732CC0099CA98 /* AIGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F592CD24E732710099CA98 /* AIGameState.swift */; };
-		E6F592D024E732CD0099CA98 /* AIGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F592CD24E732710099CA98 /* AIGameState.swift */; };
-		E6F592D124E732D10099CA98 /* AIGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F592CD24E732710099CA98 /* AIGameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,7 +259,6 @@
 		E6D2E1C824D372B200953DE0 /* PieceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceFactory.swift; sourceTree = "<group>"; };
 		E6D59246251E38EF00D32085 /* BestMoveHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestMoveHandler.swift; sourceTree = "<group>"; };
 		E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationValueHandler.swift; sourceTree = "<group>"; };
-		E6F592CD24E732710099CA98 /* AIGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIGameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -531,7 +526,6 @@
 			children = (
 				E6B424D7251E2C7F007E339E /* HashableStates */,
 				E6B1885324D5D253000F6E71 /* AdvancementState.swift */,
-				E6F592CD24E732710099CA98 /* AIGameState.swift */,
 				E6D2E1AC24D3504600953DE0 /* BoardState.swift */,
 				E6D2E1A824D3503200953DE0 /* GameState.swift */,
 				E6D2E1BF24D353CF00953DE0 /* MoveState.swift */,
@@ -758,7 +752,6 @@
 				E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */,
 				E6B1883124D5B78A000F6E71 /* MoveState.swift in Sources */,
 				E6B1882824D5B78A000F6E71 /* Constants.swift in Sources */,
-				E6F592D024E732CD0099CA98 /* AIGameState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,7 +770,6 @@
 				E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */,
 				E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */,
 				E6B188C624D5EADD000F6E71 /* LegalMovesHandler.swift in Sources */,
-				E6F592D124E732D10099CA98 /* AIGameState.swift in Sources */,
 				E6B424EE251E2CA2007E339E /* PairState.swift in Sources */,
 				E6DC346824DB539000373621 /* EvaluationValueHandler.swift in Sources */,
 				E6B188C124D5EADD000F6E71 /* Indices.swift in Sources */,
@@ -803,7 +795,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E689F27224D7086D00CD0392 /* KingPossibleMovesTests.swift in Sources */,
-				E6F592CF24E732CC0099CA98 /* AIGameState.swift in Sources */,
 				E6B188B124D5EAD7000F6E71 /* LegalMovesHandler.swift in Sources */,
 				E689F26C24D7086D00CD0392 /* KingCapturesTests.swift in Sources */,
 				E689F26324D7086D00CD0392 /* QueenBlockMovesTests.swift in Sources */,
@@ -880,7 +871,6 @@
 				E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */,
 				E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */,
 				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
-				E6F592CE24E732710099CA98 /* AIGameState.swift in Sources */,
 				E6DC346524DB538F00373621 /* EvaluationValueHandler.swift in Sources */,
 				E689F19C24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,

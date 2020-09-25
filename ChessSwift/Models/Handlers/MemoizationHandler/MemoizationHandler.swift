@@ -50,7 +50,8 @@ extension MemoizationHandler {
     }
     
     class MemoizedMoveGenerationHandler {
-        static let getMoves = memoize { (pairState: PairState) in MoveGenerationHandler.getMoves(forPieceOn: pairState.first, boardState: pairState.second) }
+        static let getBoardStateMoves = memoize { (pairState: PairState) in MoveGenerationHandler.getMoves(forPieceOn: pairState.first, boardState: pairState.second) }
+        static let getGameStateMoves = memoize(function: MoveGenerationHandler.getMoves)
     }
 }
 

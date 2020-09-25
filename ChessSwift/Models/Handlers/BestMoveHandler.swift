@@ -26,7 +26,8 @@ extension BestMoveHandler {
         } else {
             bestValue = Int.max
         }
-        for moveState in AIGameState(gameState: gameState) {
+        let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
+        for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             let value = minimax(depth: depth - 1, gameState: gameState)
             if gameState.currentPlayer.color == .black {
@@ -61,7 +62,8 @@ extension BestMoveHandler {
         } else {
             bestValue = Int.max
         }
-        for moveState in AIGameState(gameState: gameState) {
+        let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
+        for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
             let value = minimax(depth: depth - 1, gameState: gameState)
             if gameState.currentPlayer.color == .black {

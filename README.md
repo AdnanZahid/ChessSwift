@@ -185,6 +185,6 @@ Here's a screenshot of the bot playing itself:
 
 ![Screenshot](https://github.com/AdnanZahid/ChessSwift/blob/master/Screenshot.png)
 
-**Graphical programming:*
+**Graphical programming:**
 
 Graphical programming is done in Apple's SceneKit framework (used for 3D graphics programming).

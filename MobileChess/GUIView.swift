@@ -172,6 +172,9 @@ class GUIView: SCNView {
 
 extension GUIView: OutputHandler {
     
+    func input(gameState: GameState) {
+    }
+    
     func setup(boardState: BoardState) {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in

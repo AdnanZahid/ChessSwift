@@ -14,8 +14,7 @@ class BishopBlockMovesTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,28 +25,36 @@ class BishopBlockMovesTests: XCTestCase {
     // White
     
     func testBlockWhiteBishopFromA1ToH8() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: A1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D4, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteKing, on: A1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteKing, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
     }
     
     func testBlockWhiteBishopFromD1ToH5() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: D1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.whiteKing, on: F3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteKing, on: D1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.whiteKing, on: F3, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
     }
     
     // Black
     
     func testBlockBlackBishopFromA1ToH8() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: A1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: A1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: A1, toSquare: H8), boardState: boardState))
     }
     
     func testBlockBlackBishopFromD1ToH5() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: D1, boardState: boardState))
-        XCTAssertTrue(BoardHandler.putPiece(.blackBishop, on: F3, boardState: boardState))
-        XCTAssertFalse(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackBishop, on: D1, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        boardState = BoardHandler.putPiece(.blackBishop, on: F3, boardState: boardState)
+        XCTAssertNotNil(boardState)
+        XCTAssertNil(BoardHandler.move(MoveState(fromSquare: D1, toSquare: H5), boardState: boardState))
     }
 }

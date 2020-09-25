@@ -8,6 +8,33 @@
 
 import Foundation
 
-class BoardState {
-    var squares: [[SquareState?]] = []
+struct BoardState {
+    
+    private enum Constants {
+        static let newLine = "\n"
+    }
+    
+    let squares: [[SquareState?]]
+}
+
+extension BoardState: Hashable {
+}
+
+extension BoardState: CustomDebugStringConvertible {
+    var debugDescription: String {
+        var string = ""
+        // Was reversed earlier in the Constants.swift file for viewing convenience
+        // Reversing a reverse will give us the accurate view
+        Array(RankIndex._1.rawValue...RankIndex._8.rawValue).reversed().forEach { rank in
+            Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
+                if let piece = squares[rank][file]?.piece {
+                    string.append(piece.rawValue.symbol + " ")
+                } else {
+                    string.append("x" + " ")
+                }
+            }
+            string.append(Constants.newLine)
+        }
+        return string
+    }
 }

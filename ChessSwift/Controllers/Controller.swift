@@ -10,29 +10,32 @@ import Foundation
 
 class Controller {
     
-    var gameState: GameState
+    var gameState: GameState?
     let outputHandler: OutputHandler
     var inputHandler: InputHandler
     
     init(view: OutputHandler) {
-        let boardState = BoardState()
-        let whitePlayer = PlayerState(isAI: false, color: .white)
-        let blackPlayer = PlayerState(isAI: false, color: .black)
+        let boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.standard)
+        let whitePlayer = PlayerState(isAI: true, color: .white)
+        let blackPlayer = PlayerState(isAI: true, color: .black)
         gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
         inputHandler = view
         outputHandler = view
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.standard)
         outputHandler.setup(boardState: boardState)
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
     }
+}
+
+extension Controller {
     
-    func runEngine() {
-        //        inputHandler = AIHandler()
+    private func runEngine() {
+        guard let gameState = gameState else { return }
+        inputHandler = gameState.currentPlayer.isAI ? AIHandler() : outputHandler
         inputHandler.inputHandlerDelegate = self
-        inputHandler.input()
+        inputHandler.input(gameState: gameState)
     }
     
-    func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {
+    private func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {
         if !outputHandler.isGUIViewAvailable {
             action()
         } else {
@@ -46,20 +49,23 @@ class Controller {
 extension Controller: InputHandlerDelegate {
     
     func didTakeInput(_ move: MoveState) {
-        if GameHandler.move(move, gameState: gameState) {
-            changeTurn()
-            selectQueueAndRun(.main) { [unowned self] in self.outputHandler.output(move: move, boardState: self.gameState.boardState) }
+        guard let gameState = gameState else { return }
+        self.gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: move, second: gameState))
+        if self.gameState != nil {
+            selectQueueAndRun(.main) { [unowned self] in
+                guard let gameState = self.gameState else { return }
+                self.outputHandler.output(move: move, boardState: gameState.boardState)
+            }
         } else {
-            selectQueueAndRun(.main) { [unowned self] in self.outputHandler.cancelMove() }
+            selectQueueAndRun(.main) { [unowned self] in
+                self.outputHandler.cancelMove()
+            }
         }
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
     }
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
-        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
-    }
-    
-    private func changeTurn() {
-        gameState.currentPlayer = gameState.currentPlayer.color == gameState.whitePlayer.color ? gameState.blackPlayer : gameState.whitePlayer
+        guard let gameState = gameState else { return [] }
+        return MemoizationHandler.MemoizedMoveGenerationHandler.getMoves(PairState(first: squareState, second: gameState.boardState))
     }
 }

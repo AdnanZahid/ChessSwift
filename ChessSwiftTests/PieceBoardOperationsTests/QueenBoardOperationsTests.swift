@@ -14,8 +14,7 @@ class QueenBoardOperationsTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        boardState = BoardState()
-        BoardHandler.setup(boardState: boardState, configuration: Constants.ChessBoardConfiguration.empty)
+        boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.empty)
     }
     
     override func tearDown() {
@@ -26,24 +25,28 @@ class QueenBoardOperationsTests: XCTestCase {
     // White
     
     func testPutWhiteQueenOnA7() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: A7, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteQueen, on: A7, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: A7, boardState: boardState))
     }
     
     func testGetWhiteQueenOnD4() {
-        XCTAssertTrue(BoardHandler.putPiece(.whiteQueen, on: D4, boardState: boardState))
+        boardState = BoardHandler.putPiece(.whiteQueen, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: D4, boardState: boardState))
     }
     
     // Black
     
     func testPutBlackQueenOnA7() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: A7, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackQueen, on: A7, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: A7, boardState: boardState))
     }
     
     func testGetBlackQueenOnD4() {
-        XCTAssertTrue(BoardHandler.putPiece(.blackQueen, on: D4, boardState: boardState))
+        boardState = BoardHandler.putPiece(.blackQueen, on: D4, boardState: boardState)
+        XCTAssertNotNil(boardState)
         XCTAssertNotNil(BoardHandler.getPiece(on: D4, boardState: boardState))
     }
 }

@@ -14,7 +14,6 @@ class CLIView {
         
         static let asciiDifferenceForFile = 65
         static let asciiDifferenceForRank = 49
-        static let newLine = "\n"
         
         enum RankString: Character {
             case _1   = "1"
@@ -46,8 +45,7 @@ class CLIView {
 
 extension CLIView: InputHandler {
     
-    func input() {
-        
+    func input(gameState: GameState) {
         guard let string = readLine(strippingNewline: true)?.capitalized else { return }
         let input = Array(string)
         let fromFile = input[0]
@@ -81,18 +79,7 @@ extension CLIView: InputHandler {
 extension CLIView: OutputHandler {
     
     func setup(boardState: BoardState) {
-        // Was reversed earlier in the Constants.swift file for viewing convenience
-        // Reversing a reverse will give us the accurate view
-        Array(RankIndex._1.rawValue...RankIndex._8.rawValue).reversed().forEach { rank in
-            Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
-                if let piece = boardState.squares[rank][file]?.piece {
-                    print(piece.rawValue.symbol, separator: "", terminator: " ")
-                } else {
-                    print("x", separator: "", terminator: " ")
-                }
-            }
-            print(Constants.newLine)
-        }
+        print(boardState)
     }
     
     func output(move: MoveState, boardState: BoardState) {

@@ -18,7 +18,7 @@ class MovementStrategyHandler {
 extension MovementStrategyHandler {
     
     static func isValid(move: MoveState, movementStrategies: [MovementStrategy]) -> Bool {
-        return movementStrategies.first { strategy in
+        movementStrategies.first { strategy in
             switch strategy {
             case .straight:
                 return isOnlyFileOrOnlyRankAdvanced(for: move)
@@ -29,12 +29,9 @@ extension MovementStrategyHandler {
             }
             } != nil
     }
-}
-
-extension MovementStrategyHandler {
     
     private static func isOnlyFileOrOnlyRankAdvanced(for move: MoveState) -> Bool {
-        return isFileAdvanced(for: move) != isRankAdvanced(for: move)
+        isFileAdvanced(for: move) != isRankAdvanced(for: move)
     }
     
     private static func isEqualFileAndRankBothAdvanced(for move: MoveState) -> Bool {
@@ -43,7 +40,7 @@ extension MovementStrategyHandler {
     }
     
     private static func isLShapedAdvanced(for move: MoveState) -> Bool {
-        return isMove(move, advancedFor: AdvancementState(fileAdvancement: Constants.oneStep, rankAdvancement: Constants.twoSteps))
+        isMove(move, advancedFor: AdvancementState(fileAdvancement: Constants.oneStep, rankAdvancement: Constants.twoSteps))
             || isMove(move, advancedFor: AdvancementState(fileAdvancement: Constants.twoSteps, rankAdvancement: Constants.oneStep))
     }
     
@@ -53,14 +50,14 @@ extension MovementStrategyHandler {
     }
     
     private static func isFileAdvanced(for move: MoveState) -> Bool {
-        return move.fromSquare.fileIndex != move.toSquare.fileIndex
+        move.fromSquare.fileIndex != move.toSquare.fileIndex
     }
     
     private static func isRankAdvanced(for move: MoveState) -> Bool {
-        return move.fromSquare.rankIndex != move.toSquare.rankIndex
+        move.fromSquare.rankIndex != move.toSquare.rankIndex
     }
     
     private static func getAdvancement(for move: MoveState) -> AdvancementState {
-        return AdvancementState(fileAdvancement: move.toSquare.fileIndex - move.fromSquare.fileIndex, rankAdvancement: move.toSquare.rankIndex - move.fromSquare.rankIndex)
+        AdvancementState(fileAdvancement: move.toSquare.fileIndex - move.fromSquare.fileIndex, rankAdvancement: move.toSquare.rankIndex - move.fromSquare.rankIndex)
     }
 }

@@ -1,126 +1,21 @@
-////
-////  AIHandler.swift
-////  ChessSwift
-////
-////  Created by Adnan Zahid on 02/08/2020.
-////  Copyright © 2020 Adnan Zahid. All rights reserved.
-////
 //
-//import Foundation
+//  AIHandler.swift
+//  ChessSwift
 //
-//class AIHandler {
-//    
-//    weak var inputHandlerDelegate: InputHandlerDelegate?
-//}
+//  Created by Adnan Zahid on 02/08/2020.
+//  Copyright © 2020 Adnan Zahid. All rights reserved.
 //
-//extension AIHandler: InputHandler {
-//    
-//    func input(boardState: BoardState) {
-//        boardState.squares.flatMap { $0 }.filter { $0?.piece }
-//    }
-//    
-//    private static func generateMove() -> MoveState? {
-//        
-//        
-//        
-//        return nil
-//    }
-//    
-//    private static func firstAlphaBeta(_ depth: Int, player: PlayerState, alpha: Int, beta: Int) -> MoveState {
-//        
-//        var bestMove = EvaluationMove(fromSquare: nil, toSquare: nil, evaluationValue: Int.min/2)
-//        
-//        for piece in player.piecesList {
-//            
-//            if piece.captured == false {
-//                
-//                let fromSquare: Square = piece.position!
-//                
-//                for toSquare in (piece.moveStrategy?.generateAllMoves(fromSquare))! {
-//                    
-//                    if player.movePiece(Move(fromSquare: fromSquare, toSquare: toSquare), checkCurrentTurn: false) {
-//                        
-//                        var localAlpha = alpha
-//                        
-//                        let evaluationMove: EvaluationMove = EvaluationMove(fromSquare: fromSquare, toSquare: toSquare, evaluationValue: -alphaBeta(depth - 1, player: player.opponent!, alpha: -beta, beta: -localAlpha))
-//                        
-//                        
-//                        Board.sharedInstance.undoMove()
-//                        
-//                        
-//                        if evaluationMove.evaluationValue > bestMove.evaluationValue {
-//                            
-//                            bestMove = evaluationMove
-//                        }
-//                        
-//                        if bestMove.evaluationValue >= beta {
-//                            
-//                            break
-//                            
-//                        } else if bestMove.evaluationValue > alpha {
-//                            
-//                            localAlpha = bestMove.evaluationValue
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        
-//        return bestMove
-//    }
-//    
-//    static func alphaBeta(_ depth: Int, player: Player, alpha: Int, beta: Int) -> Int {
-//        
-//        if depth == 0 {
-//            
-//            if player.color == Color.white {
-//                
-//                return Board.sharedInstance.evaluationValue
-//                
-//            } else {
-//                
-//                return -Board.sharedInstance.evaluationValue
-//            }
-//        }
-//        
-//        var bestEvaluationValue = Int.min/2
-//        
-//        for piece in player.piecesList {
-//            
-//            if piece.captured == false {
-//                
-//                let fromSquare: Square = piece.position!
-//                
-//                for toSquare in (piece.moveStrategy?.generateAllMoves(fromSquare))! {
-//                    
-//                    if player.movePiece(Move(fromSquare: fromSquare, toSquare: toSquare), checkCurrentTurn: false) {
-//                        
-//                        var localAlpha = alpha
-//                        
-//                        let evaluationValue = -alphaBeta(depth - 1, player: player.opponent!, alpha: -beta, beta: -localAlpha)
-//                        
-//                        
-//                        Board.sharedInstance.undoMove()
-//                        
-//                        
-//                        if evaluationValue > bestEvaluationValue {
-//                            
-//                            bestEvaluationValue = evaluationValue
-//                        }
-//                        
-//                        if bestEvaluationValue >= beta {
-//                            
-//                            break
-//                            
-//                        } else if bestEvaluationValue > alpha {
-//                            
-//                            localAlpha = bestEvaluationValue
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        
-//        return bestEvaluationValue
-//    }
-//}
+
+import Foundation
+
+class AIHandler {
+    weak var inputHandlerDelegate: InputHandlerDelegate?
+}
+
+extension AIHandler: InputHandler {
+    
+    func input(gameState: GameState) {
+        guard let moveState = MemoizationHandler.MemoizedBestMoveHandler.bestMove(gameState) else { return }
+        inputHandlerDelegate?.didTakeInput(moveState)
+    }
+}

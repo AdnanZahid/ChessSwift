@@ -14,8 +14,11 @@ struct MoveState: Equatable {
     var evaluationValue: Int?
 }
 
+extension MoveState: Hashable {
+}
+
 extension MoveState: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "\(fromSquare)->\(toSquare)"
+        "\(fromSquare)->\(toSquare)"
     }
 }

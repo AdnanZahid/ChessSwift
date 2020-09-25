@@ -14,7 +14,7 @@ class MovementTypeHandler {
 extension MovementTypeHandler {
     
     static func isValid(move: MoveState, movementTypes: [MovementType], boardState: BoardState) -> Bool {
-        return movementTypes.first { movementType in
+        movementTypes.first { movementType in
             switch movementType {
             case .slide:
                 return isPathClear(for: move, boardState: boardState)
@@ -32,31 +32,29 @@ extension MovementTypeHandler {
             }
             } != nil
     }
-}
-
-extension MovementTypeHandler {
     
     private static func isPathClear(for move: MoveState, boardState: BoardState) -> Bool {
         let advancement = getAdvancement(for: move)
         var positionToCheck = move.fromSquare
         let secondLastSquare = move.toSquare - getSingleAdvancement(for: advancement)
         while positionToCheck != secondLastSquare {
-            positionToCheck = (positionToCheck + getSingleAdvancement(for: advancement))!
+            guard let advancedPosition = positionToCheck + getSingleAdvancement(for: advancement) else { return false }
+            positionToCheck = advancedPosition
             if isSquareEmpty(positionToCheck, boardState: boardState) == false { return false }
         }
         return true
     }
     
     private static func isOneStepAdvanced(for move: MoveState) -> Bool {
-        return getAdvancement(for: move) == getSingleAdvancement(for: move)
+        getAdvancement(for: move) == getSingleAdvancement(for: move)
     }
     
     private static func getAdvancement(for move: MoveState) -> AdvancementState {
-        return AdvancementState(fileAdvancement: move.toSquare.fileIndex - move.fromSquare.fileIndex, rankAdvancement: move.toSquare.rankIndex - move.fromSquare.rankIndex)
+        AdvancementState(fileAdvancement: move.toSquare.fileIndex - move.fromSquare.fileIndex, rankAdvancement: move.toSquare.rankIndex - move.fromSquare.rankIndex)
     }
     
     private static func getSingleAdvancement(for move: MoveState) -> AdvancementState {
-        return getSingleAdvancement(for: getAdvancement(for: move))
+        getSingleAdvancement(for: getAdvancement(for: move))
     }
     
     private static func getSingleAdvancement(for advancement: AdvancementState) -> AdvancementState {
@@ -73,6 +71,6 @@ extension MovementTypeHandler {
     }
     
     private static func isSquareEmpty(_ squareState: SquareState, boardState: BoardState) -> Bool {
-        return boardState.squares[squareState.rankIndex.rawValue][squareState.fileIndex.rawValue]?.piece == nil
+        boardState.squares[squareState.rankIndex.rawValue][squareState.fileIndex.rawValue]?.piece == nil
     }
 }

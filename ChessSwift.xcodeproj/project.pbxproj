@@ -154,6 +154,10 @@
 		E6D59250251E398900D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
 		E6D59255251E398A00D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
 		E6D5925A251E398A00D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
+		E6D59295251E7B8600D32085 /* PiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59294251E7B8600D32085 /* PiecesHandler.swift */; };
+		E6D592A2251E7DDF00D32085 /* PiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59294251E7B8600D32085 /* PiecesHandler.swift */; };
+		E6D592A7251E7DE000D32085 /* PiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59294251E7B8600D32085 /* PiecesHandler.swift */; };
+		E6D592AC251E7DE100D32085 /* PiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59294251E7B8600D32085 /* PiecesHandler.swift */; };
 		E6DC346524DB538F00373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346624DB538F00373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
@@ -258,6 +262,7 @@
 		E6D2E1C524D35F9B00953DE0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6D2E1C824D372B200953DE0 /* PieceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceFactory.swift; sourceTree = "<group>"; };
 		E6D59246251E38EF00D32085 /* BestMoveHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestMoveHandler.swift; sourceTree = "<group>"; };
+		E6D59294251E7B8600D32085 /* PiecesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesHandler.swift; sourceTree = "<group>"; };
 		E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationValueHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -547,6 +552,7 @@
 				E6D2E1C324D3560C00953DE0 /* GameHandler.swift */,
 				E6B1884924D5C33B000F6E71 /* LegalMovesHandler.swift */,
 				E689F1A524D6E89400CD0392 /* MoveGenerationHandler.swift */,
+				E6D59294251E7B8600D32085 /* PiecesHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -720,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D592A7251E7DE000D32085 /* PiecesHandler.swift in Sources */,
 				E6B1882424D5B6AD000F6E71 /* GUIView.swift in Sources */,
 				E6B1882924D5B78A000F6E71 /* Indices.swift in Sources */,
 				E6B1882D24D5B78A000F6E71 /* GameHandler.swift in Sources */,
@@ -787,6 +794,7 @@
 				E6B188CA24D5EADD000F6E71 /* GameState.swift in Sources */,
 				E6B188C524D5EADD000F6E71 /* GameHandler.swift in Sources */,
 				E6B188BF24D5EADD000F6E71 /* Interface.swift in Sources */,
+				E6D592AC251E7DE100D32085 /* PiecesHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +827,7 @@
 				E689F1A224D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E689F26824D7086D00CD0392 /* PawnBoardOperationsTests.swift in Sources */,
 				E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */,
+				E6D592A2251E7DDF00D32085 /* PiecesHandler.swift in Sources */,
 				E689F26724D7086D00CD0392 /* KnightBoardOperationsTests.swift in Sources */,
 				E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */,
 				E689F25C24D7086C00CD0392 /* PawnAllowMovesTests.swift in Sources */,
@@ -887,6 +896,7 @@
 				E6B1884A24D5C33C000F6E71 /* LegalMovesHandler.swift in Sources */,
 				E6D2E1B924D3535600953DE0 /* CLIView.swift in Sources */,
 				E6B424DA251E2C7F007E339E /* TripletState.swift in Sources */,
+				E6D59295251E7B8600D32085 /* PiecesHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

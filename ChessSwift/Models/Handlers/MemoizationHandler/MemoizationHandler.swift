@@ -31,6 +31,8 @@ extension MemoizationHandler {
     
     class MemoizedBestMoveHandler {
         static let bestMove = memoize(function: BestMoveHandler.bestMove)
+        static let bestValue = memoize { (pairState: PairState) in BestMoveHandler.bestValue(depth: pairState.first,
+                                                                                             gameState: pairState.second) }
     }
     
     class MemoizedBoardHandler {
@@ -38,7 +40,7 @@ extension MemoizationHandler {
     }
     
     class MemoizedEvaluationValueHandler {
-        static let getValue = memoize { (pairState: PairState) in EvaluationValueHandler.getValue(for: pairState.first, player: pairState.second) }
+        static let getValue = memoize(function: EvaluationValueHandler.getValue)
     }
     
     class MemoizedGameHandler {
@@ -52,6 +54,11 @@ extension MemoizationHandler {
     class MemoizedMoveGenerationHandler {
         static let getBoardStateMoves = memoize { (pairState: PairState) in MoveGenerationHandler.getMoves(forPieceOn: pairState.first, boardState: pairState.second) }
         static let getGameStateMoves = memoize(function: MoveGenerationHandler.getMoves)
+        static let currentPlayerMoves = memoize { (pairState: PairState) in MoveGenerationHandler.currentPlayerMoves(squares: pairState.first, boardState: pairState.second) }
+    }
+    
+    class MemoizedPiecesHandler {
+        static let piecesMovable = memoize(function: PiecesHandler.piecesMovable)
     }
 }
 

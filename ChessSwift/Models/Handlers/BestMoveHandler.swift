@@ -29,7 +29,7 @@ extension BestMoveHandler {
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
-            let value = minimax(depth: depth - 1, gameState: gameState)
+            let value = MemoizationHandler.MemoizedBestMoveHandler.bestValue(PairState(first: depth - 1, second: gameState))
             if gameState.currentPlayer.color == .black {
                 if value > bestValue {
                     bestValue = value
@@ -45,10 +45,10 @@ extension BestMoveHandler {
         return bestMoveState
     }
     
-    private static func minimax(depth: Int, gameState: GameState) -> Int {
+    static func bestValue(depth: Int, gameState: GameState) -> Int {
         
         if depth == 0 {
-            let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(PairState(first: gameState.boardState, second: gameState.currentPlayer))
+            let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(gameState)
             if gameState.currentPlayer.color == .white {
                 return value
             } else {
@@ -65,7 +65,7 @@ extension BestMoveHandler {
         let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
         for moveState in moveStates {
             guard let gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { break }
-            let value = minimax(depth: depth - 1, gameState: gameState)
+            let value = MemoizationHandler.MemoizedBestMoveHandler.bestValue(PairState(first: depth - 1, second: gameState))
             if gameState.currentPlayer.color == .black {
                 if value > bestValue {
                     bestValue = value

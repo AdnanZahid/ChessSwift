@@ -51,7 +51,7 @@ class MemoizationHandler {
 extension MemoizationHandler {
     
     private static func memoize<T: Hashable, U>(function: @escaping (T) -> U) ->  (T) -> U {
-        var cache : [T: U] = [:]
+        var cache: [T: U] = [:]
         func memoizationWrapper(input: T) -> U {
             if let cacheValue = cache[input] {
                 return cacheValue

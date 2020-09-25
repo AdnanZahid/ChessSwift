@@ -22,9 +22,6 @@ extension BoardHandler {
               let finalBoardState = putEmptyPiece(on: fromSquare, boardState: intermediateBoardState) else { return nil }
         return finalBoardState
     }
-}
-
-extension BoardHandler {
     
     private static func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> BoardState? {
         var squares = boardState.squares

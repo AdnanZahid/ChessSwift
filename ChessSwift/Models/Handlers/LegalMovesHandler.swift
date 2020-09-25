@@ -17,9 +17,6 @@ extension LegalMovesHandler {
         guard !isZeroStepAdvanced(for: move) else { return false }
         return isValid(move: move, boardState: boardState)
     }
-}
-
-extension LegalMovesHandler {
     
     private static func isValid(move: MoveState, boardState: BoardState) -> Bool {
         let fromSquare = move.fromSquare

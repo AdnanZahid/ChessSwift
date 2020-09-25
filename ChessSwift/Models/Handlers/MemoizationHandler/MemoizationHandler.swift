@@ -9,6 +9,9 @@
 import Foundation
 
 class MemoizationHandler {
+}
+
+extension MemoizationHandler {
     
     class MemoizedMovementDirectionHandler {
         static let isValid = memoize { (tripletState: TripletState) in MovementDirectionHandler.isValid(move: tripletState.first,
@@ -26,6 +29,10 @@ class MemoizationHandler {
                                                                                                    boardState: tripletState.third) }
     }
     
+    class MemoizedBestMoveHandler {
+        static let bestMove = memoize(function: BestMoveHandler.bestMove)
+    }
+    
     class MemoizedBoardHandler {
         static let move = memoize { (pairState: PairState) in BoardHandler.move(pairState.first, boardState: pairState.second) }
     }
@@ -35,7 +42,6 @@ class MemoizationHandler {
     }
     
     class MemoizedGameHandler {
-        static let isAITurn = memoize(function: GameHandler.isAITurn)
         static let move = memoize { (pairState: PairState) in GameHandler.move(pairState.first, gameState: pairState.second) }
     }
     

@@ -9,6 +9,9 @@
 import Foundation
 
 class MoveGenerationHandler {
+}
+
+extension MoveGenerationHandler {
     
     static func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
@@ -22,9 +25,6 @@ class MoveGenerationHandler {
         }
         return getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
     }
-}
-
-extension MoveGenerationHandler {
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece

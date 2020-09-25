@@ -26,9 +26,6 @@ extension MovementDirectionHandler {
             return true
         }
     }
-}
-
-extension MovementDirectionHandler {
     
     private static func isRankIncremented(for move: MoveState) -> Bool {
         move.fromSquare.rankIndex.rawValue < move.toSquare.rankIndex.rawValue

@@ -150,6 +150,10 @@
 		E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C324D3560C00953DE0 /* GameHandler.swift */; };
 		E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C524D35F9B00953DE0 /* Constants.swift */; };
 		E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
+		E6D59247251E38EF00D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
+		E6D59250251E398900D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
+		E6D59255251E398A00D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
+		E6D5925A251E398A00D32085 /* BestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D59246251E38EF00D32085 /* BestMoveHandler.swift */; };
 		E6DC346524DB538F00373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346624DB538F00373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
 		E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */; };
@@ -257,6 +261,7 @@
 		E6D2E1C324D3560C00953DE0 /* GameHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHandler.swift; sourceTree = "<group>"; };
 		E6D2E1C524D35F9B00953DE0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6D2E1C824D372B200953DE0 /* PieceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieceFactory.swift; sourceTree = "<group>"; };
+		E6D59246251E38EF00D32085 /* BestMoveHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestMoveHandler.swift; sourceTree = "<group>"; };
 		E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationValueHandler.swift; sourceTree = "<group>"; };
 		E6F592CD24E732710099CA98 /* AIGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIGameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -542,6 +547,7 @@
 				E6B424AC251E2A85007E339E /* MemoizationHandler */,
 				E689F19024D6DEA200CD0392 /* MovementHandlers */,
 				E689F1A024D6E45100CD0392 /* AIHandler.swift */,
+				E6D59246251E38EF00D32085 /* BestMoveHandler.swift */,
 				E6D2E1AE24D3506100953DE0 /* BoardHandler.swift */,
 				E6DC346424DB538F00373621 /* EvaluationValueHandler.swift */,
 				E6D2E1C324D3560C00953DE0 /* GameHandler.swift */,
@@ -744,6 +750,7 @@
 				E6B424F0251E2CA3007E339E /* PairState.swift in Sources */,
 				E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */,
 				E6B424BC251E2B85007E339E /* MemoizationHandler.swift in Sources */,
+				E6D5925A251E398A00D32085 /* BestMoveHandler.swift in Sources */,
 				E689F1A324D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */,
 				E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */,
@@ -781,6 +788,7 @@
 				E6B1881924D5B5A9000F6E71 /* MobileChessTests.swift in Sources */,
 				E689F19B24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */,
+				E6D59255251E398A00D32085 /* BestMoveHandler.swift in Sources */,
 				E6B424BD251E2B86007E339E /* MemoizationHandler.swift in Sources */,
 				E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */,
 				E6B188BE24D5EADD000F6E71 /* MutableCollectionExtension.swift in Sources */,
@@ -805,6 +813,7 @@
 				E6B424E8251E2CA2007E339E /* PairState.swift in Sources */,
 				E6B188B324D5EAD7000F6E71 /* AdvancementState.swift in Sources */,
 				E689F27424D7086D00CD0392 /* PawnPossibleMovesTests.swift in Sources */,
+				E6D59250251E398900D32085 /* BestMoveHandler.swift in Sources */,
 				E689F27324D7086D00CD0392 /* KnightPossibleMovesTests.swift in Sources */,
 				E6B188B724D5EAD7000F6E71 /* PlayerState.swift in Sources */,
 				E6B188B624D5EAD7000F6E71 /* MoveState.swift in Sources */,
@@ -881,6 +890,7 @@
 				E689F19824D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */,
 				E6B424AE251E2A9B007E339E /* MemoizationHandler.swift in Sources */,
+				E6D59247251E38EF00D32085 /* BestMoveHandler.swift in Sources */,
 				E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */,
 				E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */,
 				E6D2E1C224D3543000953DE0 /* Indices.swift in Sources */,

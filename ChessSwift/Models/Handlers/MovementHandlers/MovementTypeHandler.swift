@@ -32,9 +32,6 @@ extension MovementTypeHandler {
             }
             } != nil
     }
-}
-
-extension MovementTypeHandler {
     
     private static func isPathClear(for move: MoveState, boardState: BoardState) -> Bool {
         let advancement = getAdvancement(for: move)

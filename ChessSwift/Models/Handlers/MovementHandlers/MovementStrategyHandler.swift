@@ -29,9 +29,6 @@ extension MovementStrategyHandler {
             }
             } != nil
     }
-}
-
-extension MovementStrategyHandler {
     
     private static func isOnlyFileOrOnlyRankAdvanced(for move: MoveState) -> Bool {
         isFileAdvanced(for: move) != isRankAdvanced(for: move)

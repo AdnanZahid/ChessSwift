@@ -14,6 +14,9 @@ class EvaluationValueHandler {
         static let pieceValueWeight = 1
         static let mobilityValueWeight = 5
     }
+}
+
+extension EvaluationValueHandler {
     
     static func getValue(for boardState: BoardState, player: PlayerState) -> Int {
         let pieceSquares = boardState.squares.flatMap { $0 }.compactMap { $0 }.filter { $0.piece?.rawValue.color == player.color }

@@ -24,15 +24,18 @@ class Controller {
         outputHandler.setup(boardState: boardState)
         selectQueueAndRun(.global(qos: .default)) { self.runEngine() }
     }
+}
+
+extension Controller {
     
-    func runEngine() {
+    private func runEngine() {
         guard let gameState = gameState else { return }
-        inputHandler = MemoizationHandler.MemoizedGameHandler.isAITurn(gameState) ? AIHandler() : outputHandler
+        inputHandler = gameState.currentPlayer.isAI ? AIHandler() : outputHandler
         inputHandler.inputHandlerDelegate = self
         inputHandler.input(gameState: gameState)
     }
     
-    func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {
+    private func selectQueueAndRun(_ queue: DispatchQueue, action: @escaping () -> ()) {
         if !outputHandler.isGUIViewAvailable {
             action()
         } else {

@@ -9,10 +9,9 @@
 import Foundation
 
 class GameHandler {
-    
-    static func isAITurn(gameState: GameState) -> Bool {
-        gameState.currentPlayer.isAI
-    }
+}
+
+extension GameHandler {
     
     static func move(_ move: MoveState, gameState: GameState) -> GameState? {
         guard isCurrentPlayersMove(move, gameState: gameState),

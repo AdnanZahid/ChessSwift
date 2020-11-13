@@ -19,11 +19,21 @@ class EvaluationValueHandler {
 extension EvaluationValueHandler {
     
     static func getValue(for gameState: GameState) -> Int {
-        let allPieces = PiecesHandler.allPieces(gameState: gameState)
-        let movablePieces = PiecesHandler.movablePieces(gameState: gameState)
-        let pieceValueSum = EvaluationValueHandler.pieceValueSum(squares: allPieces)
-        let mobilityValueSum = EvaluationValueHandler.mobilityValueSum(squares: movablePieces, boardState: gameState.boardState)
-        return (pieceValueSum * Constants.pieceValueWeight) + (mobilityValueSum * Constants.mobilityValueWeight)
+        
+        // For current player
+        let currentPlayerPieces = PiecesHandler.currentPlayerPieces(gameState: gameState)
+        let currentPieceValueSum = pieceValueSum(squares: currentPlayerPieces)
+        let currentMobilityValueSum = mobilityValueSum(squares: currentPlayerPieces, boardState: gameState.boardState)
+        
+        // For opponent player
+        let opponentPlayerPieces = PiecesHandler.opponentPlayerPieces(gameState: gameState)
+        let opponentPieceValueSum = pieceValueSum(squares: opponentPlayerPieces)
+        let opponentMobilityValueSum = mobilityValueSum(squares: opponentPlayerPieces, boardState: gameState.boardState)
+        
+        // Final sum
+        let finalPieceValueSum = currentPieceValueSum - opponentPieceValueSum
+        let finalMobilityValueSum = currentMobilityValueSum - opponentMobilityValueSum
+        return (finalPieceValueSum * Constants.pieceValueWeight) + (finalMobilityValueSum * Constants.mobilityValueWeight)
     }
     
     static func pieceValueSum(squares: [SquareState]) -> Int {

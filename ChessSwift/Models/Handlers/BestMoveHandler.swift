@@ -30,10 +30,10 @@ extension BestMoveHandler {
             
             guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
             var localAlpha = alpha
-            let value = -BestMoveHandler.bestEvaluationValue(at: depth - 1,
-                                                             gameState: localGameState,
-                                                             alpha: -beta,
-                                                             beta: -localAlpha)
+            let value = -bestEvaluationValue(at: depth - 1,
+                                             gameState: localGameState,
+                                             alpha: -beta,
+                                             beta: -localAlpha)
             if value > bestValue {
                 bestValue = value
                 bestMoveState = moveState
@@ -59,10 +59,10 @@ extension BestMoveHandler {
             
             guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
             var localAlpha = alpha
-            let value = -BestMoveHandler.bestEvaluationValue(at: depth - 1,
-                                                             gameState: localGameState,
-                                                             alpha: -beta,
-                                                             beta: -localAlpha)
+            let value = -bestEvaluationValue(at: depth - 1,
+                                             gameState: localGameState,
+                                             alpha: -beta,
+                                             beta: -localAlpha)
             if value > bestValue {
                 bestValue = value
             }

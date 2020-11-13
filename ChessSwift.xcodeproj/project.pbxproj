@@ -165,10 +165,6 @@
 		E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
 		E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
-		E6B424AE251E2A9B007E339E /* MemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */; };
-		E6B424B7251E2B84007E339E /* MemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */; };
-		E6B424BC251E2B85007E339E /* MemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */; };
-		E6B424BD251E2B86007E339E /* MemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */; };
 		E6B424DA251E2C7F007E339E /* TripletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D8251E2C7F007E339E /* TripletState.swift */; };
 		E6B424DB251E2C7F007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D9251E2C7F007E339E /* PairState.swift */; };
 		E6B424E8251E2CA2007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D9251E2C7F007E339E /* PairState.swift */; };
@@ -298,7 +294,6 @@
 		E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtension.swift; sourceTree = "<group>"; };
 		E6B1885324D5D253000F6E71 /* AdvancementState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancementState.swift; sourceTree = "<group>"; };
 		E6B1885A24D5E903000F6E71 /* ChessSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoizationHandler.swift; sourceTree = "<group>"; };
 		E6B424D8251E2C7F007E339E /* TripletState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripletState.swift; sourceTree = "<group>"; };
 		E6B424D9251E2C7F007E339E /* PairState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairState.swift; sourceTree = "<group>"; };
 		E6D2E19824D34FE700953DE0 /* ChessSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessSwift; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -510,14 +505,6 @@
 			path = ChessSwiftTests;
 			sourceTree = "<group>";
 		};
-		E6B424AC251E2A85007E339E /* MemoizationHandler */ = {
-			isa = PBXGroup;
-			children = (
-				E6B424AD251E2A9B007E339E /* MemoizationHandler.swift */,
-			);
-			path = MemoizationHandler;
-			sourceTree = "<group>";
-		};
 		E6B424D7251E2C7F007E339E /* HashableStates */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,7 +604,6 @@
 		E6D2E1A724D3502500953DE0 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				E6B424AC251E2A85007E339E /* MemoizationHandler */,
 				E689F19024D6DEA200CD0392 /* MovementHandlers */,
 				E689F1A024D6E45100CD0392 /* AIHandler.swift */,
 				E6D59246251E38EF00D32085 /* BestMoveHandler.swift */,
@@ -834,7 +820,6 @@
 				E61E53BD255F231700349AB1 /* RWLock.swift in Sources */,
 				E6B424F0251E2CA3007E339E /* PairState.swift in Sources */,
 				E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */,
-				E6B424BC251E2B85007E339E /* MemoizationHandler.swift in Sources */,
 				E6D5925A251E398A00D32085 /* BestMoveHandler.swift in Sources */,
 				E689F1A324D6E45100CD0392 /* AIHandler.swift in Sources */,
 				E6DC346724DB539000373621 /* EvaluationValueHandler.swift in Sources */,
@@ -880,7 +865,6 @@
 				E6A914AB255BF9A90081E4FD /* EligibleForPromotion.swift in Sources */,
 				E6D59255251E398A00D32085 /* BestMoveHandler.swift in Sources */,
 				E6A914AF255BF9A90081E4FD /* MovementType.swift in Sources */,
-				E6B424BD251E2B86007E339E /* MemoizationHandler.swift in Sources */,
 				E6A914AA255BF9A90081E4FD /* Color.swift in Sources */,
 				E6A914AE255BF9A90081E4FD /* MovementStrategy.swift in Sources */,
 				E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */,
@@ -952,7 +936,6 @@
 				E690D03F2559EFCC00E0AE7C /* Errors.swift in Sources */,
 				E6A9149C255BF9A60081E4FD /* Indices.swift in Sources */,
 				E689F26D24D7086D00CD0392 /* KnightCapturesTests.swift in Sources */,
-				E6B424B7251E2B84007E339E /* MemoizationHandler.swift in Sources */,
 				E689F26E24D7086D00CD0392 /* PawnCapturesTests.swift in Sources */,
 				E689F25824D7086C00CD0392 /* TestConstants.swift in Sources */,
 				E689F25E24D7086C00CD0392 /* RookAllowMovesTests.swift in Sources */,
@@ -1002,7 +985,6 @@
 				E689F19824D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */,
 				E6A91491255BF8D60081E4FD /* MovementStrategy.swift in Sources */,
-				E6B424AE251E2A9B007E339E /* MemoizationHandler.swift in Sources */,
 				E6A91495255BF8FC0081E4FD /* MovementDirection.swift in Sources */,
 				E6D59247251E38EF00D32085 /* BestMoveHandler.swift in Sources */,
 				E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */,

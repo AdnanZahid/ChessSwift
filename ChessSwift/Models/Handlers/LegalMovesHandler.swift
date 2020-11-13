@@ -35,7 +35,7 @@ extension LegalMovesHandler {
         move.fromSquare == move.toSquare
     }
     
-    static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+    private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     

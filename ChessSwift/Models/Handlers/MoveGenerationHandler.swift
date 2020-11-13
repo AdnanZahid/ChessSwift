@@ -27,13 +27,13 @@ extension MoveGenerationHandler {
     }
     
     static func getMoves(_ gameState: GameState) -> [MoveState] {
-        let squares = PiecesHandler.movablePieces(gameState: gameState)
-        let moves = MoveGenerationHandler.currentPlayerMoves(squares: squares, boardState: gameState.boardState)
+        let squares = PiecesHandler.currentPlayerPieces(gameState: gameState)
+        let moves = currentPlayerMoves(squares: squares, boardState: gameState.boardState)
         return moves
     }
     
     static func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
-        squares.flatMap { MoveGenerationHandler.getMoves(forPieceOn: $0, boardState: boardState) }
+        squares.flatMap { getMoves(forPieceOn: $0, boardState: boardState) }
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
@@ -45,7 +45,7 @@ extension MoveGenerationHandler {
             .flatMap { $0.rawValue }
             .flatMap { advancementState in
                 getMoves(on: squareState, for: advancementState, boardState: boardState)
-            }
+        }
     }
     
     private static func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {

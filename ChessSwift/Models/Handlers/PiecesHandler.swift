@@ -13,12 +13,15 @@ class PiecesHandler {
 
 extension PiecesHandler {
     
-    static func allPieces(gameState: GameState) -> [SquareState] {
-        gameState.boardState.squares.flatMap { $0 }.compactMap { $0 }
+    static func currentPlayerPieces(gameState: GameState) -> [SquareState] {
+        allPieces(gameState: gameState).filter { $0.piece?.rawValue.color == gameState.currentPlayer.color }
     }
     
-    static func movablePieces(gameState: GameState) -> [SquareState] {
-        PiecesHandler.allPieces(gameState: gameState)
-            .filter { $0.piece?.rawValue.color == gameState.currentPlayer.color }
+    static func opponentPlayerPieces(gameState: GameState) -> [SquareState] {
+        allPieces(gameState: gameState).filter { $0.piece?.rawValue.color != gameState.currentPlayer.color }
+    }
+    
+    private static func allPieces(gameState: GameState) -> [SquareState] {
+        gameState.boardState.squares.flatMap { $0 }.compactMap { $0 }
     }
 }

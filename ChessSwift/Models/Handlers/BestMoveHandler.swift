@@ -11,7 +11,7 @@ import Foundation
 class BestMoveHandler {
     
     private enum Constants {
-        static let maxDepth = 2
+        static let maxDepth = 4
     }
 }
 
@@ -23,17 +23,17 @@ extension BestMoveHandler {
         let depth = Constants.maxDepth
         var bestValue = Int.min / 2
         var bestMoveState: MoveState? = nil
-        let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
+        let moveStates = MoveGenerationHandler.getMoves(gameState)
         
         DispatchQueue.concurrentPerform(iterations: moveStates.count) { index in
             let moveState = moveStates[index]
             
-            guard let localGameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { return }
+            guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
             var localAlpha = alpha
-            let value = -MemoizationHandler.MemoizedBestMoveHandler.bestValue(QuadrupletState(first: depth - 1,
-                                                                                              second: localGameState,
-                                                                                              third: -beta,
-                                                                                              fourth: -localAlpha))
+            let value = -BestMoveHandler.bestEvaluationValue(at: depth - 1,
+                                                             gameState: localGameState,
+                                                             alpha: -beta,
+                                                             beta: -localAlpha)
             if value > bestValue {
                 bestValue = value
                 bestMoveState = moveState
@@ -49,25 +49,20 @@ extension BestMoveHandler {
     
     static func bestEvaluationValue(at depth: Int, gameState: GameState, alpha: Int, beta: Int) -> Int {
         if depth == 0 {
-            let value = MemoizationHandler.MemoizedEvaluationValueHandler.getValue(gameState)
-            if gameState.currentPlayer.color == .white {
-                return value
-            } else {
-                return -value
-            }
+            return EvaluationValueHandler.getValue(for: gameState)
         }
         var bestValue = Int.min / 2
-        let moveStates = MemoizationHandler.MemoizedMoveGenerationHandler.getGameStateMoves(gameState)
+        let moveStates = MoveGenerationHandler.getMoves(gameState)
         
         DispatchQueue.concurrentPerform(iterations: moveStates.count) { index in
             let moveState = moveStates[index]
             
-            guard let localGameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: moveState, second: gameState)) else { return }
+            guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
             var localAlpha = alpha
-            let value = -MemoizationHandler.MemoizedBestMoveHandler.bestValue(QuadrupletState(first: depth - 1,
-                                                                                              second: localGameState,
-                                                                                              third: -beta,
-                                                                                              fourth: -localAlpha))
+            let value = -BestMoveHandler.bestEvaluationValue(at: depth - 1,
+                                                             gameState: localGameState,
+                                                             alpha: -beta,
+                                                             beta: -localAlpha)
             if value > bestValue {
                 bestValue = value
             }

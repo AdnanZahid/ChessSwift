@@ -19,12 +19,11 @@ class EvaluationValueHandler {
 extension EvaluationValueHandler {
     
     static func getValue(for gameState: GameState) -> Int {
-        let allPieces = MemoizationHandler.MemoizedPiecesHandler.allPieces(gameState)
-        let movablePieces = MemoizationHandler.MemoizedPiecesHandler.movablePieces(gameState)
-        let pieceValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.pieceValueSum(allPieces)
-        let mobilityValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.mobilityValueSum(PairState(first: movablePieces,
-                                                                                                            second: gameState.boardState))
-        return /*(pieceValueSum * Constants.pieceValueWeight) +*/ (mobilityValueSum * Constants.mobilityValueWeight)
+        let allPieces = PiecesHandler.allPieces(gameState: gameState)
+        let movablePieces = PiecesHandler.movablePieces(gameState: gameState)
+        let pieceValueSum = EvaluationValueHandler.pieceValueSum(squares: allPieces)
+        let mobilityValueSum = EvaluationValueHandler.mobilityValueSum(squares: movablePieces, boardState: gameState.boardState)
+        return (pieceValueSum * Constants.pieceValueWeight) + (mobilityValueSum * Constants.mobilityValueWeight)
     }
     
     static func pieceValueSum(squares: [SquareState]) -> Int {
@@ -33,7 +32,7 @@ extension EvaluationValueHandler {
     
     static func mobilityValueSum(squares: [SquareState], boardState: BoardState) -> Int {
         squares.reduce(0) { (first, second) in
-            return first + MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: second, second: boardState)).count
+            return first + MoveGenerationHandler.getMoves(forPieceOn: second, boardState: boardState).count
         }
     }
 }

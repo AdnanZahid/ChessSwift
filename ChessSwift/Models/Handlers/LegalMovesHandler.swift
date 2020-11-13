@@ -25,14 +25,9 @@ extension LegalMovesHandler {
         guard let movingPiece = getPiece(on: fromSquare, boardState: boardState),
               isPiece(movingPiece, allowedToCapture: targetPiece) else { return false }
         let moveOrCaptureStrategies = targetPiece == nil ? movingPiece.rawValue.movementStrategies : movingPiece.rawValue.captureStrategies
-        guard MemoizationHandler.MemoizedMovementStrategyHandler.isValid(PairState(first: move,
-                                                                                   second: moveOrCaptureStrategies)),
-              MemoizationHandler.MemoizedMovementTypeHandler.isValid(TripletState(first: move,
-                                                                                  second: movingPiece.rawValue.movementTypes,
-                                                                                  third: boardState)),
-              MemoizationHandler.MemoizedMovementDirectionHandler.isValid(TripletState(first: move,
-                                                                                       second: movingPiece.rawValue.movementDirection,
-                                                                                       third: movingPiece.rawValue.color)) else { return false }
+        guard MovementStrategyHandler.isValid(move: move, movementStrategies: moveOrCaptureStrategies),
+              MovementTypeHandler.isValid(move: move, movementTypes: movingPiece.rawValue.movementTypes, boardState: boardState),
+              MovementDirectionHandler.isValid(move: move, movementDirection: movingPiece.rawValue.movementDirection, color: movingPiece.rawValue.color) else { return false }
         return true
     }
     

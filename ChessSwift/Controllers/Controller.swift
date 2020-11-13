@@ -50,7 +50,7 @@ extension Controller: InputHandlerDelegate {
     
     func didTakeInput(_ move: MoveState) {
         guard let gameState = gameState else { return }
-        self.gameState = MemoizationHandler.MemoizedGameHandler.move(PairState(first: move, second: gameState))
+        self.gameState = GameHandler.move(move, gameState: gameState)
         if self.gameState != nil {
             selectQueueAndRun(.main) { [unowned self] in
                 guard let gameState = self.gameState else { return }
@@ -66,7 +66,6 @@ extension Controller: InputHandlerDelegate {
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
         guard let gameState = gameState else { return [] }
-        return MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: squareState,
-                                                                                             second: gameState.boardState))
+        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
     }
 }

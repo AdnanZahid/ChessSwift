@@ -27,14 +27,13 @@ extension MoveGenerationHandler {
     }
     
     static func getMoves(_ gameState: GameState) -> [MoveState] {
-        let squares = MemoizationHandler.MemoizedPiecesHandler.movablePieces(gameState)
-        let moves = MemoizationHandler.MemoizedMoveGenerationHandler.currentPlayerMoves(PairState(first: squares,
-                                                                                                  second: gameState.boardState))
+        let squares = PiecesHandler.movablePieces(gameState: gameState)
+        let moves = MoveGenerationHandler.currentPlayerMoves(squares: squares, boardState: gameState.boardState)
         return moves
     }
     
     static func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
-        squares.flatMap { MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: $0, second: boardState)) }
+        squares.flatMap { MoveGenerationHandler.getMoves(forPieceOn: $0, boardState: boardState) }
     }
     
     private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
@@ -54,7 +53,7 @@ extension MoveGenerationHandler {
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {
             let moveState = MoveState(fromSquare: squareState, toSquare: targetSquare)
-            guard MemoizationHandler.MemoizedLegalMovesHandler.move(PairState(first: moveState, second: boardState)) else { return moveStates }
+            guard LegalMovesHandler.move(moveState, boardState: boardState) else { return moveStates }
             moveStates.append(moveState)
             count += 1
         }

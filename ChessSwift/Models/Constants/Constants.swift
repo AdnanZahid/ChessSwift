@@ -53,14 +53,14 @@ enum Constants {
         
         static let standard: [[Int]] = [
             
-            [B, B, B, B, B, B, B, B],
+            [R, N, B, Q, K, B, N, R],
+            [P, P, P, P, P, P, P, P],
             [x, x, x, x, x, x, x, x],
             [x, x, x, x, x, x, x, x],
             [x, x, x, x, x, x, x, x],
             [x, x, x, x, x, x, x, x],
-            [x, x, x, x, x, x, x, x],
-            [x, x, x, x, x, x, x, x],
-            [x, x, b, b, b, b, x, x],
+            [p, p, p, p, p, p, p, p],
+            [r, n, b, q, k, b, n, r],
             ].reversed() // Reversing for viewing convenience
         
         static let empty: [[Int]] = [

@@ -16,7 +16,7 @@ extension BoardHandler {
     static func move(_ move: MoveState, boardState: BoardState) -> BoardState? {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
-        guard MemoizationHandler.MemoizedLegalMovesHandler.move(PairState(first: move, second: boardState)),
+        guard LegalMovesHandler.move(move, boardState: boardState),
               let movingPiece = getPiece(on: fromSquare, boardState: boardState),
               let intermediateBoardState = putPiece(movingPiece, on: toSquare, boardState: boardState),
               let finalBoardState = putEmptyPiece(on: fromSquare, boardState: intermediateBoardState) else {

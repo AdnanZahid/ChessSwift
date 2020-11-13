@@ -15,7 +15,7 @@ class AIHandler {
 extension AIHandler: InputHandler {
     
     func input(gameState: GameState) {
-        guard let moveState = MemoizationHandler.MemoizedBestMoveHandler.bestMove(gameState) else { return }
+        guard let moveState = BestMoveHandler.bestMove(gameState: gameState) else { return }
         inputHandlerDelegate?.didTakeInput(moveState)
     }
 }

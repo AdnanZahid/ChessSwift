@@ -18,7 +18,7 @@ extension PiecesHandler {
     }
     
     static func movablePieces(gameState: GameState) -> [SquareState] {
-        MemoizationHandler.MemoizedPiecesHandler.allPieces(gameState)
+        PiecesHandler.allPieces(gameState: gameState)
             .filter { $0.piece?.rawValue.color == gameState.currentPlayer.color }
     }
 }

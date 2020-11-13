@@ -12,7 +12,7 @@ class EvaluationValueHandler {
     
     private enum Constants {
         static let pieceValueWeight = 1
-        static let mobilityValueWeight = 5
+        static let mobilityValueWeight = 1
     }
 }
 
@@ -31,7 +31,7 @@ extension EvaluationValueHandler {
         let opponentMobilityValueSum = mobilityValueSum(squares: opponentPlayerPieces, boardState: gameState.boardState)
         
         // Final sum
-        let finalPieceValueSum = currentPieceValueSum - opponentPieceValueSum
+        let finalPieceValueSum = currentPieceValueSum + opponentPieceValueSum
         let finalMobilityValueSum = currentMobilityValueSum - opponentMobilityValueSum
         return (finalPieceValueSum * Constants.pieceValueWeight) + (finalMobilityValueSum * Constants.mobilityValueWeight)
     }

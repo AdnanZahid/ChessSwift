@@ -11,7 +11,7 @@ import Foundation
 class BestMoveHandler {
     
     private enum Constants {
-        static let maxDepth = 4
+        static let maxDepth = 3
     }
 }
 

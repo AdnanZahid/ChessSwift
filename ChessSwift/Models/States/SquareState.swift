@@ -15,6 +15,10 @@ struct SquareState {
 }
 
 extension SquareState: Hashable {
+    
+    var hashValue: Int {
+        (rankIndex.rawValue * 8) + fileIndex.rawValue
+    }
 }
 
 extension SquareState: CustomDebugStringConvertible {
@@ -24,6 +28,10 @@ extension SquareState: CustomDebugStringConvertible {
 }
 
 extension SquareState: Equatable {
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.fileIndex == rhs.fileIndex && lhs.rankIndex == rhs.rankIndex
+    }
     
     static func + (square: SquareState, advancement: AdvancementState) -> SquareState? {
         guard let file = square.fileIndex + advancement.fileAdvancement, let rank = square.rankIndex + advancement.rankAdvancement else { return nil }

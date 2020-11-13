@@ -19,19 +19,21 @@ class EvaluationValueHandler {
 extension EvaluationValueHandler {
     
     static func getValue(for gameState: GameState) -> Int {
-        let pieceSquares = MemoizationHandler.MemoizedPiecesHandler.piecesMovable(gameState)
-        let pieceValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.pieceValueSum(pieceSquares)
-        let mobilityValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.mobilityValueSum(PairState(first: pieceSquares,
+        let allPieces = MemoizationHandler.MemoizedPiecesHandler.allPieces(gameState)
+        let movablePieces = MemoizationHandler.MemoizedPiecesHandler.movablePieces(gameState)
+        let pieceValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.pieceValueSum(allPieces)
+        let mobilityValueSum = MemoizationHandler.MemoizedEvaluationValueHandler.mobilityValueSum(PairState(first: movablePieces,
                                                                                                             second: gameState.boardState))
-        return (pieceValueSum * Constants.pieceValueWeight) + (mobilityValueSum * Constants.mobilityValueWeight)
+        return /*(pieceValueSum * Constants.pieceValueWeight) +*/ (mobilityValueSum * Constants.mobilityValueWeight)
     }
     
     static func pieceValueSum(squares: [SquareState]) -> Int {
-        squares.compactMap { $0.piece }.reduce(0) { $0 + $1.rawValue.value }
+        squares.reduce(0) { $0 + ($1.piece?.rawValue.value ?? 0) }
     }
     
     static func mobilityValueSum(squares: [SquareState], boardState: BoardState) -> Int {
-        squares.reduce(0) { $0 + MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: $1,
-                                                                                                               second: boardState)).count }
+        squares.reduce(0) { (first, second) in
+            return first + MemoizationHandler.MemoizedMoveGenerationHandler.getBoardStateMoves(PairState(first: second, second: boardState)).count
+        }
     }
 }

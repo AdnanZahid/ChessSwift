@@ -7,33 +7,177 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C9C4933-58F9-473F-BD80-213A8F7264AC"
+            uuid = "A19F6EFC-8A43-48FA-86AE-DDD9011E678D"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Handlers/MemoizationHandler/MemoizationHandler.swift"
+            filePath = "ChessSwift/Models/Handlers/MovementHandlers/MovementTypeHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "memoizationWrapper(input:)"
-            landmarkType = "9">
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "isPathClear(for:boardState:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4959EC18-51BA-407C-9F92-F642588BBD40"
+            uuid = "187F0885-18E8-4590-B51E-2A1DC0ACD74E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6CC7EAFF-A2A6-4EFB-92B1-39844386FC04"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6CC7EAFF-A2A6-4EFB-92B1-39844386FC04 - afac4d6dd8b1140b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static MobileChess.BestMoveHandler.bestMove(gameState: MobileChess.GameState) -&gt; Swift.Optional&lt;MobileChess.MoveState&gt;"
+                  moduleName = "MobileChess"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adnanzahid/Documents/Projects/ChessSwift/ChessSwift/Models/Handlers/BestMoveHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "892">
+               </Location>
+               <Location
+                  uuid = "6CC7EAFF-A2A6-4EFB-92B1-39844386FC04 - 301ff65215178f94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in static MobileChess.BestMoveHandler.bestMove(gameState: MobileChess.GameState) -&gt; Swift.Optional&lt;MobileChess.MoveState&gt;"
+                  moduleName = "MobileChess"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adnanzahid/Documents/Projects/ChessSwift/ChessSwift/Models/Handlers/BestMoveHandler.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "281">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B75766F8-5F5D-4FE5-8A7D-7B5F3667365C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0CF0AB0-EE3E-407E-B580-94E7EEE6489C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE081971-AB87-4354-BB2B-E50A37661DC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BF8E188D-C645-443F-B3D5-3674EF2417BE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E5D19C4-0F6C-4A5D-9667-4B1A4EF1DD5C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Handlers/MemoizationHandler/MemoizationHandler.swift"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "memoizationWrapper(input:)"
-            landmarkType = "9">
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "272760C6-48E0-488F-A6CC-B212CF956D3E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "bestMove(gameState:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

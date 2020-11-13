@@ -14,6 +14,10 @@ struct MoveState: Equatable {
 }
 
 extension MoveState: Hashable {
+    
+    var hashValue: Int {
+        ((fromSquare.hashValue + 1) * 100) + toSquare.hashValue
+    }
 }
 
 extension MoveState: CustomDebugStringConvertible {

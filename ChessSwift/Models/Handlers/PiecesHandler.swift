@@ -13,8 +13,12 @@ class PiecesHandler {
 
 extension PiecesHandler {
     
-    static func piecesMovable(gameState: GameState) -> [SquareState] {
-        gameState.boardState.squares.flatMap { $0 }
-            .filter { $0?.piece?.rawValue.color == gameState.currentPlayer.color }.compactMap { $0 }
+    static func allPieces(gameState: GameState) -> [SquareState] {
+        gameState.boardState.squares.flatMap { $0 }.compactMap { $0 }
+    }
+    
+    static func movablePieces(gameState: GameState) -> [SquareState] {
+        MemoizationHandler.MemoizedPiecesHandler.allPieces(gameState)
+            .filter { $0.piece?.rawValue.color == gameState.currentPlayer.color }
     }
 }

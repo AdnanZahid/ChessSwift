@@ -18,6 +18,10 @@ struct BoardState {
 }
 
 extension BoardState: Hashable {
+    
+    var hashValue: Int {
+        squares.flatMap { $0 }.map { $0?.piece?.rawValue.symbol ?? "1" }.joined().squeezed.hashValue
+    }
 }
 
 extension BoardState: CustomDebugStringConvertible {

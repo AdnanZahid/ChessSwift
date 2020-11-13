@@ -14,4 +14,8 @@ struct PlayerState {
 }
 
 extension PlayerState: Hashable {
+    
+    var hashValue: Int {
+        color.rawValue
+    }
 }

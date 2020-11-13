@@ -27,7 +27,7 @@ extension MoveGenerationHandler {
     }
     
     static func getMoves(_ gameState: GameState) -> [MoveState] {
-        let squares = MemoizationHandler.MemoizedPiecesHandler.piecesMovable(gameState)
+        let squares = MemoizationHandler.MemoizedPiecesHandler.movablePieces(gameState)
         let moves = MemoizationHandler.MemoizedMoveGenerationHandler.currentPlayerMoves(PairState(first: squares,
                                                                                                   second: gameState.boardState))
         return moves

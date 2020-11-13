@@ -16,4 +16,8 @@ struct GameState {
 }
 
 extension GameState: Hashable {
+    
+    var hashValue: Int {
+        boardState.hashValue + currentPlayer.hashValue
+    }
 }

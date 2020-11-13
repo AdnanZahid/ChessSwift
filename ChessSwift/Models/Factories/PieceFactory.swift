@@ -12,30 +12,30 @@ class PieceFactory {
         
         switch value {
             
-        case Constants.Values.king:
+        case Constants.Values.whiteKing:
             return .whiteKing
-        case Constants.Values.queen:
+        case Constants.Values.whiteQueen:
             return .whiteQueen
-        case Constants.Values.rook:
+        case Constants.Values.whiteRook:
             return .whiteRook
-        case Constants.Values.knight:
+        case Constants.Values.whiteKnight:
             return .whiteKnight
-        case Constants.Values.bishop:
+        case Constants.Values.whiteBishop:
             return .whiteBishop
-        case Constants.Values.pawn:
+        case Constants.Values.whitePawn:
             return .whitePawn
             
-        case -Constants.Values.king:
+        case Constants.Values.blackKing:
             return .blackKing
-        case -Constants.Values.queen:
+        case Constants.Values.blackQueen:
             return .blackQueen
-        case -Constants.Values.rook:
+        case Constants.Values.blackRook:
             return .blackRook
-        case -Constants.Values.knight:
+        case Constants.Values.blackKnight:
             return .blackKnight
-        case -Constants.Values.bishop:
+        case Constants.Values.blackBishop:
             return .blackBishop
-        case -Constants.Values.pawn:
+        case Constants.Values.blackPawn:
             return .blackPawn
             
         default:

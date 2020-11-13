@@ -15,7 +15,9 @@ extension GameHandler {
     
     static func move(_ move: MoveState, gameState: GameState) -> GameState? {
         guard isCurrentPlayersMove(move, gameState: gameState),
-              let boardState = MemoizationHandler.MemoizedBoardHandler.move(PairState(first: move, second: gameState.boardState)) else { return nil }
+              let boardState = MemoizationHandler.MemoizedBoardHandler.move(PairState(first: move, second: gameState.boardState)) else {
+                return nil
+        }
         return gameStateWithChangedTurns(gameState: gameState, boardState: boardState)
     }
     

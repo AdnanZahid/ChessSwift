@@ -14,6 +14,29 @@ struct AdvancementState {
 }
 
 extension AdvancementState: Hashable {
+    
+    var hashValue: Int {
+        (rankAdvancement * 8) + fileAdvancement
+    }
+}
+
+extension AdvancementState: Codable {
+    
+    private enum CodingKeys: CodingKey {
+        case fileAdvancement, rankAdvancement
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fileAdvancement, forKey: .fileAdvancement)
+        try container.encode(rankAdvancement, forKey: .rankAdvancement)
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        fileAdvancement = try container.decode(Int.self, forKey: .fileAdvancement)
+        rankAdvancement = try container.decode(Int.self, forKey: .rankAdvancement)
+    }
 }
 
 extension AdvancementState: Equatable {

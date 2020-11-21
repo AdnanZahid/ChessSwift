@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F5A0EB59-0682-4042-BDD0-8E349E07341C"
+            uuid = "4B15D63D-4F73-4B98-9EE9-B426DFBBA0C0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ChessSwift/Models/Handlers/EvaluationValueHandler.swift"
+            filePath = "ChessSwift/Models/Handlers/BestMoveHandler.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "getValue(for:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "bestEvaluationValue(at:gameState:alpha:beta:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,17 +20,18 @@ extension BestMoveHandler {
     static func bestMove(gameState: GameState) -> MoveState? {
         let alpha = Int.min / 2
         let beta = Int.max / 2
-        let depth = Constants.maxDepth
         var bestValue = Int.min / 2
         var bestMoveState: MoveState? = nil
         let moveStates = MoveGenerationHandler.getMoves(gameState)
         
         DispatchQueue.concurrentPerform(iterations: moveStates.count) { index in
             let moveState = moveStates[index]
-            
-            guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
+            let piece = BoardHandler.getPiece(on: moveState.fromSquare, boardState: gameState.boardState)
+            guard var depth = piece?.rawValue.value,
+                  let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
+            depth = abs(depth/100)
             var localAlpha = alpha
-            let value = -bestEvaluationValue(at: depth - 1,
+            let value = -bestEvaluationValue(at: min(depth, Constants.maxDepth) - 1,
                                              gameState: localGameState,
                                              alpha: -beta,
                                              beta: -localAlpha)
@@ -48,16 +49,12 @@ extension BestMoveHandler {
     }
     
     static func bestEvaluationValue(at depth: Int, gameState: GameState, alpha: Int, beta: Int) -> Int {
-        if depth == 0 {
-            return EvaluationValueHandler.getValue(for: gameState)
-        }
+        if depth == 0 { return EvaluationValueHandler.getValue(for: gameState) }
         var bestValue = Int.min / 2
         let moveStates = MoveGenerationHandler.getMoves(gameState)
         
-        DispatchQueue.concurrentPerform(iterations: moveStates.count) { index in
-            let moveState = moveStates[index]
-            
-            guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { return }
+        for moveState in moveStates {
+            guard let localGameState = GameHandler.move(moveState, gameState: gameState) else { break }
             var localAlpha = alpha
             let value = -bestEvaluationValue(at: depth - 1,
                                              gameState: localGameState,
@@ -67,7 +64,7 @@ extension BestMoveHandler {
                 bestValue = value
             }
             if bestValue >= beta {
-                return
+                break
             } else if bestValue > alpha {
                 localAlpha = bestValue
             }

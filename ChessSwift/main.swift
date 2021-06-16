@@ -8,4 +8,4 @@
 
 import Foundation
 
-let controller = Controller(view: CLIView())
+let controller = Controller(view: NetworkHandler())

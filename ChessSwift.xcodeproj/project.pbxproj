@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61AA82A2677726F00BB0E7B /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E61AA8292677726F00BB0E7B /* SocketIO */; };
+		E61AA82D2677729700BB0E7B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA82C2677729700BB0E7B /* NetworkHandler.swift */; };
+		E61AA8302677735200BB0E7B /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA82F2677735200BB0E7B /* SocketParser.swift */; };
+		E61AA8322677739400BB0E7B /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA8312677739400BB0E7B /* SocketHandler.swift */; };
+		E61AA834267778B300BB0E7B /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA8312677739400BB0E7B /* SocketHandler.swift */; };
+		E61AA835267778B300BB0E7B /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA82F2677735200BB0E7B /* SocketParser.swift */; };
+		E61AA836267778B300BB0E7B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61AA82C2677729700BB0E7B /* NetworkHandler.swift */; };
+		E61AA839267778D100BB0E7B /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = E61AA838267778D100BB0E7B /* SocketIO */; };
 		E61E53B6255F226700349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
 		E61E53B7255F22A500349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
 		E61E53B8255F22A600349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
@@ -227,6 +235,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E61AA82C2677729700BB0E7B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		E61AA82F2677735200BB0E7B /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
+		E61AA8312677739400BB0E7B /* SocketHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketHandler.swift; sourceTree = "<group>"; };
 		E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentDictionary.swift; sourceTree = "<group>"; };
 		E61E53BA255F230800349AB1 /* RWLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWLock.swift; sourceTree = "<group>"; };
 		E61E53BF255F243200349AB1 /* GCDConcurrentDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDConcurrentDictionary.swift; sourceTree = "<group>"; };
@@ -321,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61AA839267778D100BB0E7B /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,12 +354,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61AA82A2677726F00BB0E7B /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E61AA82B2677727E00BB0E7B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E61AA82E2677732100BB0E7B /* SocketImplementation */,
+				E61AA82C2677729700BB0E7B /* NetworkHandler.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E61AA82E2677732100BB0E7B /* SocketImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				E61AA82F2677735200BB0E7B /* SocketParser.swift */,
+				E61AA8312677739400BB0E7B /* SocketHandler.swift */,
+			);
+			path = SocketImplementation;
+			sourceTree = "<group>";
+		};
+		E61AA837267778D100BB0E7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E689F19024D6DEA200CD0392 /* MovementHandlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +561,7 @@
 				E6B1880024D5B5A8000F6E71 /* MobileChess */,
 				E6B1881724D5B5A9000F6E71 /* MobileChessTests */,
 				E6D2E19924D34FE700953DE0 /* Products */,
+				E61AA837267778D100BB0E7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -545,6 +584,7 @@
 				E6B1884C24D5C4FE000F6E71 /* Extensions */,
 				E6D2E1BC24D3538800953DE0 /* Interface */,
 				E6D2E1A224D34FF100953DE0 /* Models */,
+				E61AA82B2677727E00BB0E7B /* Network */,
 				E6D2E1A324D34FFC00953DE0 /* Views */,
 			);
 			path = ChessSwift;
@@ -649,6 +689,9 @@
 			dependencies = (
 			);
 			name = MobileChess;
+			packageProductDependencies = (
+				E61AA838267778D100BB0E7B /* SocketIO */,
+			);
 			productName = MobileChess;
 			productReference = E6B187FF24D5B5A8000F6E71 /* MobileChess.app */;
 			productType = "com.apple.product-type.application";
@@ -701,6 +744,9 @@
 			dependencies = (
 			);
 			name = ChessSwift;
+			packageProductDependencies = (
+				E61AA8292677726F00BB0E7B /* SocketIO */,
+			);
 			productName = ChessSwift;
 			productReference = E6D2E19824D34FE700953DE0 /* ChessSwift */;
 			productType = "com.apple.product-type.tool";
@@ -740,6 +786,9 @@
 				Base,
 			);
 			mainGroup = E6D2E18F24D34FE600953DE0;
+			packageReferences = (
+				E61AA8282677726F00BB0E7B /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+			);
 			productRefGroup = E6D2E19924D34FE700953DE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -793,9 +842,12 @@
 				E6A914A3255BF9A80081E4FD /* EligibleForPromotion.swift in Sources */,
 				E689F19624D6DEC200CD0392 /* MovementStrategyHandler.swift in Sources */,
 				E690D0402559EFCC00E0AE7C /* Errors.swift in Sources */,
+				E61AA836267778B300BB0E7B /* NetworkHandler.swift in Sources */,
 				E61E53C2255F245D00349AB1 /* GCDConcurrentDictionary.swift in Sources */,
 				E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */,
+				E61AA834267778B300BB0E7B /* SocketHandler.swift in Sources */,
 				E6B1882F24D5B78A000F6E71 /* BoardState.swift in Sources */,
+				E61AA835267778B300BB0E7B /* SocketParser.swift in Sources */,
 				E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */,
 				E689F19A24D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6B1884B24D5C486000F6E71 /* LegalMovesHandler.swift in Sources */,
@@ -973,6 +1025,7 @@
 				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
 				E6DC346524DB538F00373621 /* EvaluationValueHandler.swift in Sources */,
 				E690D03E2559EF9E00E0AE7C /* Errors.swift in Sources */,
+				E61AA8322677739400BB0E7B /* SocketHandler.swift in Sources */,
 				E6A9148D255BF8BF0081E4FD /* Indices.swift in Sources */,
 				E689F19C24D6DEC200CD0392 /* MovementDirectionHandler.swift in Sources */,
 				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,
@@ -981,6 +1034,8 @@
 				E689F1A624D6E89400CD0392 /* MoveGenerationHandler.swift in Sources */,
 				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
 				E61E53BB255F230800349AB1 /* RWLock.swift in Sources */,
+				E61AA82D2677729700BB0E7B /* NetworkHandler.swift in Sources */,
+				E61AA8302677735200BB0E7B /* SocketParser.swift in Sources */,
 				E6A91497255BF90B0081E4FD /* EligibleForPromotion.swift in Sources */,
 				E689F19824D6DEC200CD0392 /* MovementTypeHandler.swift in Sources */,
 				E6D2E1C424D3560C00953DE0 /* GameHandler.swift in Sources */,
@@ -1273,6 +1328,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q666HR669V;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/ChessSwift/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ChessSwift.ChessSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1285,6 +1342,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q666HR669V;
 				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/ChessSwift/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = ChessSwift.ChessSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1339,6 +1398,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E61AA8282677726F00BB0E7B /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E61AA8292677726F00BB0E7B /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E61AA8282677726F00BB0E7B /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+		E61AA838267778D100BB0E7B /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E61AA8282677726F00BB0E7B /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6D2E19024D34FE600953DE0 /* Project object */;
 }

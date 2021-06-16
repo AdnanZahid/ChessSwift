@@ -14,7 +14,13 @@ class Controller {
     let outputHandler: OutputHandler
     var inputHandler: InputHandler
     
+    private var networkHandler: OutputHandler?
+    private var controller2: Controller?
+    
     init(view: OutputHandler) {
+        
+        networkHandler = NetworkHandler()
+        
         let boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.standard)
         let whitePlayer = PlayerState(isAI: true, color: .white)
         let blackPlayer = PlayerState(isAI: true, color: .black)

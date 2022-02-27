@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LegalMovesHandler {
+struct LegalMovesHandler {
 }
 
 extension LegalMovesHandler {

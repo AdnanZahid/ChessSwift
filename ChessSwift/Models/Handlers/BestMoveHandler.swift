@@ -8,10 +8,10 @@
 
 import Foundation
 
-class BestMoveHandler {
+struct BestMoveHandler {
     
     private enum Constants {
-        static let maxDepth = 3
+        static let maxDepth = 5
     }
 }
 

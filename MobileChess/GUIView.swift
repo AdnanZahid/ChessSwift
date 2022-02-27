@@ -179,7 +179,7 @@ extension GUIView: OutputHandler {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
                 guard let piece = boardState.squares[rank][file]?.piece else { return }
-                let pieces = SCNScene(named: "art.scnassets/ChessPieces.dae")!
+                let pieces = SCNScene(named: "ChessPieces.dae", inDirectory: "art.scnassets")!
                 let node = pieces.rootNode.childNode(withName: piece.rawValue.symbol.uppercased(), recursively: true)!
                 if piece.rawValue.color == .black {
                     let blackMaterial = node.geometry!.firstMaterial!

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CLIView {
+struct CLIView {
     
     private enum Constants {
         

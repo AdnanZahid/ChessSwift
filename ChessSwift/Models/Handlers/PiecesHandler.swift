@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PiecesHandler {
+struct PiecesHandler {
 }
 
 extension PiecesHandler {

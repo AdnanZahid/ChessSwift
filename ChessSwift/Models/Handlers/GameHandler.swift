@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameHandler {
+struct GameHandler {
 }
 
 extension GameHandler {

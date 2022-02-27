@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AIHandler {
+struct AIHandler {
     weak var inputHandlerDelegate: InputHandlerDelegate?
 }
 

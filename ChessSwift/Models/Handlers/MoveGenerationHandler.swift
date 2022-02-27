@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MoveGenerationHandler {
+struct MoveGenerationHandler {
 }
 
 extension MoveGenerationHandler {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovementStrategyHandler {
+struct MovementStrategyHandler {
     enum Constants {
         static let oneStep = 1
         static let twoSteps = 2

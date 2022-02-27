@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BoardHandler {
+struct BoardHandler {
 }
 
 extension BoardHandler {

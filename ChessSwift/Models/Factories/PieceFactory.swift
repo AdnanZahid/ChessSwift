@@ -6,7 +6,7 @@
 //  Copyright © 2016 Chess. All rights reserved.
 //
 
-class PieceFactory {
+struct PieceFactory {
     
     static func getPiece(_ value: Int) -> Piece? {
         

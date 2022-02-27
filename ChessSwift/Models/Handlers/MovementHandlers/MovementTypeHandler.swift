@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovementTypeHandler {
+struct MovementTypeHandler {
 }
 
 extension MovementTypeHandler {

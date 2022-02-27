@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E61C6C1C27CAF9AB0025D348 /* MemoizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61C6C1B27CAF9AB0025D348 /* MemoizationHandler.swift */; };
 		E61E53B6255F226700349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
 		E61E53B7255F22A500349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
 		E61E53B8255F22A600349AB1 /* ConcurrentDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */; };
@@ -227,6 +228,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E61C6C1B27CAF9AB0025D348 /* MemoizationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoizationHandler.swift; sourceTree = "<group>"; };
 		E61E53B5255F226700349AB1 /* ConcurrentDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentDictionary.swift; sourceTree = "<group>"; };
 		E61E53BA255F230800349AB1 /* RWLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWLock.swift; sourceTree = "<group>"; };
 		E61E53BF255F243200349AB1 /* GCDConcurrentDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDConcurrentDictionary.swift; sourceTree = "<group>"; };
@@ -348,6 +350,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E61C6C1A27CAF98C0025D348 /* MemoizationHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				E61C6C1B27CAF9AB0025D348 /* MemoizationHandler.swift */,
+			);
+			path = MemoizationHandlers;
+			sourceTree = "<group>";
+		};
 		E689F19024D6DEA200CD0392 /* MovementHandlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +614,7 @@
 		E6D2E1A724D3502500953DE0 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				E61C6C1A27CAF98C0025D348 /* MemoizationHandlers */,
 				E689F19024D6DEA200CD0392 /* MovementHandlers */,
 				E689F1A024D6E45100CD0392 /* AIHandler.swift */,
 				E6D59246251E38EF00D32085 /* BestMoveHandler.swift */,
@@ -979,6 +990,7 @@
 				E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */,
 				E6D592B2251E83B300D32085 /* QuadrupletState.swift in Sources */,
 				E689F1A624D6E89400CD0392 /* MoveGenerationHandler.swift in Sources */,
+				E61C6C1C27CAF9AB0025D348 /* MemoizationHandler.swift in Sources */,
 				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
 				E61E53BB255F230800349AB1 /* RWLock.swift in Sources */,
 				E6A91497255BF90B0081E4FD /* EligibleForPromotion.swift in Sources */,

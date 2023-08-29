@@ -40,11 +40,12 @@ extension GameHandler: GameHandlerProtocol {
         gameState.currentPlayer.color == getPiece(on: move.fromSquare, boardState: gameState.boardState)?.rawValue.color
     }
 
-    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
-        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+    private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
+        let boardState = (boardState as? BoardState)
+        return boardState?.state[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 
-    private func gameStateWithChangedTurns(gameState: GameState, boardState: BoardStateProtocol) -> GameState {
+    private func gameStateWithChangedTurns(gameState: GameState, boardState: any BoardStateProtocol) -> GameState {
         .init(
             boardState: boardState,
             whitePlayer: gameState.whitePlayer,

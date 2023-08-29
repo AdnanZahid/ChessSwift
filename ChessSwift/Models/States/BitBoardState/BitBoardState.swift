@@ -13,7 +13,7 @@ struct BitBoardState: BoardStateProtocol {
     private enum Constants {
         static let newLine = "\n"
     }
-    
+
     let state: UInt64
 }
 

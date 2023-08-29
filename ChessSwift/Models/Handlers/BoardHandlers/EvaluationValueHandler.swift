@@ -58,7 +58,7 @@ extension EvaluationValueHandler: EvaluationValueHandlerProtocol {
         squares.reduce(0) { $0 + ($1.piece?.rawValue.value ?? 0) }
     }
     
-    func mobilityValueSum(squares: [SquareState], boardState: BoardStateProtocol) -> Int {
+    func mobilityValueSum(squares: [SquareState], boardState: any BoardStateProtocol) -> Int {
         squares.reduce(0) { (first, second) in
             first + moveGenerationHandler.getMoves(forPieceOn: second, boardState: boardState).count
         }

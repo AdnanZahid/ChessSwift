@@ -28,12 +28,12 @@ class BitBoardLegalMovesHandler {
 
 extension BitBoardLegalMovesHandler: LegalMovesHandlerProtocol {
 
-    func move(_ move: MoveState, boardState: BoardStateProtocol) -> Bool {
+    func move(_ move: MoveState, boardState: any BoardStateProtocol) -> Bool {
         guard !isZeroStepAdvanced(for: move) else { return false }
         return isValid(move: move, boardState: boardState)
     }
 
-    private func isValid(move: MoveState, boardState: BoardStateProtocol) -> Bool {
+    private func isValid(move: MoveState, boardState: any BoardStateProtocol) -> Bool {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
         let targetPiece = getPiece(on: toSquare, boardState: boardState)
@@ -50,7 +50,7 @@ extension BitBoardLegalMovesHandler: LegalMovesHandlerProtocol {
         move.fromSquare == move.toSquare
     }
 
-    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
+    private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 

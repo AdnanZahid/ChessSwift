@@ -30,6 +30,7 @@ extension PiecesHandler: PiecesHandlerProtocol {
     }
     
     private func allPieces(gameState: GameState) -> [SquareState] {
-        gameState.boardState.squares.flatMap { $0 }.compactMap { $0 }
+        let boardState = (gameState.boardState as? BoardState)
+        return boardState?.state.flatMap { $0 }.compactMap { $0 } ?? []
     }
 }

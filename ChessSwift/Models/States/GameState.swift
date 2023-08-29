@@ -9,7 +9,7 @@
 import Foundation
 
 struct GameState {
-    let boardState: BoardStateProtocol
+    let boardState: any BoardStateProtocol
     let whitePlayer: PlayerState
     let blackPlayer: PlayerState
     var currentPlayer: PlayerState

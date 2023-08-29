@@ -20,7 +20,7 @@ class Controller {
 
     init(view: OutputHandler) {
         // Change from array board to bit board here
-        let handlers = BitBoardAssembly.handlers
+        let handlers = Assembly.handlers
         moveGenerationHandler = handlers.moveGenerationHandler
         boardHandler = handlers.boardHandler
         aiHandler = handlers.aiHandler

@@ -12,7 +12,7 @@ protocol MoveGenerationHandlerProtocol {
 
     func getMoves(_ gameState: GameState) -> [MoveState]
 
-    func getMoves(forPieceOn squareState: SquareState, boardState: BoardStateProtocol) -> [MoveState]
+    func getMoves(forPieceOn squareState: SquareState, boardState: any BoardStateProtocol) -> [MoveState]
 
 }
 
@@ -39,7 +39,7 @@ extension MoveGenerationHandler: MoveGenerationHandlerProtocol {
         return moves
     }
 
-    func getMoves(forPieceOn squareState: SquareState, boardState: BoardStateProtocol) -> [MoveState] {
+    func getMoves(forPieceOn squareState: SquareState, boardState: any BoardStateProtocol) -> [MoveState] {
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
         // If movement strategies and capture strategies are same, calculate only once
         // Otherwise calculate for each one of them
@@ -52,15 +52,16 @@ extension MoveGenerationHandler: MoveGenerationHandlerProtocol {
         return getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
     }
     
-    func currentPlayerMoves(squares: [SquareState], boardState: BoardStateProtocol) -> [MoveState] {
+    func currentPlayerMoves(squares: [SquareState], boardState: any BoardStateProtocol) -> [MoveState] {
         squares.flatMap { getMoves(forPieceOn: $0, boardState: boardState) }
     }
     
-    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
-        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+    private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
+        let boardState = (boardState as? BoardState)
+        return boardState?.state[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
-    private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardStateProtocol) -> [MoveState] {
+    private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: any BoardStateProtocol) -> [MoveState] {
         movementStrategies
             .flatMap { $0.rawValue }
             .flatMap { advancementState in
@@ -68,7 +69,7 @@ extension MoveGenerationHandler: MoveGenerationHandlerProtocol {
         }
     }
     
-    private func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardStateProtocol) -> [MoveState] {
+    private func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: any BoardStateProtocol) -> [MoveState] {
         var moveStates: [MoveState] = []
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {

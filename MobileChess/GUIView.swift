@@ -175,10 +175,11 @@ extension GUIView: OutputHandler {
     func input(gameState: GameState) {
     }
     
-    func setup(boardState: BoardStateProtocol) {
+    func setup(boardState: any BoardStateProtocol) {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
-                guard let piece = boardState.squares[rank][file]?.piece else { return }
+                let boardState = (boardState as? BoardState)
+                guard let piece = boardState?.state[rank][file]?.piece else { return }
                 let pieces = SCNScene(named: "art.scnassets/ChessPieces.dae")!
                 let node = pieces.rootNode.childNode(withName: piece.rawValue.symbol.uppercased(), recursively: true)!
                 if piece.rawValue.color == .black {
@@ -197,7 +198,7 @@ extension GUIView: OutputHandler {
         }
     }
     
-    func output(move: MoveState, boardState: BoardStateProtocol) {
+    func output(move: MoveState, boardState: any BoardStateProtocol) {
         let fromFile = move.fromSquare.fileIndex.rawValue - UIConstants.startingFilePosition
         let fromRank = move.fromSquare.rankIndex.rawValue - UIConstants.startingRankPosition
         

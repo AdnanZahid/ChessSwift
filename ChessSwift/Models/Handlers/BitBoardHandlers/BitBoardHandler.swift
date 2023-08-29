@@ -22,7 +22,7 @@ class BitBoardHandler {
 
 extension BitBoardHandler: BoardHandlerProtocol {
 
-    func setup(configuration: Constants.ChessBoardConfiguration.ConfigurationType) -> BoardStateProtocol {
+    func setup(configuration: Constants.ChessBoardConfiguration.ConfigurationType) -> any BoardStateProtocol {
         var rankCount = -1
         var fileCount = -1
         return BitBoardState(squares: configuration.map { rank in
@@ -36,7 +36,7 @@ extension BitBoardHandler: BoardHandlerProtocol {
         })
     }
 
-    func move(_ move: MoveState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
+    func move(_ move: MoveState, boardState: any BoardStateProtocol) -> (any BoardStateProtocol)? {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
         guard legalMovesHandler.move(move, boardState: boardState),
@@ -48,11 +48,11 @@ extension BitBoardHandler: BoardHandlerProtocol {
         return finalBoardState
     }
 
-    func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
+    func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 
-    func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
+    func putPiece(_ piece: Piece, on squareState: SquareState, boardState: any BoardStateProtocol) -> (any BoardStateProtocol)? {
         var squares = boardState.squares
         guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         switch piece.rawValue.eligibleForPromotion {
@@ -69,7 +69,7 @@ extension BitBoardHandler: BoardHandlerProtocol {
         return BitBoardState(squares: squares)
     }
 
-    private func putEmptyPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
+    private func putEmptyPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> (any BoardStateProtocol)? {
         var squares = boardState.squares
         guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         square?.piece = nil

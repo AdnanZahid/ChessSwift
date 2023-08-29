@@ -182,30 +182,6 @@
 		E6D592BB251E844300D32085 /* QuadrupletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D592B1251E83B300D32085 /* QuadrupletState.swift */; };
 		E6D592C4251E844400D32085 /* QuadrupletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D592B1251E83B300D32085 /* QuadrupletState.swift */; };
 		E6D592C9251E844400D32085 /* QuadrupletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D592B1251E83B300D32085 /* QuadrupletState.swift */; };
-		E6D79F952A9E8D6E009E4463 /* BitBoardMovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFD2A9E7959002D3167 /* BitBoardMovementStrategyHandler.swift */; };
-		E6D79F962A9E8D6E009E4463 /* BitBoardEvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90002A9E7959002D3167 /* BitBoardEvaluationValueHandler.swift */; };
-		E6D79F972A9E8D6E009E4463 /* BitBoardPiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90022A9E7959002D3167 /* BitBoardPiecesHandler.swift */; };
-		E6D79F982A9E8D6E009E4463 /* BitBoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFA2A9E7959002D3167 /* BitBoardHandler.swift */; };
-		E6D79F992A9E8D6E009E4463 /* BitBoardMoveGenerationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF82A9E7959002D3167 /* BitBoardMoveGenerationHandler.swift */; };
-		E6D79F9A2A9E8D6E009E4463 /* BitBoardBestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF72A9E7959002D3167 /* BitBoardBestMoveHandler.swift */; };
-		E6D79F9B2A9E8D6E009E4463 /* BitBoardAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90012A9E7959002D3167 /* BitBoardAIHandler.swift */; };
-		E6D79F9C2A9E8D6E009E4463 /* BitBoardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF92A9E7959002D3167 /* BitBoardGameHandler.swift */; };
-		E6D79F9D2A9E8D6E009E4463 /* BitBoardLegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFF2A9E7959002D3167 /* BitBoardLegalMovesHandler.swift */; };
-		E6D79F9E2A9E8D6E009E4463 /* BitBoardMovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFE2A9E7959002D3167 /* BitBoardMovementTypeHandler.swift */; };
-		E6D79F9F2A9E8D6E009E4463 /* BitBoardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E901A2A9E835B002D3167 /* BitBoardAssembly.swift */; };
-		E6D79FA02A9E8D6E009E4463 /* BitBoardMovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFC2A9E7959002D3167 /* BitBoardMovementDirectionHandler.swift */; };
-		E6D79FA12A9E8D6F009E4463 /* BitBoardMovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFD2A9E7959002D3167 /* BitBoardMovementStrategyHandler.swift */; };
-		E6D79FA22A9E8D6F009E4463 /* BitBoardEvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90002A9E7959002D3167 /* BitBoardEvaluationValueHandler.swift */; };
-		E6D79FA32A9E8D6F009E4463 /* BitBoardPiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90022A9E7959002D3167 /* BitBoardPiecesHandler.swift */; };
-		E6D79FA42A9E8D6F009E4463 /* BitBoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFA2A9E7959002D3167 /* BitBoardHandler.swift */; };
-		E6D79FA52A9E8D6F009E4463 /* BitBoardMoveGenerationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF82A9E7959002D3167 /* BitBoardMoveGenerationHandler.swift */; };
-		E6D79FA62A9E8D6F009E4463 /* BitBoardBestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF72A9E7959002D3167 /* BitBoardBestMoveHandler.swift */; };
-		E6D79FA72A9E8D6F009E4463 /* BitBoardAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90012A9E7959002D3167 /* BitBoardAIHandler.swift */; };
-		E6D79FA82A9E8D6F009E4463 /* BitBoardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF92A9E7959002D3167 /* BitBoardGameHandler.swift */; };
-		E6D79FA92A9E8D6F009E4463 /* BitBoardLegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFF2A9E7959002D3167 /* BitBoardLegalMovesHandler.swift */; };
-		E6D79FAA2A9E8D6F009E4463 /* BitBoardMovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFE2A9E7959002D3167 /* BitBoardMovementTypeHandler.swift */; };
-		E6D79FAB2A9E8D6F009E4463 /* BitBoardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E901A2A9E835B002D3167 /* BitBoardAssembly.swift */; };
-		E6D79FAC2A9E8D6F009E4463 /* BitBoardMovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFC2A9E7959002D3167 /* BitBoardMovementDirectionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -867,49 +843,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				E63E8FF32A9E7926002D3167 /* AIHandler.swift in Sources */,
-				E6D79FA12A9E8D6F009E4463 /* BitBoardMovementStrategyHandler.swift in Sources */,
 				E6B1882424D5B6AD000F6E71 /* GUIView.swift in Sources */,
 				E6B1885524D5D280000F6E71 /* AdvancementState.swift in Sources */,
-				E6D79FA32A9E8D6F009E4463 /* BitBoardPiecesHandler.swift in Sources */,
-				E6D79FA72A9E8D6F009E4463 /* BitBoardAIHandler.swift in Sources */,
 				E6A914A3255BF9A80081E4FD /* EligibleForPromotion.swift in Sources */,
 				E63E8FE52A9E7926002D3167 /* GameHandler.swift in Sources */,
 				E690D0402559EFCC00E0AE7C /* Errors.swift in Sources */,
 				E61E53C2255F245D00349AB1 /* GCDConcurrentDictionary.swift in Sources */,
-				E6D79FA82A9E8D6F009E4463 /* BitBoardGameHandler.swift in Sources */,
 				E63E8FF52A9E7926002D3167 /* PiecesHandler.swift in Sources */,
 				E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */,
 				E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */,
 				E6A914A8255BF9A80081E4FD /* Piece.swift in Sources */,
 				E63E8FE32A9E7926002D3167 /* MoveGenerationHandler.swift in Sources */,
-				E6D79FAC2A9E8D6F009E4463 /* BitBoardMovementDirectionHandler.swift in Sources */,
 				E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */,
 				E63E901F2A9E836A002D3167 /* Assembly.swift in Sources */,
-				E6D79FA52A9E8D6F009E4463 /* BitBoardMoveGenerationHandler.swift in Sources */,
 				E6A914A5255BF9A80081E4FD /* MovementDirection.swift in Sources */,
 				E6A914A7255BF9A80081E4FD /* MovementType.swift in Sources */,
 				E6B1882724D5B78A000F6E71 /* Interface.swift in Sources */,
-				E6D79FA62A9E8D6F009E4463 /* BitBoardBestMoveHandler.swift in Sources */,
 				E63E8FEF2A9E7926002D3167 /* LegalMovesHandler.swift in Sources */,
 				E6B1882624D5B78A000F6E71 /* Controller.swift in Sources */,
 				E6D592C4251E844400D32085 /* QuadrupletState.swift in Sources */,
 				E63E8FE92A9E7926002D3167 /* MovementDirectionHandler.swift in Sources */,
 				E6A914A9255BF9A80081E4FD /* PieceTuple.swift in Sources */,
 				E6B1884824D5B8BF000F6E71 /* ScenekitView.swift in Sources */,
-				E6D79FA22A9E8D6F009E4463 /* BitBoardEvaluationValueHandler.swift in Sources */,
-				E6D79FA42A9E8D6F009E4463 /* BitBoardHandler.swift in Sources */,
 				E63E8FF12A9E7926002D3167 /* EvaluationValueHandler.swift in Sources */,
 				E6A914A4255BF9A80081E4FD /* Indices.swift in Sources */,
 				E6B1884F24D5C53A000F6E71 /* MutableCollectionExtension.swift in Sources */,
-				E6D79FA92A9E8D6F009E4463 /* BitBoardLegalMovesHandler.swift in Sources */,
 				E6B424F1251E2CA3007E339E /* TripletState.swift in Sources */,
 				E63E90272A9E8ACA002D3167 /* BitBoardState.swift in Sources */,
 				E63E8FED2A9E7926002D3167 /* MovementTypeHandler.swift in Sources */,
 				E6B1883224D5B78A000F6E71 /* PlayerState.swift in Sources */,
 				E63E8FEB2A9E7926002D3167 /* MovementStrategyHandler.swift in Sources */,
-				E6D79FAB2A9E8D6F009E4463 /* BitBoardAssembly.swift in Sources */,
 				E6A914A2255BF9A80081E4FD /* Color.swift in Sources */,
-				E6D79FAA2A9E8D6F009E4463 /* BitBoardMovementTypeHandler.swift in Sources */,
 				E6A914A6255BF9A80081E4FD /* MovementStrategy.swift in Sources */,
 				E61E53BD255F231700349AB1 /* RWLock.swift in Sources */,
 				E63E8FE12A9E7926002D3167 /* BestMoveHandler.swift in Sources */,
@@ -1028,8 +992,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D79F9A2A9E8D6E009E4463 /* BitBoardBestMoveHandler.swift in Sources */,
-				E6D79F9B2A9E8D6E009E4463 /* BitBoardAIHandler.swift in Sources */,
 				E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */,
 				E63E90262A9E8ACA002D3167 /* BitBoardState.swift in Sources */,
 				E63E8FF02A9E7926002D3167 /* EvaluationValueHandler.swift in Sources */,
@@ -1042,28 +1004,20 @@
 				E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */,
 				E6A91499255BF91A0081E4FD /* Color.swift in Sources */,
 				E63E8FE22A9E7926002D3167 /* MoveGenerationHandler.swift in Sources */,
-				E6D79F972A9E8D6E009E4463 /* BitBoardPiecesHandler.swift in Sources */,
 				E63E90242A9E8ACA002D3167 /* BoardState.swift in Sources */,
 				E63E8FF42A9E7926002D3167 /* PiecesHandler.swift in Sources */,
 				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
 				E690D03E2559EF9E00E0AE7C /* Errors.swift in Sources */,
-				E6D79F982A9E8D6E009E4463 /* BitBoardHandler.swift in Sources */,
-				E6D79F9F2A9E8D6E009E4463 /* BitBoardAssembly.swift in Sources */,
 				E6A9148D255BF8BF0081E4FD /* Indices.swift in Sources */,
 				E63E8FEC2A9E7926002D3167 /* MovementTypeHandler.swift in Sources */,
 				E63E901E2A9E836A002D3167 /* Assembly.swift in Sources */,
-				E6D79F9E2A9E8D6E009E4463 /* BitBoardMovementTypeHandler.swift in Sources */,
 				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,
 				E63E8FE42A9E7926002D3167 /* GameHandler.swift in Sources */,
 				E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */,
 				E6D592B2251E83B300D32085 /* QuadrupletState.swift in Sources */,
 				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
 				E61E53BB255F230800349AB1 /* RWLock.swift in Sources */,
-				E6D79F9C2A9E8D6E009E4463 /* BitBoardGameHandler.swift in Sources */,
-				E6D79F962A9E8D6E009E4463 /* BitBoardEvaluationValueHandler.swift in Sources */,
-				E6D79F952A9E8D6E009E4463 /* BitBoardMovementStrategyHandler.swift in Sources */,
 				E63E8FE62A9E7926002D3167 /* BoardHandler.swift in Sources */,
-				E6D79FA02A9E8D6E009E4463 /* BitBoardMovementDirectionHandler.swift in Sources */,
 				E6A91497255BF90B0081E4FD /* EligibleForPromotion.swift in Sources */,
 				E6A91491255BF8D60081E4FD /* MovementStrategy.swift in Sources */,
 				E63E8FE82A9E7926002D3167 /* MovementDirectionHandler.swift in Sources */,
@@ -1072,14 +1026,12 @@
 				E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */,
 				E63E8FE02A9E7926002D3167 /* BestMoveHandler.swift in Sources */,
 				E6A9148F255BF8BF0081E4FD /* PieceTuple.swift in Sources */,
-				E6D79F992A9E8D6E009E4463 /* BitBoardMoveGenerationHandler.swift in Sources */,
 				E6D2E1B924D3535600953DE0 /* CLIView.swift in Sources */,
 				E63E8FEE2A9E7926002D3167 /* LegalMovesHandler.swift in Sources */,
 				E6A91493255BF8EB0081E4FD /* MovementType.swift in Sources */,
 				E61E53B6255F226700349AB1 /* ConcurrentDictionary.swift in Sources */,
 				E6A9148E255BF8BF0081E4FD /* Piece.swift in Sources */,
 				E63E8FF22A9E7926002D3167 /* AIHandler.swift in Sources */,
-				E6D79F9D2A9E8D6E009E4463 /* BitBoardLegalMovesHandler.swift in Sources */,
 				E6B424DA251E2C7F007E339E /* TripletState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

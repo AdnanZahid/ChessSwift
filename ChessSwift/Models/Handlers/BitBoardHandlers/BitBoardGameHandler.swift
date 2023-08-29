@@ -34,11 +34,11 @@ extension BitBoardGameHandler: GameHandlerProtocol {
         gameState.currentPlayer.color == getPiece(on: move.fromSquare, boardState: gameState.boardState)?.rawValue.color
     }
 
-    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
+    private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 
-    private func gameStateWithChangedTurns(gameState: GameState, boardState: BoardStateProtocol) -> GameState {
+    private func gameStateWithChangedTurns(gameState: GameState, boardState: any BoardStateProtocol) -> GameState {
         .init(
             boardState: boardState,
             whitePlayer: gameState.whitePlayer,

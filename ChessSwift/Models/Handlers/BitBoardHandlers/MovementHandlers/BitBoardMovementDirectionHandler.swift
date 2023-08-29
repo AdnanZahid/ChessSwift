@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardMovementDirectionHandler {
+struct BitBoardMovementDirectionHandler {
 }
 
 extension BitBoardMovementDirectionHandler: MovementDirectionHandlerProtocol {

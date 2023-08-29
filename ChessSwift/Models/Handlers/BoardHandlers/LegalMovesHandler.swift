@@ -14,7 +14,7 @@ protocol LegalMovesHandlerProtocol {
 
 }
 
-class LegalMovesHandler {
+struct LegalMovesHandler {
 
     private let movementStrategyHandler: MovementStrategyHandlerProtocol
     private let movementTypeHandler: MovementTypeHandlerProtocol

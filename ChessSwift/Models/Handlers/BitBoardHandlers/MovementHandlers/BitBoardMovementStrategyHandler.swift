@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardMovementStrategyHandler {
+struct BitBoardMovementStrategyHandler {
     
     enum Constants {
         static let oneStep = 1

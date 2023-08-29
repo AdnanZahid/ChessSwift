@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardMovementTypeHandler {
+struct BitBoardMovementTypeHandler {
 }
 
 extension BitBoardMovementTypeHandler: MovementTypeHandlerProtocol {
@@ -71,6 +71,7 @@ extension BitBoardMovementTypeHandler: MovementTypeHandlerProtocol {
     }
     
     private func isSquareEmpty(_ squareState: SquareState, boardState: any BoardStateProtocol) -> Bool {
-        boardState.squares[squareState.rankIndex.rawValue][squareState.fileIndex.rawValue]?.piece == nil
+        let boardState = (boardState as? BitBoardState)
+        return boardState?.state[squareState.rankIndex.rawValue][squareState.fileIndex.rawValue]?.piece == nil
     }
 }

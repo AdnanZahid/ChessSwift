@@ -16,7 +16,7 @@ protocol MoveGenerationHandlerProtocol {
 
 }
 
-class MoveGenerationHandler {
+struct MoveGenerationHandler {
 
     private let piecesHandler: PiecesHandlerProtocol
     private let legalMovesHandler: LegalMovesHandler

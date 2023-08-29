@@ -3,4 +3,54 @@
    uuid = "F5533C5D-B9EF-4ECD-847A-7CA7007F4315"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A6DF703-AFCF-40D1-8275-41ADDC2C9B82"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ChessSwift/Controllers/Controller.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "init(view:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A6DF703-AFCF-40D1-8275-41ADDC2C9B82 - 71402276bcdc5cc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MobileChess.Controller.init(view: MobileChess.OutputHandler) -&gt; MobileChess.Controller"
+                  moduleName = "MobileChess"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adnanzahid/Documents/Projects/ChessSwift/ChessSwift/Controllers/Controller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "2727">
+               </Location>
+               <Location
+                  uuid = "2A6DF703-AFCF-40D1-8275-41ADDC2C9B82 - 71402276bcdc5cc4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MobileChess.Controller.init(view: MobileChess.OutputHandler) -&gt; MobileChess.Controller"
+                  moduleName = "MobileChess"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adnanzahid/Documents/Projects/ChessSwift/ChessSwift/Controllers/Controller.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "2764">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

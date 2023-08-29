@@ -14,7 +14,7 @@ protocol MovementTypeHandlerProtocol {
 
 }
 
-class MovementTypeHandler {
+struct MovementTypeHandler {
 }
 
 extension MovementTypeHandler: MovementTypeHandlerProtocol {

@@ -13,12 +13,12 @@ struct AdvancementState {
     let rankAdvancement: Int
 }
 
-extension AdvancementState: Hashable {
-    
-    var hashValue: Int {
-        (rankAdvancement * 8) + fileAdvancement
-    }
-}
+//extension AdvancementState: Hashable {
+//    
+//    var hashValue: Int {
+//        (rankAdvancement * 8) + fileAdvancement
+//    }
+//}
 
 extension AdvancementState: Codable {
     

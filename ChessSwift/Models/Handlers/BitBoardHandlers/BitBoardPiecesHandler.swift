@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardPiecesHandler {
+struct BitBoardPiecesHandler {
 }
 
 extension BitBoardPiecesHandler: PiecesHandlerProtocol {
@@ -22,6 +22,7 @@ extension BitBoardPiecesHandler: PiecesHandlerProtocol {
     }
     
     private func allPieces(gameState: GameState) -> [SquareState] {
-        gameState.boardState.squares.flatMap { $0 }.compactMap { $0 }
+        let boardState = (gameState.boardState as? BitBoardState)
+        return boardState?.state.flatMap { $0 }.compactMap { $0 } ?? []
     }
 }

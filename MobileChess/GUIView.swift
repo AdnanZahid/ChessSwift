@@ -178,7 +178,7 @@ extension GUIView: OutputHandler {
     func setup(boardState: any BoardStateProtocol) {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
-                let boardState = (boardState as? BoardState)
+                let boardState = (boardState as? BitBoardState)
                 guard let piece = boardState?.state[rank][file]?.piece else { return }
                 let pieces = SCNScene(named: "art.scnassets/ChessPieces.dae")!
                 let node = pieces.rootNode.childNode(withName: piece.rawValue.symbol.uppercased(), recursively: true)!

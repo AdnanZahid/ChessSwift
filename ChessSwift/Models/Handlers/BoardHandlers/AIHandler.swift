@@ -14,7 +14,7 @@ protocol AIHandlerProtocol: InputHandler {
 
 }
 
-class AIHandler {
+struct AIHandler {
     
     weak var inputHandlerDelegate: InputHandlerDelegate?
     

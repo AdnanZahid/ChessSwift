@@ -47,6 +47,38 @@
 		E63E90252A9E8ACA002D3167 /* BoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90212A9E8ACA002D3167 /* BoardState.swift */; };
 		E63E90262A9E8ACA002D3167 /* BitBoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90232A9E8ACA002D3167 /* BitBoardState.swift */; };
 		E63E90272A9E8ACA002D3167 /* BitBoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90232A9E8ACA002D3167 /* BitBoardState.swift */; };
+		E660A99D2A9E9C1D0096532F /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A99C2A9E9C1C0096532F /* PlayerState.swift */; };
+		E660A99E2A9E9C1D0096532F /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A99C2A9E9C1C0096532F /* PlayerState.swift */; };
+		E660A9A02A9E9C7E0096532F /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A99F2A9E9C7D0096532F /* SquareState.swift */; };
+		E660A9A12A9E9C7E0096532F /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A99F2A9E9C7D0096532F /* SquareState.swift */; };
+		E660A9A32A9E9CD40096532F /* BitBoardPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A9A22A9E9CD40096532F /* BitBoardPlayerState.swift */; };
+		E660A9A42A9E9CD40096532F /* BitBoardPlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A9A22A9E9CD40096532F /* BitBoardPlayerState.swift */; };
+		E660A9A62A9E9D350096532F /* SpecializedBitBoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A9A52A9E9D350096532F /* SpecializedBitBoardState.swift */; };
+		E660A9A72A9E9D350096532F /* SpecializedBitBoardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E660A9A52A9E9D350096532F /* SpecializedBitBoardState.swift */; };
+		E660A9A82A9E9D7F0096532F /* BitBoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFA2A9E7959002D3167 /* BitBoardHandler.swift */; };
+		E660A9A92A9E9D7F0096532F /* BitBoardPiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90022A9E7959002D3167 /* BitBoardPiecesHandler.swift */; };
+		E660A9AA2A9E9D7F0096532F /* BitBoardMovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFE2A9E7959002D3167 /* BitBoardMovementTypeHandler.swift */; };
+		E660A9AB2A9E9D7F0096532F /* BitBoardMovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFD2A9E7959002D3167 /* BitBoardMovementStrategyHandler.swift */; };
+		E660A9AC2A9E9D7F0096532F /* BitBoardAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90012A9E7959002D3167 /* BitBoardAIHandler.swift */; };
+		E660A9AD2A9E9D7F0096532F /* BitBoardEvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90002A9E7959002D3167 /* BitBoardEvaluationValueHandler.swift */; };
+		E660A9AE2A9E9D7F0096532F /* BitBoardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF92A9E7959002D3167 /* BitBoardGameHandler.swift */; };
+		E660A9AF2A9E9D7F0096532F /* BitBoardBestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF72A9E7959002D3167 /* BitBoardBestMoveHandler.swift */; };
+		E660A9B02A9E9D7F0096532F /* BitBoardLegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFF2A9E7959002D3167 /* BitBoardLegalMovesHandler.swift */; };
+		E660A9B12A9E9D7F0096532F /* BitBoardMoveGenerationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF82A9E7959002D3167 /* BitBoardMoveGenerationHandler.swift */; };
+		E660A9B22A9E9D7F0096532F /* BitBoardMovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFC2A9E7959002D3167 /* BitBoardMovementDirectionHandler.swift */; };
+		E660A9B32A9E9D800096532F /* BitBoardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFA2A9E7959002D3167 /* BitBoardHandler.swift */; };
+		E660A9B42A9E9D800096532F /* BitBoardPiecesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90022A9E7959002D3167 /* BitBoardPiecesHandler.swift */; };
+		E660A9B52A9E9D800096532F /* BitBoardMovementTypeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFE2A9E7959002D3167 /* BitBoardMovementTypeHandler.swift */; };
+		E660A9B62A9E9D800096532F /* BitBoardMovementStrategyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFD2A9E7959002D3167 /* BitBoardMovementStrategyHandler.swift */; };
+		E660A9B72A9E9D800096532F /* BitBoardAIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90012A9E7959002D3167 /* BitBoardAIHandler.swift */; };
+		E660A9B82A9E9D800096532F /* BitBoardEvaluationValueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E90002A9E7959002D3167 /* BitBoardEvaluationValueHandler.swift */; };
+		E660A9B92A9E9D800096532F /* BitBoardGameHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF92A9E7959002D3167 /* BitBoardGameHandler.swift */; };
+		E660A9BA2A9E9D800096532F /* BitBoardBestMoveHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF72A9E7959002D3167 /* BitBoardBestMoveHandler.swift */; };
+		E660A9BB2A9E9D800096532F /* BitBoardLegalMovesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFF2A9E7959002D3167 /* BitBoardLegalMovesHandler.swift */; };
+		E660A9BC2A9E9D800096532F /* BitBoardMoveGenerationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FF82A9E7959002D3167 /* BitBoardMoveGenerationHandler.swift */; };
+		E660A9BD2A9E9D800096532F /* BitBoardMovementDirectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E8FFC2A9E7959002D3167 /* BitBoardMovementDirectionHandler.swift */; };
+		E660A9BE2A9E9D860096532F /* BitBoardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E901A2A9E835B002D3167 /* BitBoardAssembly.swift */; };
+		E660A9BF2A9E9D860096532F /* BitBoardAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E63E901A2A9E835B002D3167 /* BitBoardAssembly.swift */; };
 		E689F25824D7086C00CD0392 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F1AB24D6F43A00CD0392 /* TestConstants.swift */; };
 		E689F25924D7086C00CD0392 /* BishopAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F1BB24D6F43A00CD0392 /* BishopAllowMovesTests.swift */; };
 		E689F25A24D7086C00CD0392 /* KingAllowMovesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E689F1C024D6F43A00CD0392 /* KingAllowMovesTests.swift */; };
@@ -129,8 +161,6 @@
 		E6B1882B24D5B78A000F6E71 /* PieceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1C824D372B200953DE0 /* PieceFactory.swift */; };
 		E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
 		E6B1883124D5B78A000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
-		E6B1883224D5B78A000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
-		E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
 		E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884524D5B7A4000F6E71 /* UIConstants.swift */; };
 		E6B1884824D5B8BF000F6E71 /* ScenekitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884724D5B8BF000F6E71 /* ScenekitView.swift */; };
@@ -146,8 +176,6 @@
 		E6B188B324D5EAD7000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
 		E6B188B524D5EAD7000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
 		E6B188B624D5EAD7000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
-		E6B188B724D5EAD7000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
-		E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
 		E6B188BD24D5EADD000F6E71 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
 		E6B188BE24D5EADD000F6E71 /* MutableCollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1884D24D5C50F000F6E71 /* MutableCollectionExtension.swift */; };
@@ -157,8 +185,6 @@
 		E6B188C824D5EADD000F6E71 /* AdvancementState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B1885324D5D253000F6E71 /* AdvancementState.swift */; };
 		E6B188CA24D5EADD000F6E71 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
 		E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BF24D353CF00953DE0 /* MoveState.swift */; };
-		E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
-		E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6B188CE24D5EADD000F6E71 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
 		E6B424DA251E2C7F007E339E /* TripletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D8251E2C7F007E339E /* TripletState.swift */; };
 		E6B424DB251E2C7F007E339E /* PairState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D9251E2C7F007E339E /* PairState.swift */; };
@@ -170,8 +196,6 @@
 		E6B424F1251E2CA3007E339E /* TripletState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B424D8251E2C7F007E339E /* TripletState.swift */; };
 		E6D2E19C24D34FE700953DE0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E19B24D34FE700953DE0 /* main.swift */; };
 		E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1A824D3503200953DE0 /* GameState.swift */; };
-		E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */; };
-		E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B024D3508000953DE0 /* SquareState.swift */; };
 		E6D2E1B924D3535600953DE0 /* CLIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1B824D3535600953DE0 /* CLIView.swift */; };
 		E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BA24D3536C00953DE0 /* Controller.swift */; };
 		E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D2E1BD24D3539900953DE0 /* Interface.swift */; };
@@ -236,6 +260,10 @@
 		E63E901D2A9E836A002D3167 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		E63E90212A9E8ACA002D3167 /* BoardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardState.swift; sourceTree = "<group>"; };
 		E63E90232A9E8ACA002D3167 /* BitBoardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitBoardState.swift; sourceTree = "<group>"; };
+		E660A99C2A9E9C1C0096532F /* PlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		E660A99F2A9E9C7D0096532F /* SquareState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareState.swift; sourceTree = "<group>"; };
+		E660A9A22A9E9CD40096532F /* BitBoardPlayerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitBoardPlayerState.swift; sourceTree = "<group>"; };
+		E660A9A52A9E9D350096532F /* SpecializedBitBoardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecializedBitBoardState.swift; sourceTree = "<group>"; };
 		E689F1AB24D6F43A00CD0392 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		E689F1AD24D6F43A00CD0392 /* PawnBlockMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PawnBlockMovesTests.swift; sourceTree = "<group>"; };
 		E689F1AE24D6F43A00CD0392 /* KingBlockMovesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingBlockMovesTests.swift; sourceTree = "<group>"; };
@@ -299,8 +327,6 @@
 		E6D2E19824D34FE700953DE0 /* ChessSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ChessSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D2E19B24D34FE700953DE0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E6D2E1A824D3503200953DE0 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
-		E6D2E1B024D3508000953DE0 /* SquareState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareState.swift; sourceTree = "<group>"; };
 		E6D2E1B824D3535600953DE0 /* CLIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLIView.swift; sourceTree = "<group>"; };
 		E6D2E1BA24D3536C00953DE0 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E6D2E1BD24D3539900953DE0 /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
@@ -407,6 +433,8 @@
 			isa = PBXGroup;
 			children = (
 				E63E90212A9E8ACA002D3167 /* BoardState.swift */,
+				E660A99C2A9E9C1C0096532F /* PlayerState.swift */,
+				E660A99F2A9E9C7D0096532F /* SquareState.swift */,
 			);
 			path = BoardState;
 			sourceTree = "<group>";
@@ -414,7 +442,9 @@
 		E63E90222A9E8ACA002D3167 /* BitBoardState */ = {
 			isa = PBXGroup;
 			children = (
+				E660A9A22A9E9CD40096532F /* BitBoardPlayerState.swift */,
 				E63E90232A9E8ACA002D3167 /* BitBoardState.swift */,
+				E660A9A52A9E9D350096532F /* SpecializedBitBoardState.swift */,
 			);
 			path = BitBoardState;
 			sourceTree = "<group>";
@@ -652,14 +682,12 @@
 		E6D2E1A624D3501E00953DE0 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				E63E90202A9E8ACA002D3167 /* BoardState */,
 				E63E90222A9E8ACA002D3167 /* BitBoardState */,
+				E63E90202A9E8ACA002D3167 /* BoardState */,
 				E6B424D7251E2C7F007E339E /* HashableStates */,
 				E6B1885324D5D253000F6E71 /* AdvancementState.swift */,
 				E6D2E1A824D3503200953DE0 /* GameState.swift */,
 				E6D2E1BF24D353CF00953DE0 /* MoveState.swift */,
-				E6D2E1AA24D3503C00953DE0 /* PlayerState.swift */,
-				E6D2E1B024D3508000953DE0 /* SquareState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -667,8 +695,8 @@
 		E6D2E1A724D3502500953DE0 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				E63E8FD32A9E7926002D3167 /* BoardHandlers */,
 				E63E8FF62A9E7959002D3167 /* BitBoardHandlers */,
+				E63E8FD32A9E7926002D3167 /* BoardHandlers */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -847,12 +875,21 @@
 				E6B1885524D5D280000F6E71 /* AdvancementState.swift in Sources */,
 				E6A914A3255BF9A80081E4FD /* EligibleForPromotion.swift in Sources */,
 				E63E8FE52A9E7926002D3167 /* GameHandler.swift in Sources */,
+				E660A9B72A9E9D800096532F /* BitBoardAIHandler.swift in Sources */,
+				E660A9BD2A9E9D800096532F /* BitBoardMovementDirectionHandler.swift in Sources */,
+				E660A9BB2A9E9D800096532F /* BitBoardLegalMovesHandler.swift in Sources */,
+				E660A9B32A9E9D800096532F /* BitBoardHandler.swift in Sources */,
 				E690D0402559EFCC00E0AE7C /* Errors.swift in Sources */,
 				E61E53C2255F245D00349AB1 /* GCDConcurrentDictionary.swift in Sources */,
 				E63E8FF52A9E7926002D3167 /* PiecesHandler.swift in Sources */,
 				E6B1883424D5B78A000F6E71 /* CLIView.swift in Sources */,
+				E660A9B62A9E9D800096532F /* BitBoardMovementStrategyHandler.swift in Sources */,
+				E660A9A12A9E9C7E0096532F /* SquareState.swift in Sources */,
 				E6B1883024D5B78A000F6E71 /* GameState.swift in Sources */,
+				E660A99E2A9E9C1D0096532F /* PlayerState.swift in Sources */,
+				E660A9B82A9E9D800096532F /* BitBoardEvaluationValueHandler.swift in Sources */,
 				E6A914A8255BF9A80081E4FD /* Piece.swift in Sources */,
+				E660A9A72A9E9D350096532F /* SpecializedBitBoardState.swift in Sources */,
 				E63E8FE32A9E7926002D3167 /* MoveGenerationHandler.swift in Sources */,
 				E6B1880224D5B5A8000F6E71 /* AppDelegate.swift in Sources */,
 				E63E901F2A9E836A002D3167 /* Assembly.swift in Sources */,
@@ -860,10 +897,12 @@
 				E6A914A7255BF9A80081E4FD /* MovementType.swift in Sources */,
 				E6B1882724D5B78A000F6E71 /* Interface.swift in Sources */,
 				E63E8FEF2A9E7926002D3167 /* LegalMovesHandler.swift in Sources */,
+				E660A9B92A9E9D800096532F /* BitBoardGameHandler.swift in Sources */,
 				E6B1882624D5B78A000F6E71 /* Controller.swift in Sources */,
 				E6D592C4251E844400D32085 /* QuadrupletState.swift in Sources */,
 				E63E8FE92A9E7926002D3167 /* MovementDirectionHandler.swift in Sources */,
 				E6A914A9255BF9A80081E4FD /* PieceTuple.swift in Sources */,
+				E660A9A42A9E9CD40096532F /* BitBoardPlayerState.swift in Sources */,
 				E6B1884824D5B8BF000F6E71 /* ScenekitView.swift in Sources */,
 				E63E8FF12A9E7926002D3167 /* EvaluationValueHandler.swift in Sources */,
 				E6A914A4255BF9A80081E4FD /* Indices.swift in Sources */,
@@ -871,19 +910,22 @@
 				E6B424F1251E2CA3007E339E /* TripletState.swift in Sources */,
 				E63E90272A9E8ACA002D3167 /* BitBoardState.swift in Sources */,
 				E63E8FED2A9E7926002D3167 /* MovementTypeHandler.swift in Sources */,
-				E6B1883224D5B78A000F6E71 /* PlayerState.swift in Sources */,
+				E660A9B42A9E9D800096532F /* BitBoardPiecesHandler.swift in Sources */,
 				E63E8FEB2A9E7926002D3167 /* MovementStrategyHandler.swift in Sources */,
 				E6A914A2255BF9A80081E4FD /* Color.swift in Sources */,
 				E6A914A6255BF9A80081E4FD /* MovementStrategy.swift in Sources */,
 				E61E53BD255F231700349AB1 /* RWLock.swift in Sources */,
+				E660A9BC2A9E9D800096532F /* BitBoardMoveGenerationHandler.swift in Sources */,
+				E660A9BF2A9E9D860096532F /* BitBoardAssembly.swift in Sources */,
 				E63E8FE12A9E7926002D3167 /* BestMoveHandler.swift in Sources */,
 				E6B424F0251E2CA3007E339E /* PairState.swift in Sources */,
-				E6B1883324D5B78A000F6E71 /* SquareState.swift in Sources */,
 				E6B1880424D5B5A8000F6E71 /* SceneDelegate.swift in Sources */,
 				E6B1882B24D5B78A000F6E71 /* PieceFactory.swift in Sources */,
+				E660A9BA2A9E9D800096532F /* BitBoardBestMoveHandler.swift in Sources */,
 				E63E8FE72A9E7926002D3167 /* BoardHandler.swift in Sources */,
 				E6B1884624D5B7A4000F6E71 /* UIConstants.swift in Sources */,
 				E6B1883124D5B78A000F6E71 /* MoveState.swift in Sources */,
+				E660A9B52A9E9D800096532F /* BitBoardMovementTypeHandler.swift in Sources */,
 				E61E53B8255F22A600349AB1 /* ConcurrentDictionary.swift in Sources */,
 				E6B1882824D5B78A000F6E71 /* Constants.swift in Sources */,
 				E63E90252A9E8ACA002D3167 /* BoardState.swift in Sources */,
@@ -894,7 +936,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6B188CD24D5EADD000F6E71 /* SquareState.swift in Sources */,
 				E6B188C024D5EADD000F6E71 /* Constants.swift in Sources */,
 				E6A914AD255BF9A90081E4FD /* MovementDirection.swift in Sources */,
 				E6B188CB24D5EADD000F6E71 /* MoveState.swift in Sources */,
@@ -910,7 +951,6 @@
 				E6D592C9251E844400D32085 /* QuadrupletState.swift in Sources */,
 				E61E53BE255F231800349AB1 /* RWLock.swift in Sources */,
 				E6B1881924D5B5A9000F6E71 /* MobileChessTests.swift in Sources */,
-				E6B188CC24D5EADD000F6E71 /* PlayerState.swift in Sources */,
 				E6A914AB255BF9A90081E4FD /* EligibleForPromotion.swift in Sources */,
 				E6A914AF255BF9A90081E4FD /* MovementType.swift in Sources */,
 				E6A914AA255BF9A90081E4FD /* Color.swift in Sources */,
@@ -939,7 +979,6 @@
 				E6B188B324D5EAD7000F6E71 /* AdvancementState.swift in Sources */,
 				E689F27424D7086D00CD0392 /* PawnPossibleMovesTests.swift in Sources */,
 				E689F27324D7086D00CD0392 /* KnightPossibleMovesTests.swift in Sources */,
-				E6B188B724D5EAD7000F6E71 /* PlayerState.swift in Sources */,
 				E6B188B624D5EAD7000F6E71 /* MoveState.swift in Sources */,
 				E6A9149F255BF9A60081E4FD /* MovementType.swift in Sources */,
 				E6A9149E255BF9A60081E4FD /* MovementStrategy.swift in Sources */,
@@ -951,7 +990,6 @@
 				E6B188AA24D5EAD7000F6E71 /* Interface.swift in Sources */,
 				E689F26824D7086D00CD0392 /* PawnBoardOperationsTests.swift in Sources */,
 				E6A9149D255BF9A60081E4FD /* MovementDirection.swift in Sources */,
-				E6B188B824D5EAD7000F6E71 /* SquareState.swift in Sources */,
 				E6A914A1255BF9A60081E4FD /* PieceTuple.swift in Sources */,
 				E689F26724D7086D00CD0392 /* KnightBoardOperationsTests.swift in Sources */,
 				E6B188B924D5EAD7000F6E71 /* CLIView.swift in Sources */,
@@ -992,35 +1030,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D2E1B124D3508000953DE0 /* SquareState.swift in Sources */,
+				E660A9AB2A9E9D7F0096532F /* BitBoardMovementStrategyHandler.swift in Sources */,
+				E660A9AC2A9E9D7F0096532F /* BitBoardAIHandler.swift in Sources */,
+				E660A99D2A9E9C1D0096532F /* PlayerState.swift in Sources */,
 				E63E90262A9E8ACA002D3167 /* BitBoardState.swift in Sources */,
 				E63E8FF02A9E7926002D3167 /* EvaluationValueHandler.swift in Sources */,
 				E63E8FEA2A9E7926002D3167 /* MovementStrategyHandler.swift in Sources */,
 				E6B424DB251E2C7F007E339E /* PairState.swift in Sources */,
 				E6B1885424D5D253000F6E71 /* AdvancementState.swift in Sources */,
 				E6D2E19C24D34FE700953DE0 /* main.swift in Sources */,
+				E660A9AD2A9E9D7F0096532F /* BitBoardEvaluationValueHandler.swift in Sources */,
+				E660A9A02A9E9C7E0096532F /* SquareState.swift in Sources */,
 				E61E53C0255F243200349AB1 /* GCDConcurrentDictionary.swift in Sources */,
 				E6D2E1C624D35F9B00953DE0 /* Constants.swift in Sources */,
+				E660A9A92A9E9D7F0096532F /* BitBoardPiecesHandler.swift in Sources */,
+				E660A9A32A9E9CD40096532F /* BitBoardPlayerState.swift in Sources */,
 				E6D2E1BB24D3536C00953DE0 /* Controller.swift in Sources */,
 				E6A91499255BF91A0081E4FD /* Color.swift in Sources */,
+				E660A9A82A9E9D7F0096532F /* BitBoardHandler.swift in Sources */,
 				E63E8FE22A9E7926002D3167 /* MoveGenerationHandler.swift in Sources */,
 				E63E90242A9E8ACA002D3167 /* BoardState.swift in Sources */,
+				E660A9AF2A9E9D7F0096532F /* BitBoardBestMoveHandler.swift in Sources */,
 				E63E8FF42A9E7926002D3167 /* PiecesHandler.swift in Sources */,
+				E660A9A62A9E9D350096532F /* SpecializedBitBoardState.swift in Sources */,
 				E6D2E1C024D353CF00953DE0 /* MoveState.swift in Sources */,
 				E690D03E2559EF9E00E0AE7C /* Errors.swift in Sources */,
 				E6A9148D255BF8BF0081E4FD /* Indices.swift in Sources */,
 				E63E8FEC2A9E7926002D3167 /* MovementTypeHandler.swift in Sources */,
 				E63E901E2A9E836A002D3167 /* Assembly.swift in Sources */,
-				E6D2E1AB24D3503C00953DE0 /* PlayerState.swift in Sources */,
 				E63E8FE42A9E7926002D3167 /* GameHandler.swift in Sources */,
 				E6D2E1BE24D3539900953DE0 /* Interface.swift in Sources */,
 				E6D592B2251E83B300D32085 /* QuadrupletState.swift in Sources */,
 				E6D2E1C924D372B200953DE0 /* PieceFactory.swift in Sources */,
 				E61E53BB255F230800349AB1 /* RWLock.swift in Sources */,
+				E660A9BE2A9E9D860096532F /* BitBoardAssembly.swift in Sources */,
 				E63E8FE62A9E7926002D3167 /* BoardHandler.swift in Sources */,
+				E660A9AA2A9E9D7F0096532F /* BitBoardMovementTypeHandler.swift in Sources */,
 				E6A91497255BF90B0081E4FD /* EligibleForPromotion.swift in Sources */,
 				E6A91491255BF8D60081E4FD /* MovementStrategy.swift in Sources */,
 				E63E8FE82A9E7926002D3167 /* MovementDirectionHandler.swift in Sources */,
+				E660A9B02A9E9D7F0096532F /* BitBoardLegalMovesHandler.swift in Sources */,
 				E6A91495255BF8FC0081E4FD /* MovementDirection.swift in Sources */,
 				E6D2E1A924D3503200953DE0 /* GameState.swift in Sources */,
 				E6B1884E24D5C50F000F6E71 /* MutableCollectionExtension.swift in Sources */,
@@ -1031,8 +1080,11 @@
 				E6A91493255BF8EB0081E4FD /* MovementType.swift in Sources */,
 				E61E53B6255F226700349AB1 /* ConcurrentDictionary.swift in Sources */,
 				E6A9148E255BF8BF0081E4FD /* Piece.swift in Sources */,
+				E660A9B12A9E9D7F0096532F /* BitBoardMoveGenerationHandler.swift in Sources */,
 				E63E8FF22A9E7926002D3167 /* AIHandler.swift in Sources */,
 				E6B424DA251E2C7F007E339E /* TripletState.swift in Sources */,
+				E660A9B22A9E9D7F0096532F /* BitBoardMovementDirectionHandler.swift in Sources */,
+				E660A9AE2A9E9D7F0096532F /* BitBoardGameHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

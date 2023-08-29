@@ -20,7 +20,7 @@ protocol BoardHandlerProtocol {
 
 }
 
-class BoardHandler {
+struct BoardHandler {
 
     private let legalMovesHandler: LegalMovesHandlerProtocol
 

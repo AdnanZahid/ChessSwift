@@ -14,7 +14,7 @@ protocol MovementStrategyHandlerProtocol {
 
 }
 
-class MovementStrategyHandler {
+struct MovementStrategyHandler {
     
     enum Constants {
         static let oneStep = 1

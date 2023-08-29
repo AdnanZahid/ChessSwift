@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardEvaluationValueHandler {
+struct BitBoardEvaluationValueHandler {
 
     private enum Constants {
         static let pieceValueWeight = 100

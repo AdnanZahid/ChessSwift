@@ -1,0 +1,25 @@
+//
+//  PlayerState.swift
+//  ChessSwift
+//
+//  Created by Adnan Zahid on 30/07/2020.
+//  Copyright © 2020 Adnan Zahid. All rights reserved.
+//
+
+import Foundation
+
+struct BitBoardPlayerState {
+
+    let isAI: Bool
+    let color: Color
+    let positionalBitBoardState: SpecializedBitBoardState
+    let attackBitBoardState: SpecializedBitBoardState
+
+}
+
+//extension PlayerState: Hashable {
+//    
+//    var hashValue: Int {
+//        color.rawValue
+//    }
+//}

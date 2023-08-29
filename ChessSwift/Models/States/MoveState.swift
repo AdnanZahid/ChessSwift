@@ -13,15 +13,15 @@ struct MoveState: Equatable {
     let toSquare: SquareState
 }
 
-extension MoveState: Hashable {
-    
-    var hashValue: Int {
-        ((fromSquare.hashValue + 1) * 100) + toSquare.hashValue
-    }
-}
+//extension MoveState: Hashable {
+//    
+//    var hashValue: Int {
+//        ((fromSquare.hashValue + 1) * 100) + toSquare.hashValue
+//    }
+//}
 
-extension MoveState: CustomDebugStringConvertible {
-    var debugDescription: String {
-        "\(fromSquare)->\(toSquare)"
-    }
-}
+//extension MoveState: CustomDebugStringConvertible {
+//    var debugDescription: String {
+//        "\(fromSquare)->\(toSquare)"
+//    }
+//}

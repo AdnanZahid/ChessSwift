@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardAIHandler {
+struct BitBoardAIHandler {
     
     weak var inputHandlerDelegate: InputHandlerDelegate?
 

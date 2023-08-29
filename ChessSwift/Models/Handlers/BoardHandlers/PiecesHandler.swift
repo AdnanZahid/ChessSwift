@@ -16,7 +16,7 @@ protocol PiecesHandlerProtocol {
 
 }
 
-class PiecesHandler {
+struct PiecesHandler {
 }
 
 extension PiecesHandler: PiecesHandlerProtocol {

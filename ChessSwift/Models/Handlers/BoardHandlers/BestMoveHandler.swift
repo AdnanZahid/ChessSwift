@@ -14,7 +14,7 @@ protocol BestMoveHandlerProtocol {
 
 }
 
-class BestMoveHandler {
+struct BestMoveHandler {
     
     private enum Constants {
         static let maxDepth = 2

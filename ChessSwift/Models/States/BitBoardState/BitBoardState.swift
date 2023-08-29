@@ -14,7 +14,8 @@ struct BitBoardState: BoardStateProtocol {
         static let newLine = "\n"
     }
 
-    let state: UInt64
+    let state: [[SquareState?]]
+//    let state: UInt64
 }
 
 //extension BitBoardState: Hashable {

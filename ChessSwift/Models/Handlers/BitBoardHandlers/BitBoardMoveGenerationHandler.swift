@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardMoveGenerationHandler {
+struct BitBoardMoveGenerationHandler {
 
     private let piecesHandler: PiecesHandlerProtocol
     private let legalMovesHandler: LegalMovesHandlerProtocol
@@ -49,7 +49,8 @@ extension BitBoardMoveGenerationHandler: MoveGenerationHandlerProtocol {
     }
     
     private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
-        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        let boardState = (boardState as? BitBoardState)
+        return boardState?.state[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
     private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: any BoardStateProtocol) -> [MoveState] {

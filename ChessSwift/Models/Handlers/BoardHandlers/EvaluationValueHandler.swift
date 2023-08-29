@@ -14,7 +14,7 @@ protocol EvaluationValueHandlerProtocol {
 
 }
 
-class EvaluationValueHandler {
+struct EvaluationValueHandler {
     
     private enum Constants {
         static let pieceValueWeight = 100

@@ -20,7 +20,7 @@ class Controller {
 
     init(view: OutputHandler) {
         // Change from array board to bit board here
-        let handlers = Assembly.handlers
+        let handlers = BitBoardAssembly.handlers
         moveGenerationHandler = handlers.moveGenerationHandler
         boardHandler = handlers.boardHandler
         aiHandler = handlers.aiHandler
@@ -28,7 +28,12 @@ class Controller {
         let boardState = boardHandler.setup(configuration: Constants.ChessBoardConfiguration.standard)
         let whitePlayer = PlayerState(isAI: true, color: .white)
         let blackPlayer = PlayerState(isAI: true, color: .black)
-        gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
+        gameState = .init(
+            boardState: boardState,
+            whitePlayer: whitePlayer,
+            blackPlayer: blackPlayer,
+            currentPlayer: whitePlayer
+        )
         inputHandler = view
         outputHandler = view
         outputHandler.setup(boardState: boardState)

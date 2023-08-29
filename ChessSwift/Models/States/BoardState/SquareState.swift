@@ -14,18 +14,18 @@ struct SquareState {
     var piece: Piece?
 }
 
-extension SquareState: Hashable {
-    
-    var hashValue: Int {
-        (rankIndex.rawValue * 8) + fileIndex.rawValue
-    }
-}
+//extension SquareState: Hashable {
+//    
+//    var hashValue: Int {
+//        (rankIndex.rawValue * 8) + fileIndex.rawValue
+//    }
+//}
 
-extension SquareState: CustomDebugStringConvertible {
-    var debugDescription: String {
-        "\(fileIndex)\(rankIndex)"
-    }
-}
+//extension SquareState: CustomDebugStringConvertible {
+//    var debugDescription: String {
+//        "\(fileIndex)\(rankIndex)"
+//    }
+//}
 
 extension SquareState: Equatable {
     

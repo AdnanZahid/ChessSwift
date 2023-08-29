@@ -8,14 +8,23 @@
 
 import Foundation
 
-struct PlayerState {
-    let isAI: Bool
-    let color: Color
+protocol PlayerStateProtocol {
+
+    var isAI: Bool { get }
+    var color: Color { get }
+
 }
 
-extension PlayerState: Hashable {
-    
-    var hashValue: Int {
-        color.rawValue
-    }
+struct PlayerState {
+
+    let isAI: Bool
+    let color: Color
+
 }
+
+//extension PlayerState: Hashable {
+//    
+//    var hashValue: Int {
+//        color.rawValue
+//    }
+//}

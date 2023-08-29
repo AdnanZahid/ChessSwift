@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardLegalMovesHandler {
+struct BitBoardLegalMovesHandler {
 
     private let movementStrategyHandler: MovementStrategyHandlerProtocol
     private let movementTypeHandler: MovementTypeHandlerProtocol
@@ -51,7 +51,8 @@ extension BitBoardLegalMovesHandler: LegalMovesHandlerProtocol {
     }
 
     private func getPiece(on squareState: SquareState, boardState: any BoardStateProtocol) -> Piece? {
-        boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
+        let boardState = (boardState as? BitBoardState)
+        return boardState?.state[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 
     private func isPiece(_ movingPiece: Piece, allowedToCapture targetPiece: Piece?) -> Bool {

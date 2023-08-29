@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BitBoardBestMoveHandler {
+struct BitBoardBestMoveHandler {
 
     private enum Constants {
         static let maxDepth = 2

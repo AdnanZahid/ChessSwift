@@ -14,7 +14,7 @@ protocol GameHandlerProtocol {
 
 }
 
-class GameHandler {
+struct GameHandler {
 
     private let boardHandler: BoardHandlerProtocol
 

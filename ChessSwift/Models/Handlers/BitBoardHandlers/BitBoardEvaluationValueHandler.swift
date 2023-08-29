@@ -8,41 +8,54 @@
 
 import Foundation
 
-class EvaluationValueHandler {
-    
+class BitBoardEvaluationValueHandler {
+
     private enum Constants {
         static let pieceValueWeight = 100
         static let mobilityValueWeight = 1
     }
+
+    private let piecesHandler: PiecesHandlerProtocol
+    private let moveGenerationHandler: MoveGenerationHandlerProtocol
+
+    init(
+        piecesHandler: PiecesHandlerProtocol,
+        moveGenerationHandler: MoveGenerationHandlerProtocol
+    ) {
+        self.piecesHandler = piecesHandler
+        self.moveGenerationHandler = moveGenerationHandler
+    }
+
 }
 
-extension EvaluationValueHandler {
-    
-    static func getValue(for gameState: GameState) -> Int {
-        
+extension BitBoardEvaluationValueHandler: EvaluationValueHandlerProtocol {
+
+    func getValue(for gameState: GameState) -> Int {
+
         // For current player
-        let currentPlayerPieces = PiecesHandler.currentPlayerPieces(gameState: gameState)
+        let currentPlayerPieces = piecesHandler.currentPlayerPieces(gameState: gameState)
         let currentPieceValueSum = abs(pieceValueSum(squares: currentPlayerPieces))
         let currentMobilityValueSum = mobilityValueSum(squares: currentPlayerPieces, boardState: gameState.boardState)
-        
+
         // For opponent player
-        let opponentPlayerPieces = PiecesHandler.opponentPlayerPieces(gameState: gameState)
+        let opponentPlayerPieces = piecesHandler.opponentPlayerPieces(gameState: gameState)
         let opponentPieceValueSum = abs(pieceValueSum(squares: opponentPlayerPieces))
         let opponentMobilityValueSum = mobilityValueSum(squares: opponentPlayerPieces, boardState: gameState.boardState)
-        
+
         // Final sum
         let finalPieceValueSum = currentPieceValueSum - opponentPieceValueSum
         let finalMobilityValueSum = currentMobilityValueSum - opponentMobilityValueSum
         return (finalPieceValueSum * Constants.pieceValueWeight) + (finalMobilityValueSum * Constants.mobilityValueWeight)
     }
-    
-    static func pieceValueSum(squares: [SquareState]) -> Int {
+
+    func pieceValueSum(squares: [SquareState]) -> Int {
         squares.reduce(0) { $0 + ($1.piece?.rawValue.value ?? 0) }
     }
-    
-    static func mobilityValueSum(squares: [SquareState], boardState: BoardState) -> Int {
+
+    func mobilityValueSum(squares: [SquareState], boardState: BoardState) -> Int {
         squares.reduce(0) { (first, second) in
-            return first + MoveGenerationHandler.getMoves(forPieceOn: second, boardState: boardState).count
+            first + moveGenerationHandler.getMoves(forPieceOn: second, boardState: boardState).count
         }
     }
+
 }

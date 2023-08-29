@@ -8,16 +8,24 @@
 
 import Foundation
 
+protocol MovementStrategyHandlerProtocol {
+    
+    func isValid(move: MoveState, movementStrategies: [MovementStrategy]) -> Bool
+
+}
+
 class MovementStrategyHandler {
+    
     enum Constants {
         static let oneStep = 1
         static let twoSteps = 2
     }
+
 }
 
-extension MovementStrategyHandler {
+extension MovementStrategyHandler: MovementStrategyHandlerProtocol {
     
-    static func isValid(move: MoveState, movementStrategies: [MovementStrategy]) -> Bool {
+    func isValid(move: MoveState, movementStrategies: [MovementStrategy]) -> Bool {
         movementStrategies.first { strategy in
             switch strategy {
             case .straight:
@@ -30,34 +38,34 @@ extension MovementStrategyHandler {
             } != nil
     }
     
-    private static func isOnlyFileOrOnlyRankAdvanced(for move: MoveState) -> Bool {
+    private func isOnlyFileOrOnlyRankAdvanced(for move: MoveState) -> Bool {
         isFileAdvanced(for: move) != isRankAdvanced(for: move)
     }
     
-    private static func isEqualFileAndRankBothAdvanced(for move: MoveState) -> Bool {
+    private func isEqualFileAndRankBothAdvanced(for move: MoveState) -> Bool {
         let advancement = getAdvancement(for: move)
         return abs(advancement.fileAdvancement) == abs(advancement.rankAdvancement)
     }
     
-    private static func isLShapedAdvanced(for move: MoveState) -> Bool {
+    private func isLShapedAdvanced(for move: MoveState) -> Bool {
         isMove(move, advancedFor: AdvancementState(fileAdvancement: Constants.oneStep, rankAdvancement: Constants.twoSteps))
             || isMove(move, advancedFor: AdvancementState(fileAdvancement: Constants.twoSteps, rankAdvancement: Constants.oneStep))
     }
     
-    private static func isMove(_ move: MoveState, advancedFor targetAdvancement: AdvancementState) -> Bool {
+    private func isMove(_ move: MoveState, advancedFor targetAdvancement: AdvancementState) -> Bool {
         let advancement = getAdvancement(for: move)
         return abs(advancement.fileAdvancement) == targetAdvancement.fileAdvancement && abs(advancement.rankAdvancement) == targetAdvancement.rankAdvancement
     }
     
-    private static func isFileAdvanced(for move: MoveState) -> Bool {
+    private func isFileAdvanced(for move: MoveState) -> Bool {
         move.fromSquare.fileIndex != move.toSquare.fileIndex
     }
     
-    private static func isRankAdvanced(for move: MoveState) -> Bool {
+    private func isRankAdvanced(for move: MoveState) -> Bool {
         move.fromSquare.rankIndex != move.toSquare.rankIndex
     }
     
-    private static func getAdvancement(for move: MoveState) -> AdvancementState {
+    private func getAdvancement(for move: MoveState) -> AdvancementState {
         AdvancementState(fileAdvancement: move.toSquare.fileIndex - move.fromSquare.fileIndex, rankAdvancement: move.toSquare.rankIndex - move.fromSquare.rankIndex)
     }
 }

@@ -8,12 +8,38 @@
 
 import Foundation
 
-class MoveGenerationHandler {
+protocol MoveGenerationHandlerProtocol {
+
+    func getMoves(_ gameState: GameState) -> [MoveState]
+
+    func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState]
+
 }
 
-extension MoveGenerationHandler {
-    
-    static func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
+class MoveGenerationHandler {
+
+    private let piecesHandler: PiecesHandlerProtocol
+    private let legalMovesHandler: LegalMovesHandler
+
+    init(
+        piecesHandler: PiecesHandlerProtocol,
+        legalMovesHandler: LegalMovesHandler
+    ) {
+        self.piecesHandler = piecesHandler
+        self.legalMovesHandler = legalMovesHandler
+    }
+
+}
+
+extension MoveGenerationHandler: MoveGenerationHandlerProtocol {
+
+    func getMoves(_ gameState: GameState) -> [MoveState] {
+        let squares = piecesHandler.currentPlayerPieces(gameState: gameState)
+        let moves = currentPlayerMoves(squares: squares, boardState: gameState.boardState)
+        return moves
+    }
+
+    func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
         // If movement strategies and capture strategies are same, calculate only once
         // Otherwise calculate for each one of them
@@ -26,21 +52,15 @@ extension MoveGenerationHandler {
         return getMoves(for: piece.rawValue.movementStrategies, squareState: squareState, boardState: boardState)
     }
     
-    static func getMoves(_ gameState: GameState) -> [MoveState] {
-        let squares = PiecesHandler.currentPlayerPieces(gameState: gameState)
-        let moves = currentPlayerMoves(squares: squares, boardState: gameState.boardState)
-        return moves
-    }
-    
-    static func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
+    func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
         squares.flatMap { getMoves(forPieceOn: $0, boardState: boardState) }
     }
     
-    private static func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+    private func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
-    private static func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardState) -> [MoveState] {
+    private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardState) -> [MoveState] {
         movementStrategies
             .flatMap { $0.rawValue }
             .flatMap { advancementState in
@@ -48,12 +68,12 @@ extension MoveGenerationHandler {
         }
     }
     
-    private static func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {
+    private func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {
         var moveStates: [MoveState] = []
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {
             let moveState = MoveState(fromSquare: squareState, toSquare: targetSquare)
-            guard LegalMovesHandler.move(moveState, boardState: boardState) else { return moveStates }
+            guard legalMovesHandler.move(moveState, boardState: boardState) else { return moveStates }
             moveStates.append(moveState)
             count += 1
         }

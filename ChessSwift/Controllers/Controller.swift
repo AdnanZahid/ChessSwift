@@ -13,9 +13,19 @@ class Controller {
     var gameState: GameState?
     let outputHandler: OutputHandler
     var inputHandler: InputHandler
-    
+    let moveGenerationHandler: MoveGenerationHandlerProtocol
+    let boardHandler: BoardHandlerProtocol
+    let aiHandler: AIHandlerProtocol
+    let gameHandler: GameHandlerProtocol
+
     init(view: OutputHandler) {
-        let boardState = BoardHandler.setup(configuration: Constants.ChessBoardConfiguration.standard)
+        // Change from array board to bit board here
+        let handlers = BitboardAssembly.handlers
+        moveGenerationHandler = handlers.moveGenerationHandler
+        boardHandler = handlers.boardHandler
+        aiHandler = handlers.aiHandler
+        gameHandler = handlers.gameHandler
+        let boardState = boardHandler.setup(configuration: Constants.ChessBoardConfiguration.standard)
         let whitePlayer = PlayerState(isAI: true, color: .white)
         let blackPlayer = PlayerState(isAI: true, color: .black)
         gameState = GameState(boardState: boardState, whitePlayer: whitePlayer, blackPlayer: blackPlayer, currentPlayer: whitePlayer)
@@ -30,7 +40,7 @@ extension Controller {
     
     private func runEngine() {
         guard let gameState = gameState else { return }
-        inputHandler = gameState.currentPlayer.isAI ? AIHandler() : outputHandler
+        inputHandler = gameState.currentPlayer.isAI ? aiHandler : outputHandler
         inputHandler.inputHandlerDelegate = self
         inputHandler.input(gameState: gameState)
     }
@@ -50,7 +60,7 @@ extension Controller: InputHandlerDelegate {
     
     func didTakeInput(_ move: MoveState) {
         guard let gameState = gameState else { return }
-        self.gameState = GameHandler.move(move, gameState: gameState)
+        self.gameState = gameHandler.move(move, gameState: gameState)
         if self.gameState != nil {
             selectQueueAndRun(.main) { [unowned self] in
                 guard let gameState = self.gameState else { return }
@@ -66,6 +76,6 @@ extension Controller: InputHandlerDelegate {
     
     func getMoves(forPieceOn squareState: SquareState) -> [MoveState] {
         guard let gameState = gameState else { return [] }
-        return MoveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
+        return moveGenerationHandler.getMoves(forPieceOn: squareState, boardState: gameState.boardState)
     }
 }

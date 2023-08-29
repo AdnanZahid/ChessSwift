@@ -8,12 +8,18 @@
 
 import Foundation
 
+protocol MovementDirectionHandlerProtocol {
+    
+    func isValid(move: MoveState, movementDirection: MovementDirection, color: Color) -> Bool
+
+}
+
 class MovementDirectionHandler {
 }
 
-extension MovementDirectionHandler {
+extension MovementDirectionHandler: MovementDirectionHandlerProtocol {
     
-    static func isValid(move: MoveState, movementDirection: MovementDirection, color: Color) -> Bool {
+    func isValid(move: MoveState, movementDirection: MovementDirection, color: Color) -> Bool {
         switch movementDirection {
         case .forward:
             switch color {
@@ -27,11 +33,11 @@ extension MovementDirectionHandler {
         }
     }
     
-    private static func isRankIncremented(for move: MoveState) -> Bool {
+    private func isRankIncremented(for move: MoveState) -> Bool {
         move.fromSquare.rankIndex.rawValue < move.toSquare.rankIndex.rawValue
     }
     
-    private static func isRankDecremented(for move: MoveState) -> Bool {
+    private func isRankDecremented(for move: MoveState) -> Bool {
         move.fromSquare.rankIndex.rawValue > move.toSquare.rankIndex.rawValue
     }
 }

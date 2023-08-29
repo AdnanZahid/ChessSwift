@@ -22,10 +22,10 @@ class BitBoardHandler {
 
 extension BitBoardHandler: BoardHandlerProtocol {
 
-    func setup(configuration: Constants.ChessBoardConfiguration.ConfigurationType) -> BoardState {
+    func setup(configuration: Constants.ChessBoardConfiguration.ConfigurationType) -> BoardStateProtocol {
         var rankCount = -1
         var fileCount = -1
-        return BoardState(squares: configuration.map { rank in
+        return BitBoardState(squares: configuration.map { rank in
             fileCount = -1
             rankCount += 1
             return rank.map { pieceValue in
@@ -36,7 +36,7 @@ extension BitBoardHandler: BoardHandlerProtocol {
         })
     }
 
-    func move(_ move: MoveState, boardState: BoardState) -> BoardState? {
+    func move(_ move: MoveState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
         guard legalMovesHandler.move(move, boardState: boardState),
@@ -48,11 +48,11 @@ extension BitBoardHandler: BoardHandlerProtocol {
         return finalBoardState
     }
 
-    func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+    func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
 
-    func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardState) -> BoardState? {
+    func putPiece(_ piece: Piece, on squareState: SquareState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
         var squares = boardState.squares
         guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         switch piece.rawValue.eligibleForPromotion {
@@ -66,15 +66,15 @@ extension BitBoardHandler: BoardHandlerProtocol {
             square?.piece = piece
         }
         squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
-        return BoardState(squares: squares)
+        return BitBoardState(squares: squares)
     }
 
-    private func putEmptyPiece(on squareState: SquareState, boardState: BoardState) -> BoardState? {
+    private func putEmptyPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> BoardStateProtocol? {
         var squares = boardState.squares
         guard var square = boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue] else { return nil }
         square?.piece = nil
         squares[safe: square?.rankIndex.rawValue]?[safe: square?.fileIndex.rawValue] = square
-        return BoardState(squares: squares)
+        return BitBoardState(squares: squares)
     }
 
 }

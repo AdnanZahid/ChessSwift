@@ -9,15 +9,15 @@
 import Foundation
 
 struct GameState {
-    let boardState: BoardState
+    let boardState: BoardStateProtocol
     let whitePlayer: PlayerState
     let blackPlayer: PlayerState
     var currentPlayer: PlayerState
 }
 
-extension GameState: Hashable {
-    
-    var hashValue: Int {
-        boardState.hashValue + currentPlayer.hashValue
-    }
-}
+//extension GameState: Hashable {
+//    
+//    var hashValue: Int {
+//        boardState.hashValue + currentPlayer.hashValue
+//    }
+//}

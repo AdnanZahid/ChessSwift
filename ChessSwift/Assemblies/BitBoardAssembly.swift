@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BitboardAssembly: AssemblyProtocol {
+struct BitBoardAssembly: AssemblyProtocol {
 
     static var handlers: Handlers {
         let piecesHandler: BitBoardPiecesHandler

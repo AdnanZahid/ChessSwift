@@ -175,7 +175,7 @@ extension GUIView: OutputHandler {
     func input(gameState: GameState) {
     }
     
-    func setup(boardState: BoardState) {
+    func setup(boardState: BoardStateProtocol) {
         Array(RankIndex._1.rawValue...RankIndex._8.rawValue).forEach { rank in
             Array(FileIndex._A.rawValue...FileIndex._H.rawValue).forEach { file in
                 guard let piece = boardState.squares[rank][file]?.piece else { return }
@@ -197,7 +197,7 @@ extension GUIView: OutputHandler {
         }
     }
     
-    func output(move: MoveState, boardState: BoardState) {
+    func output(move: MoveState, boardState: BoardStateProtocol) {
         let fromFile = move.fromSquare.fileIndex.rawValue - UIConstants.startingFilePosition
         let fromRank = move.fromSquare.rankIndex.rawValue - UIConstants.startingRankPosition
         

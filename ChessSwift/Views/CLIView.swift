@@ -78,11 +78,11 @@ extension CLIView: InputHandler {
 
 extension CLIView: OutputHandler {
     
-    func setup(boardState: BoardState) {
+    func setup(boardState: BoardStateProtocol) {
         print(boardState)
     }
     
-    func output(move: MoveState, boardState: BoardState) {
+    func output(move: MoveState, boardState: BoardStateProtocol) {
         setup(boardState: boardState)
     }
     

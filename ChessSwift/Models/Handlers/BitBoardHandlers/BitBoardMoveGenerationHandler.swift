@@ -25,7 +25,7 @@ class BitBoardMoveGenerationHandler {
 
 extension BitBoardMoveGenerationHandler: MoveGenerationHandlerProtocol {
     
-    func getMoves(forPieceOn squareState: SquareState, boardState: BoardState) -> [MoveState] {
+    func getMoves(forPieceOn squareState: SquareState, boardState: BoardStateProtocol) -> [MoveState] {
         guard let piece = getPiece(on: squareState, boardState: boardState) else { return [] }
         // If movement strategies and capture strategies are same, calculate only once
         // Otherwise calculate for each one of them
@@ -44,15 +44,15 @@ extension BitBoardMoveGenerationHandler: MoveGenerationHandlerProtocol {
         return moves
     }
     
-    func currentPlayerMoves(squares: [SquareState], boardState: BoardState) -> [MoveState] {
+    func currentPlayerMoves(squares: [SquareState], boardState: BoardStateProtocol) -> [MoveState] {
         squares.flatMap { getMoves(forPieceOn: $0, boardState: boardState) }
     }
     
-    private func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     
-    private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardState) -> [MoveState] {
+    private func getMoves(for movementStrategies: [MovementStrategy], squareState: SquareState, boardState: BoardStateProtocol) -> [MoveState] {
         movementStrategies
             .flatMap { $0.rawValue }
             .flatMap { advancementState in
@@ -60,7 +60,7 @@ extension BitBoardMoveGenerationHandler: MoveGenerationHandlerProtocol {
         }
     }
     
-    private func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardState) -> [MoveState] {
+    private func getMoves(on squareState: SquareState, for advancementState: AdvancementState, boardState: BoardStateProtocol) -> [MoveState] {
         var moveStates: [MoveState] = []
         var count = 1
         while let targetSquare = squareState + (advancementState * count) {

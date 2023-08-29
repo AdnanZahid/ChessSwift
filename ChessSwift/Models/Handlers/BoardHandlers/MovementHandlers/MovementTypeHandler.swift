@@ -10,7 +10,7 @@ import Foundation
 
 protocol MovementTypeHandlerProtocol {
     
-    func isValid(move: MoveState, movementTypes: [MovementType], boardState: BoardState) -> Bool
+    func isValid(move: MoveState, movementTypes: [MovementType], boardState: BoardStateProtocol) -> Bool
 
 }
 
@@ -19,7 +19,7 @@ class MovementTypeHandler {
 
 extension MovementTypeHandler: MovementTypeHandlerProtocol {
     
-    func isValid(move: MoveState, movementTypes: [MovementType], boardState: BoardState) -> Bool {
+    func isValid(move: MoveState, movementTypes: [MovementType], boardState: BoardStateProtocol) -> Bool {
         movementTypes.first { movementType in
             switch movementType {
             case .slide:
@@ -39,7 +39,7 @@ extension MovementTypeHandler: MovementTypeHandlerProtocol {
             } != nil
     }
     
-    private func isPathClear(for move: MoveState, boardState: BoardState) -> Bool {
+    private func isPathClear(for move: MoveState, boardState: BoardStateProtocol) -> Bool {
         let advancement = getAdvancement(for: move)
         var positionToCheck = move.fromSquare
         let secondLastSquare = move.toSquare - getSingleAdvancement(for: advancement)
@@ -76,7 +76,7 @@ extension MovementTypeHandler: MovementTypeHandlerProtocol {
         return abs(advancement.fileAdvancement) == targetAdvancement.fileAdvancement && abs(advancement.rankAdvancement) == targetAdvancement.rankAdvancement
     }
     
-    private func isSquareEmpty(_ squareState: SquareState, boardState: BoardState) -> Bool {
+    private func isSquareEmpty(_ squareState: SquareState, boardState: BoardStateProtocol) -> Bool {
         boardState.squares[squareState.rankIndex.rawValue][squareState.fileIndex.rawValue]?.piece == nil
     }
 }

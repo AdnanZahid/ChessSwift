@@ -10,7 +10,7 @@ import Foundation
 
 protocol LegalMovesHandlerProtocol {
     
-    func move(_ move: MoveState, boardState: BoardState) -> Bool
+    func move(_ move: MoveState, boardState: BoardStateProtocol) -> Bool
 
 }
 
@@ -34,12 +34,12 @@ class LegalMovesHandler {
 
 extension LegalMovesHandler: LegalMovesHandlerProtocol {
     
-    func move(_ move: MoveState, boardState: BoardState) -> Bool {
+    func move(_ move: MoveState, boardState: BoardStateProtocol) -> Bool {
         guard !isZeroStepAdvanced(for: move) else { return false }
         return isValid(move: move, boardState: boardState)
     }
     
-    private func isValid(move: MoveState, boardState: BoardState) -> Bool {
+    private func isValid(move: MoveState, boardState: BoardStateProtocol) -> Bool {
         let fromSquare = move.fromSquare
         let toSquare = move.toSquare
         let targetPiece = getPiece(on: toSquare, boardState: boardState)
@@ -56,7 +56,7 @@ extension LegalMovesHandler: LegalMovesHandlerProtocol {
         move.fromSquare == move.toSquare
     }
     
-    private func getPiece(on squareState: SquareState, boardState: BoardState) -> Piece? {
+    private func getPiece(on squareState: SquareState, boardState: BoardStateProtocol) -> Piece? {
         boardState.squares[safe: squareState.rankIndex.rawValue]?[safe: squareState.fileIndex.rawValue]??.piece
     }
     

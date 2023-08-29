@@ -20,7 +20,7 @@ protocol InputHandler {
 
 protocol OutputHandler: InputHandler {
     var isGUIViewAvailable: Bool { get }
-    func setup(boardState: BoardState)
-    func output(move: MoveState, boardState: BoardState)
+    func setup(boardState: BoardStateProtocol)
+    func output(move: MoveState, boardState: BoardStateProtocol)
     func cancelMove()
 }
